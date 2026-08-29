@@ -1,0 +1,60 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: agentward-postgres
+    environment:
+      POSTGRES_DB: hapi
+      POSTGRES_USER: hapi
+      POSTGRES_PASSWORD: hapi
+    volumes:
+      - hapi_postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  hapi-fhir:
+    image: hapiproject/hapi:v8.10.0-3
+    container_name: agentward-hapi-fhir
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
+    environment:
+      # The image's built-in default heap is small and doesn't scale up
+      # just because the host has memory to spare. Loading a batch of
+      # patients (some bundles are tens of MB) can hit that default and
+      # crash with "OutOfMemoryError: Java heap space". JAVA_TOOL_OPTIONS
+      # is read directly by the JVM itself, not by an image-specific
+      # script, so this works regardless of how this image launches Java.
+      JAVA_TOOL_OPTIONS: '-Xmx4g'
+      profiles.active: r4
+      spring.datasource.url: 'jdbc:postgresql://postgres:5432/hapi'
+      spring.datasource.username: hapi
+      spring.datasource.password: hapi
+      spring.datasource.driverClassName: org.postgresql.Driver
+      # Without this, Hibernate doesn't reliably pick Postgres's own SQL
+      # dialect and can emit syntax Postgres rejects (seen: ANSI "select
+      # next value for X" instead of Postgres's "nextval('X')"), which
+      # breaks schema creation partway through. This is HAPI's own dialect
+      # class, not a generic Hibernate one.
+      spring.jpa.properties.hibernate.dialect: ca.uhn.fhir.jpa.model.dialect.HapiFhirPostgres94Dialect
+
+  # A raw SQL browser for the Postgres tables underneath HAPI FHIR. These
+  # tables are HAPI's internal storage (HFJ_RESOURCE, HFJ_RES_VER, etc.),
+  # mostly serialized blobs, not a readable per-resource-type view. For
+  # actually looking at patient data, use the FHIR API or the HAPI web UI
+  # at localhost:8080 instead. This is here for when you want to look at
+  # the database layer itself.
+  adminer:
+    image: adminer:5
+    container_name: agentward-adminer
+    ports:
+      - "8081:8080"
+    depends_on:
+      - postgres
+
+volumes:
+  # Persists across normal restarts on purpose, so you don't reload data
+  # every time Docker restarts. For a guaranteed clean slate (the
+  # "resettable to a known state" the project needs between eval runs),
+  # use reset.sh, which removes this volume explicitly.
+  hapi_postgres_data:

@@ -29,3 +29,17 @@ Pinned to Synthea `v4.0.0` (set in `substrate/synthea/Dockerfile`).
 
 Add a row here every time a dataset actually gets generated, so any of them
 can be reproduced later without guessing which seed made which folder.
+
+## What's inside each `synthea_output/<label>/fhir/` folder
+
+Synthea puts three kinds of file in the same folder, told apart only by name,
+there's no config option to output them separately:
+
+- `hospitalInformation<timestamp>.json` — one file, all Organizations
+- `practitionerInformation<timestamp>.json` — one file, all Practitioners
+- everything else — one file per patient, named `FirstName_LastName_uuid.json`
+
+Patient files reference hospitals and practitioners by identifier, not by a
+name they'd resolve on their own, so the hospital and practitioner files have
+to be loaded into HAPI FHIR before any patient file, or those references
+won't resolve.

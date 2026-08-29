@@ -43,5 +43,6 @@ above.
 
 ## Status
 
-Substrate in progress. Synthea generation is set up (`substrate/synthea/`),
-not yet run. HAPI FHIR and fhir-mcp are next.
+Substrate in progress. Synthea generation works, one 200-patient batch
+generated and verified. HAPI FHIR and the loader script are written, not yet
+run. fhir-mcp is next after that.
