@@ -1,0 +1,10 @@
+self-docs
+
+# generated data, never committed, see data/README.md
+data/synthea_output/
+
+# python
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
