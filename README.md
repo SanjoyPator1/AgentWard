@@ -43,6 +43,10 @@ above.
 
 ## Status
 
-Substrate in progress. Synthea generation works, one 200-patient batch
-generated and verified. HAPI FHIR and the loader script are written, not yet
-run. fhir-mcp is next after that.
+Substrate working end to end. Synthea generates patients, HAPI FHIR holds them
+(214 loaded and verified), and fhir-mcp exposes them as MCP tools an agent can
+call. The tool layer is Level 1 only so far, read-only, thin passthrough over
+the FHIR API.
+
+Next: Level 2 task-shaped tools, then F1, the care gap hunter, starting with
+its oracle.

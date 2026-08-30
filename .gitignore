@@ -8,3 +8,11 @@ __pycache__/
 *.pyc
 .venv/
 *.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# local overrides; .env.example is committed instead
+.env
+
+# macOS
+.DS_Store
