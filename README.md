@@ -21,6 +21,7 @@ docs/          real documentation, written as the project earns it
 data/          Synthea generation config and seeds; the generated bundles
                themselves are gitignored, they're reproducible, not stored
 substrate/     the shared infrastructure every feature runs on
+  synthea/       generates the synthetic patients, pinned Synthea version
   hapi-fhir/     the FHIR server, resettable to a known state between runs
   fhir-mcp/      the MCP server between agents and the FHIR server
 features/      one folder per feature, agent + oracle + eval set
@@ -42,5 +43,10 @@ above.
 
 ## Status
 
-Nothing is built yet. Work starts with the substrate: Synthea generation,
-HAPI FHIR in Docker, and a first pass at fhir-mcp.
+Substrate working end to end. Synthea generates patients, HAPI FHIR holds them
+(214 loaded and verified), and fhir-mcp exposes them as MCP tools an agent can
+call. The tool layer is Level 1 only so far, read-only, thin passthrough over
+the FHIR API.
+
+Next: Level 2 task-shaped tools, then F1, the care gap hunter, starting with
+its oracle.
