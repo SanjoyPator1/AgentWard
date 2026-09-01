@@ -49,6 +49,7 @@ def _settings() -> Settings:
         request_timeout_seconds=5.0,
         host=HOST,
         port=PORT,
+        allowed_hosts=(f"{HOST}:*",),
     )
 
 

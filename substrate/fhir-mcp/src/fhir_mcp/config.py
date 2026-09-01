@@ -50,6 +50,18 @@ class Settings:
     port: int
     """Port the MCP server listens on."""
 
+    allowed_hosts: tuple[str, ...]
+    """Host header patterns the transport's DNS-rebinding check accepts.
+
+    `127.0.0.1:*`, `localhost:*`, and `[::1]:*` always pass, for the plain
+    `uv run` dev workflow. `fhir-mcp:*` is also always included: the name this
+    server is reached by from a sibling container on the repo-root
+    docker-compose network (the mcp-inspector service, for one), which is not
+    a loopback address and so needs an explicit entry. FHIR_MCP_ALLOWED_HOSTS
+    adds more, comma-separated, for setups that reach this server under some
+    other name.
+    """
+
     @classmethod
     def from_env(cls) -> Settings:
         """Build settings from environment variables, with defaults that work
@@ -68,6 +80,12 @@ class Settings:
                 f"Valid values: {', '.join(_VALID_STRATEGIES)}"
             )
 
+        extra_hosts = tuple(
+            h.strip()
+            for h in os.environ.get("FHIR_MCP_ALLOWED_HOSTS", "").split(",")
+            if h.strip()
+        )
+
         return cls(
             # Matches the HAPI FHIR service in the repo-root docker-compose.yml.
             fhir_base_url=os.environ.get("FHIR_MCP_BASE_URL", "http://localhost:8080/fhir").rstrip(
@@ -77,4 +95,11 @@ class Settings:
             request_timeout_seconds=float(os.environ.get("FHIR_MCP_TIMEOUT_SECONDS", "30")),
             host=os.environ.get("FHIR_MCP_HOST", "127.0.0.1"),
             port=int(os.environ.get("FHIR_MCP_PORT", "3001")),
+            allowed_hosts=(
+                "127.0.0.1:*",
+                "localhost:*",
+                "[::1]:*",
+                "fhir-mcp:*",
+            )
+            + extra_hosts,
         )

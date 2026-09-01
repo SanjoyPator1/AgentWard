@@ -4,9 +4,11 @@ Run it directly:
 
     uv run python -m fhir_mcp.server
 
-or with the MCP Inspector for interactive poking:
-
-    uv run mcp dev src/fhir_mcp/server.py
+For interactive poking, point the MCP Inspector at the running server rather
+than using `mcp dev` (that command imports this file as a standalone script,
+so its relative imports fail, and it would spawn a second, stdio-wrapped
+server rather than attach to this one). See the README's "For interactive
+poking" section.
 """
 
 from __future__ import annotations
@@ -16,6 +18,9 @@ from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
 
 from mcp.server import CacheHint, MCPServer
+from mcp.server.transport_security import TransportSecuritySettings
+from starlette.requests import Request
+from starlette.responses import JSONResponse, Response
 
 from . import tools_level1
 from .config import Settings
@@ -89,6 +94,16 @@ def build_server(settings: Settings | None = None) -> MCPServer:
     )
 
     tools_level1.register(mcp, settings)
+
+    @mcp.custom_route("/healthz", methods=["GET"])
+    async def healthz(request: Request) -> Response:
+        """Liveness only: the process is up and serving. Not a dependency
+        check, this container has no meaningful degraded state to report if
+        HAPI FHIR is unreachable, every tool call already surfaces that per
+        request through the normal FhirError -> ToolError path.
+        """
+        return JSONResponse({"status": "ok"})
+
     return mcp
 
 
@@ -121,6 +136,23 @@ def main() -> None:
         host=settings.host,
         port=settings.port,
         stateless_http=True,
+        # The SDK's own default DNS-rebinding protection only allows Host
+        # headers of 127.0.0.1/localhost/[::1]. Passing our own
+        # TransportSecuritySettings replaces that default rather than
+        # extending it, so settings.allowed_hosts (config.py) repeats those
+        # plus whatever else this deployment needs, e.g. "fhir-mcp:*" for a
+        # sibling container reaching this one by its docker-compose service
+        # name. Origin is not widened the same way: it's only sent by
+        # browser-originated requests, none of which are expected here, and
+        # an absent Origin header already passes (see _validate_origin).
+        transport_security=TransportSecuritySettings(
+            allowed_hosts=list(settings.allowed_hosts),
+            allowed_origins=[
+                "http://127.0.0.1:*",
+                "http://localhost:*",
+                "http://[::1]:*",
+            ],
+        ),
     )
 
 
