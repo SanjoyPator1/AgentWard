@@ -117,7 +117,15 @@ class TestNoVersionHeader:
         payload = _parse_jsonrpc(response)
         assert "error" not in payload, payload
         tool_names = {t["name"] for t in payload["result"]["tools"]}
-        assert tool_names == {"get_resource_by_id", "search_resources", "get_next_page"}
+        assert tool_names == {
+            "get_resource_by_id",
+            "search_resources",
+            "get_next_page",
+            "get_active_medications",
+            "get_lab_trend",
+            "get_problem_list",
+            "find_cohort",
+        }
 
 
 class TestModernSpecCompliantRequest:

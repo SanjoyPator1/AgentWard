@@ -22,7 +22,7 @@ from mcp.server.transport_security import TransportSecuritySettings
 from starlette.requests import Request
 from starlette.responses import JSONResponse, Response
 
-from . import tools_level1
+from . import tools_level1, tools_level2
 from .config import Settings
 from .fhir_client import FhirClient
 from .tools_level1 import AppContext
@@ -94,6 +94,7 @@ def build_server(settings: Settings | None = None) -> MCPServer:
     )
 
     tools_level1.register(mcp, settings)
+    tools_level2.register(mcp, settings)
 
     @mcp.custom_route("/healthz", methods=["GET"])
     async def healthz(request: Request) -> Response:
