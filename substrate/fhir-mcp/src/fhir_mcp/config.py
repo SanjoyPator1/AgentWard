@@ -81,9 +81,7 @@ class Settings:
             )
 
         extra_hosts = tuple(
-            h.strip()
-            for h in os.environ.get("FHIR_MCP_ALLOWED_HOSTS", "").split(",")
-            if h.strip()
+            h.strip() for h in os.environ.get("FHIR_MCP_ALLOWED_HOSTS", "").split(",") if h.strip()
         )
 
         return cls(

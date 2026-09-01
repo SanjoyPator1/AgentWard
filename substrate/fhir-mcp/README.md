@@ -88,10 +88,20 @@ Defaults work against the local Docker substrate with no configuration at all.
 
 ## The tools
 
-Level 1 only so far: thin passthrough over the FHIR REST API. The agent has to
-know FHIR to use these, which is the point. They are the baseline that Level 2
-(task-shaped tools) and Level 3 (code mode) get measured against in
-Experiment 1.
+Read-only, in two tiers. Level 1 is thin passthrough over the FHIR REST API —
+the agent has to know FHIR to use it well, which is the point: it's the
+baseline Level 2 (task-shaped) and Level 3 (code mode) get measured against in
+Experiment 1. Level 2 answers a specific clinical question in one call instead
+of several, doing the FHIR-specific plumbing (following references, filtering
+out non-clinical noise, computing dates and ages) that would otherwise be on
+the agent to get right.
+
+**Read-only on purpose.** Create, update, and delete belong with F4, the prior
+authorisation feature, where the permission gate and audit trail that should
+sit in front of a write actually get designed. Shipping destructive tools now,
+long before anything gates them, is the mistake B04 chapter 16 is about.
+
+### Level 1 — thin passthrough
 
 | Tool | What it does |
 |---|---|
@@ -99,10 +109,130 @@ Experiment 1.
 | `search_resources` | Search one resource type, one page at a time |
 | `get_next_page` | Fetch the next page of a search already started |
 
-**Read-only on purpose.** Create, update, and delete belong with F4, the prior
-authorisation feature, where the permission gate and audit trail that should
-sit in front of a write actually get designed. Shipping destructive tools now,
-long before anything gates them, is the mistake B04 chapter 16 is about.
+**`get_resource_by_id(resource_type, resource_id)`** — one resource, straight
+from the server, no shaping beyond the configured serialisation.
+
+```
+get_resource_by_id(resource_type="Patient", resource_id="2685")
+
+-> resource_type: "Patient"
+   id: "2685"
+   reference: "Patient/2685"
+   resource:
+     gender: "female"
+     birthDate: "1956-07-17"
+     deceasedDateTime: "2013-12-25T18:35:28+00:00"
+     ...
+```
+
+**`search_resources(resource_type, search_params=None, count=20)`** — one
+resource type, any FHIR search parameters, one page. `total_matching` is the
+real count across every page, not just this one.
+
+```
+search_resources(resource_type="Condition", search_params={"patient": "2685", "clinical-status": "active"}, count=2)
+
+-> resource_type: "Condition"
+   total_matching: 21
+   returned: 2
+   resources:
+     - id: "2687"
+       code: {text: "Risk activity involvement (finding)"}
+     - id: "2693"
+       code: {text: "Received higher education (finding)"}
+   next_page_token: "http://localhost:8080/fhir?_getpages=...offset=2"
+```
+
+**`get_next_page(page_token)`** — the next page of a search already started,
+using the token that search returned. Refuses a token pointing anywhere but
+this FHIR server.
+
+```
+get_next_page(page_token="http://localhost:8080/fhir?_getpages=...offset=2")
+
+-> resource_type: "Condition"
+   total_matching: 21
+   returned: 2
+   resources: [...]
+   next_page_token: "http://localhost:8080/fhir?_getpages=...offset=4"
+```
+
+### Level 2 — task-shaped
+
+**`get_active_medications(patient_id)`** — everything a patient is currently
+prescribed, with why when the server recorded a reason. About 30% of
+medication records only reference a separate `Medication` resource rather
+than naming the drug inline; this resolves that so the caller always gets an
+actual drug name back.
+
+```
+get_active_medications(patient_id="2685")
+
+-> patient_reference: "Patient/2685"
+   total_matching: 5
+   medications:
+     - medication_text: "lisinopril 10 MG Oral Tablet"
+       rxnorm_code: "314076"
+       reason_reference: "Condition/2735"   # what it's treating
+     - medication_text: "Furosemide 40 MG Oral Tablet"
+       rxnorm_code: "313988"
+       reason_reference: "Condition/3187"
+```
+
+**`get_lab_trend(patient_id, code, start_date, end_date=None)`** — a patient's
+results for one lab code over a date range, reporting two counts rather than
+one: `total_ever` (has this ever been recorded, no matter how long ago) and
+`total_in_window` (how many fall in the range asked about). A patient who's
+never had a test and one whose last test was years back need to be told
+apart, and an empty page alone can't do that.
+
+```
+get_lab_trend(patient_id="2685", code="http://loinc.org|4548-4", start_date="2026-02-28")
+
+-> total_ever: 50          # this patient has had HbA1c tests before
+   total_in_window: 0      # none in the requested window - a real gap
+   values: []
+```
+
+**`get_problem_list(patient_id)`** — a patient's actual medical problems, not
+everything FHIR happens to record about them. `Condition` resources also
+cover social and biographical facts ("received higher education", "has a
+criminal record"), filed under the exact same category as real diagnoses.
+This filters to active conditions whose coded name carries SNOMED's
+`(disorder)` tag — a naming convention rather than a queryable field, but a
+reliable one on this data.
+
+```
+get_problem_list(patient_id="2685")
+
+-> total_all_conditions: 73      # everything on record
+   total_active_conditions: 21   # active, before the disorder filter
+   returned: 11                  # active AND a real diagnosis
+   problems:
+     - display_text: "Essential hypertension (disorder)"
+       snomed_code: "59621000"
+     - display_text: "Chronic kidney disease stage 2 (disorder)"
+       snomed_code: "431856006"
+```
+
+**`find_cohort(code, min_age=None, max_age=None)`** — every patient recorded
+with one condition, optionally narrowed by age. Deliberately narrow: one
+condition, one age range, nothing else — a question spanning more than that
+still needs several calls plus reasoning, the same as Level 1. Age is
+computed as of today for a living patient, or as of their date of death for
+one who isn't, since a patient's age stops climbing once they're deceased.
+
+```
+find_cohort(code="http://snomed.info/sct|59621000", min_age=60)
+
+-> total_matching_conditions: 40   # raw count of matching Conditions
+   returned: 15                    # unique patients, 60 or older
+   patients:
+     - reference: "Patient/116386"
+       age: 70
+     - reference: "Patient/171364"
+       age: 65
+```
 
 ## Two design decisions worth knowing
 
@@ -225,6 +355,7 @@ src/fhir_mcp/
   fhir_client.py     async HTTP client for FHIR; knows nothing about MCP
   serialization.py   the three strategies; the Experiment 3 seam
   tools_level1.py    the thin passthrough tools
+  tools_level2.py    the task-shaped tools
   server.py          wiring, lifespan, entry point
 scripts/
   smoke_test.py      end-to-end check against real data, no model
