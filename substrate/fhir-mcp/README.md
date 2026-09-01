@@ -11,20 +11,28 @@ produces is clinical advice or validated for clinical use.
 
 ## Running it
 
-The FHIR server has to be up first:
+Two ways to run this server, both against the same `hapi-fhir` from the
+repo-root `docker-compose.yml`. Same code, same image built from the
+`Dockerfile` here either way; the difference is just where the process runs.
+
+**Containerised**, the one to reach for by default now:
+
+```
+docker compose up -d fhir-mcp          # from the repo root; brings up hapi-fhir too
+```
+
+**On the host with `uv`**, faster to iterate against when actually changing
+this server's code, since there's no image rebuild between edits:
 
 ```
 docker compose up -d hapi-fhir          # from the repo root
-```
-
-Then, from this directory:
-
-```
 uv sync
 uv run python -m fhir_mcp.server
 ```
 
-It listens on `http://127.0.0.1:3001/mcp`.
+Either way it listens on `http://127.0.0.1:3001/mcp` (the containerised copy
+publishes the same host port), and the defaults in `.env.example` work
+unchanged in both cases. Don't run both at once, they'll fight over the port.
 
 To check it actually works end to end, with the server running:
 
@@ -35,11 +43,34 @@ uv run python scripts/smoke_test.py
 That exercises every tool against real loaded data, including the error paths,
 and prints what came back. No model involved.
 
-For interactive poking there is also the MCP Inspector:
+For interactive poking there is also the MCP Inspector, a Swagger-like web UI:
+list the tools, call one by hand, see the raw request/response. `mcp dev`
+doesn't work here (it imports `server.py` directly as a script rather than as
+a package, so its relative imports fail, and even fixed it would spawn a
+second, stdio-wrapped server instead of attaching to the one already running).
+Point the real Inspector at the running streamable-HTTP server instead:
 
 ```
-uv run mcp dev src/fhir_mcp/server.py
+npx @modelcontextprotocol/inspector
 ```
+
+then open the printed `http://localhost:6274/?...` URL, pick transport type
+"Streamable HTTP", and enter `http://127.0.0.1:3001/mcp`.
+
+A dockerised copy of the Inspector also runs from the repo root, with the
+connection pre-populated via `inspector-catalog.json` so it's one click to
+connect:
+
+```
+docker compose up -d fhir-mcp mcp-inspector
+docker compose logs mcp-inspector   # prints the URL, with its auth token
+```
+
+That copy reaches fhir-mcp over the compose network by its service name,
+`fhir-mcp`, which is why the containerised `fhir-mcp` above must be the one
+running: a sibling container can't reach a process listening on the *host's*
+loopback interface. See the `allowed_hosts` note in `config.py` for the
+DNS-rebinding allow-list this depends on.
 
 ## Configuration
 
@@ -53,6 +84,7 @@ Defaults work against the local Docker substrate with no configuration at all.
 | `FHIR_MCP_TIMEOUT_SECONDS` | `30` | Per-request timeout against FHIR |
 | `FHIR_MCP_HOST` | `127.0.0.1` | Interface to bind |
 | `FHIR_MCP_PORT` | `3001` | Port to listen on |
+| `FHIR_MCP_ALLOWED_HOSTS` | (empty) | Extra Host-header patterns for the DNS-rebinding check, comma-separated, beyond the loopback addresses and `fhir-mcp` that are always allowed |
 
 ## The tools
 
@@ -196,7 +228,9 @@ src/fhir_mcp/
   server.py          wiring, lifespan, entry point
 scripts/
   smoke_test.py      end-to-end check against real data, no model
+  healthcheck.py      Docker HEALTHCHECK probe, not a test
 tests/
+Dockerfile           multi-stage uv build; see docker-compose.yml's fhir-mcp service
 ```
 
 `fhir_client.py` deliberately imports nothing from MCP, so an oracle script or

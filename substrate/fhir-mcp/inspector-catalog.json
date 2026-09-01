@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "fhir-mcp": {
+      "type": "http",
+      "url": "http://fhir-mcp:3001/mcp",
+      "protocolEra": "modern"
+    }
+  }
+}

@@ -52,9 +52,56 @@ services:
     depends_on:
       - postgres
 
+  # Our own MCP server, exposing hapi-fhir as tools an agent (or the
+  # mcp-inspector service below) can call. See substrate/fhir-mcp/README.md.
+  fhir-mcp:
+    build:
+      context: ./substrate/fhir-mcp
+    container_name: agentward-fhir-mcp
+    depends_on:
+      - hapi-fhir
+    ports:
+      - "127.0.0.1:3001:3001"
+    environment:
+      # hapi-fhir's own compose service name, reachable on the Docker network
+      # this file creates; not "localhost", there is no shared loopback
+      # between containers.
+      FHIR_MCP_BASE_URL: http://hapi-fhir:8080/fhir
+      # 0.0.0.0 inside the container, not a wider bind on the host: nothing
+      # outside this container's own network namespace can reach it except
+      # through the "127.0.0.1:3001:3001" mapping above, same as every other
+      # service in this file.
+      FHIR_MCP_HOST: 0.0.0.0
+
+  # A Swagger-like web UI for poking at fhir-mcp's tools by hand: list them,
+  # call one, and see the raw request/response. This is the official MCP
+  # Inspector, not something built for this project.
+  #
+  #   docker compose up -d mcp-inspector
+  #   docker compose logs mcp-inspector   # prints the URL, with its auth token, to open
+  #
+  # inspector-catalog.json pre-populates the "fhir-mcp" connection, pointed at
+  # http://fhir-mcp:3001/mcp, the service above by its compose network name,
+  # so it's one click to connect rather than typing the URL in by hand.
+  mcp-inspector:
+    image: ghcr.io/modelcontextprotocol/inspector
+    container_name: agentward-mcp-inspector
+    depends_on:
+      - fhir-mcp
+    ports:
+      - "127.0.0.1:6274:6274"
+    volumes:
+      - ./substrate/fhir-mcp/inspector-catalog.json:/home/node/catalog.json:ro
+      - mcp_inspector_data:/home/node/.mcp-inspector
+    command: ["--web", "--catalog", "/home/node/catalog.json"]
+
 volumes:
   # Persists across normal restarts on purpose, so you don't reload data
   # every time Docker restarts. For a guaranteed clean slate (the
   # "resettable to a known state" the project needs between eval runs),
   # use reset.sh, which removes this volume explicitly.
   hapi_postgres_data:
+  # The Inspector's own saved server list and secrets, so a browser refresh
+  # or container restart doesn't lose the catalog-provided connection or
+  # anything typed in beyond it.
+  mcp_inspector_data:
