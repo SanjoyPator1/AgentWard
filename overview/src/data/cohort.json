@@ -1,0 +1,2679 @@
+{
+  "summary": {
+    "asOf": "2026-09-10",
+    "totalPatients": 217,
+    "alivePatients": 200,
+    "deceasedPatients": 17,
+    "totalFindings": 67,
+    "flaggedPatients": 48,
+    "gapTypeCounts": {
+      "missing_colorectal_screening": 33,
+      "uncontrolled_bp_despite_therapy": 13,
+      "diabetic_missing_eye_exam": 12,
+      "diabetic_missing_hba1c": 9
+    },
+    "patientsByGapCount": {
+      "1": 36,
+      "2": 8,
+      "3": 1,
+      "4": 3
+    }
+  },
+  "patients": [
+    {
+      "id": "00333573-ff50-9e42-296f-58427afdb2e4",
+      "name": "Dalton260 Taylor21 Spinka232",
+      "age": 50,
+      "sex": "male",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "00333573-ff50-9e42-296f-58427afdb2e4",
+          "patient_name": "Dalton260 Taylor21 Spinka232",
+          "gap_type": "missing_colorectal_screening",
+          "rationale": "Age 50, no colorectal cancer screening within the applicable interval.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "025d0344-c14b-f8c6-322a-b10f3c767f32",
+      "name": "Clementine778 Madaline59 Hettinger594",
+      "age": 33,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "02ebb872-6396-d62f-5fd6-3d47752f13eb",
+      "name": "Candelaria844 Tomika243 Farrell962",
+      "age": 79,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "04692bd7-dd23-725e-a1bf-ef256302802f",
+      "name": "Yoshie761 Lavonda853 Smith67",
+      "age": 11,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "056ee55d-c281-7ac4-b630-e4fa7c01471f",
+      "name": "Alberto639 Barney639 Crooks415",
+      "age": 32,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "068d4d23-0976-3b1b-7e25-9976aca6e447",
+      "name": "Oren284 Nolan344",
+      "age": 47,
+      "sex": "male",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "068d4d23-0976-3b1b-7e25-9976aca6e447",
+          "patient_name": "Oren284 Nolan344",
+          "gap_type": "uncontrolled_bp_despite_therapy",
+          "rationale": "On antihypertensive therapy, latest BP 119/100 on 2025-12-13 still >= 140/90.",
+          "evidence": [
+            {
+              "reference": "Condition/068d4d23-0976-3b1b-7fe3-612a95b4f600",
+              "description": "Essential hypertension (disorder)"
+            },
+            {
+              "reference": "MedicationRequest/068d4d23-0976-3b1b-9c6d-2f8cc89bd625",
+              "description": "amLODIPine 2.5 MG Oral Tablet"
+            },
+            {
+              "reference": "Observation/068d4d23-0976-3b1b-db97-3f1e76a9c915",
+              "description": "BP 119/100 mmHg on 2025-12-13"
+            }
+          ]
+        },
+        {
+          "patient_synthea_id": "068d4d23-0976-3b1b-7e25-9976aca6e447",
+          "patient_name": "Oren284 Nolan344",
+          "gap_type": "missing_colorectal_screening",
+          "rationale": "Age 47, no colorectal cancer screening within the applicable interval.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "069d79e8-f616-80d6-9e22-6ef376b33630",
+      "name": "Lavelle273 Dessie725 Pfeffer420",
+      "age": 28,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "09bbfb40-a4c4-a618-ca42-2d419b90518e",
+      "name": "Brittney657 Rosalie939 Upton904",
+      "age": 6,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "0a168231-d423-eaeb-f4db-39b1693de301",
+      "name": "Kenton313 Tyler508 Schinner682",
+      "age": 60,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "0ae218fd-8929-81e0-92e8-0feba46a39a6",
+      "name": "Quincy153 Duncan491 Will178",
+      "age": 67,
+      "sex": "male",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "0ae218fd-8929-81e0-92e8-0feba46a39a6",
+          "patient_name": "Quincy153 Duncan491 Will178",
+          "gap_type": "missing_colorectal_screening",
+          "rationale": "Age 67, no colorectal cancer screening within the applicable interval.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "0cd94281-3cb2-8e0d-c36f-6804ae2767c2",
+      "name": "Dusty207 Milford485 Klocko335",
+      "age": 2,
+      "sex": "male",
+      "deceased": true,
+      "gaps": []
+    },
+    {
+      "id": "0d158604-53ee-d9d0-6432-7ed56048a472",
+      "name": "Taren286 Bernarda685 Steuber698",
+      "age": 60,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "0d40a3f1-e0da-38ff-9766-643f28c4a72a",
+      "name": "Derek111 Will178 Cremin516",
+      "age": 29,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "0da8925c-cfd0-d3ee-335c-8a7a8d911e8b",
+      "name": "Salvador46 Green467",
+      "age": 24,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "0e5ee90a-87f4-4234-4f11-a834a1b7089a",
+      "name": "Guillermo498 Efren426 Tromp100",
+      "age": 15,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "11238857-bc41-ae91-cdd6-380e70304f7a",
+      "name": "Hermina428 Shavonne800 Wyman904",
+      "age": 19,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "17e9103f-d602-7bb0-d31e-fc1d0594002a",
+      "name": "Ellis535 Angla303 Connelly992",
+      "age": 0,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "18c82dfe-5f2e-bc65-5f5d-e9db8676bafc",
+      "name": "Judson999 Dorian295 Nitzsche158",
+      "age": 74,
+      "sex": "male",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "18c82dfe-5f2e-bc65-5f5d-e9db8676bafc",
+          "patient_name": "Judson999 Dorian295 Nitzsche158",
+          "gap_type": "diabetic_missing_eye_exam",
+          "rationale": "Diabetic, age 74, no retinal eye exam on or after 2025-09-10.",
+          "evidence": [
+            {
+              "reference": "Condition/18c82dfe-5f2e-bc65-c084-264a63a9f555",
+              "description": "Disorder of kidney due to diabetes mellitus (disorder)"
+            },
+            {
+              "reference": "Condition/18c82dfe-5f2e-bc65-c34e-905d72b48682",
+              "description": "Microalbuminuria due to type 2 diabetes mellitus (disorder)"
+            },
+            {
+              "reference": "MedicationRequest/18c82dfe-5f2e-bc65-a6ad-da0eb23537c8",
+              "description": "insulin isophane, human 70 UNT/ML / insulin, regular, human 30 UNT/ML Injectable Suspension [Humulin]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1ad71ce4-80b4-8909-f701-9a561940b131",
+      "name": "Catalina187 Guadalupe206 Tejada731",
+      "age": 15,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "1d9d82d9-97b6-0926-e2ee-f01ef184371f",
+      "name": "Evan94 Emerson869 Hessel84",
+      "age": 47,
+      "sex": "male",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "1d9d82d9-97b6-0926-e2ee-f01ef184371f",
+          "patient_name": "Evan94 Emerson869 Hessel84",
+          "gap_type": "missing_colorectal_screening",
+          "rationale": "Age 47, no colorectal cancer screening within the applicable interval.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "1d9fe48d-97e5-9f76-4159-9129ca419d00",
+      "name": "Bo157 Romaguera67",
+      "age": 50,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "1f913b45-1129-fbaa-9f98-fe74faed8257",
+      "name": "Elwanda490 Terry864",
+      "age": 53,
+      "sex": "female",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "1f913b45-1129-fbaa-9f98-fe74faed8257",
+          "patient_name": "Elwanda490 Terry864",
+          "gap_type": "uncontrolled_bp_despite_therapy",
+          "rationale": "On antihypertensive therapy, latest BP 135/90 on 2026-07-02 still >= 140/90.",
+          "evidence": [
+            {
+              "reference": "Condition/1f913b45-1129-fbaa-9675-c1bb51eab375",
+              "description": "Essential hypertension (disorder)"
+            },
+            {
+              "reference": "MedicationRequest/1f913b45-1129-fbaa-f5fb-6ce083c7e383",
+              "description": "lisinopril 10 MG Oral Tablet"
+            },
+            {
+              "reference": "Observation/1f913b45-1129-fbaa-a683-6e53543cf350",
+              "description": "BP 135/90 mmHg on 2026-07-02"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2175cf74-e292-7f5f-1f06-cf66b44f6d86",
+      "name": "Morris740 Jake169 Gulgowski816",
+      "age": 23,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "227847f9-2643-582d-9504-92712d598c1a",
+      "name": "Nicolasa738 Ernser583",
+      "age": 35,
+      "sex": "female",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "227847f9-2643-582d-9504-92712d598c1a",
+          "patient_name": "Nicolasa738 Ernser583",
+          "gap_type": "diabetic_missing_hba1c",
+          "rationale": "Diabetic, age 35, no HbA1c result on or after 2026-03-10.",
+          "evidence": [
+            {
+              "reference": "Condition/227847f9-2643-582d-31e9-22987f76284f",
+              "description": "Disorder of kidney due to diabetes mellitus (disorder)"
+            },
+            {
+              "reference": "Condition/227847f9-2643-582d-a590-7dc757f27ea3",
+              "description": "Microalbuminuria due to type 2 diabetes mellitus (disorder)"
+            },
+            {
+              "reference": "Condition/227847f9-2643-582d-a2c7-b1d44dbb71b1",
+              "description": "Proteinuria due to type 2 diabetes mellitus (disorder)"
+            }
+          ]
+        },
+        {
+          "patient_synthea_id": "227847f9-2643-582d-9504-92712d598c1a",
+          "patient_name": "Nicolasa738 Ernser583",
+          "gap_type": "diabetic_missing_eye_exam",
+          "rationale": "Diabetic, age 35, no retinal eye exam on or after 2025-09-10.",
+          "evidence": [
+            {
+              "reference": "Condition/227847f9-2643-582d-31e9-22987f76284f",
+              "description": "Disorder of kidney due to diabetes mellitus (disorder)"
+            },
+            {
+              "reference": "Condition/227847f9-2643-582d-a590-7dc757f27ea3",
+              "description": "Microalbuminuria due to type 2 diabetes mellitus (disorder)"
+            },
+            {
+              "reference": "Condition/227847f9-2643-582d-a2c7-b1d44dbb71b1",
+              "description": "Proteinuria due to type 2 diabetes mellitus (disorder)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "22dd83a2-3c2e-f594-4d32-04ccfbbe77ba",
+      "name": "Tory770 Andrea7 Runolfsson901",
+      "age": 36,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "241eb63a-be17-b134-4493-44ed530fe46e",
+      "name": "Tatyana394 Dyan186 Pouros728",
+      "age": 79,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "2558efb5-8e36-5d09-b583-8661750799e1",
+      "name": "Michiko564 Rebeca548 Heidenreich818",
+      "age": 15,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "2728e413-f49f-6a51-5289-fae6600f5911",
+      "name": "Lucrecia714 Hagenes547",
+      "age": 69,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "2888893d-6b9d-e69f-30a6-4621ca7b3a38",
+      "name": "Philomena945 Laure395 Huels583",
+      "age": 6,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "2a57e8ad-cb7d-5fea-7f79-9ddac43c2f0d",
+      "name": "Nena266 DuBuque211",
+      "age": 36,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "2a649467-95ab-9800-5411-18cee3818922",
+      "name": "Dedra50 Rodriguez71",
+      "age": 64,
+      "sex": "female",
+      "deceased": true,
+      "gaps": []
+    },
+    {
+      "id": "2c583ebe-302b-063f-b811-adbf318da657",
+      "name": "Riley817 Dave764 Swaniawski813",
+      "age": 55,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "2d9b5175-4731-2ae6-5f26-a8b24d5859ef",
+      "name": "Mohamed943 Trent525 Kris249",
+      "age": 18,
+      "sex": "male",
+      "deceased": true,
+      "gaps": []
+    },
+    {
+      "id": "2df73306-e252-52c4-e1f2-9875d3019a24",
+      "name": "Johnetta529 Sharla853 Reichel38",
+      "age": 38,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "2f21f360-0742-1c2f-5aed-9f0a03698e26",
+      "name": "Ismael683 Jason347 Collier206",
+      "age": 15,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "302e7236-0c61-7441-ecb6-c0a1318f775f",
+      "name": "Johnny786 Josef103 Rath779",
+      "age": 67,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "308951c9-3402-979a-ad0b-cccb1a853427",
+      "name": "Werner409 Darnell564 Wintheiser220",
+      "age": 46,
+      "sex": "male",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "308951c9-3402-979a-ad0b-cccb1a853427",
+          "patient_name": "Werner409 Darnell564 Wintheiser220",
+          "gap_type": "missing_colorectal_screening",
+          "rationale": "Age 46, no colorectal cancer screening within the applicable interval.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "30dd88cf-92de-8ee5-3a39-b8480e35b237",
+      "name": "Donnell534 Stanton715 Breitenberg711",
+      "age": 29,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "36d174e1-6a7d-afb2-5e23-399a1a21167f",
+      "name": "Rashad361 German382 Gulgowski816",
+      "age": 46,
+      "sex": "male",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "36d174e1-6a7d-afb2-5e23-399a1a21167f",
+          "patient_name": "Rashad361 German382 Gulgowski816",
+          "gap_type": "diabetic_missing_hba1c",
+          "rationale": "Diabetic, age 46, no HbA1c result on or after 2026-03-10.",
+          "evidence": [
+            {
+              "reference": "Condition/36d174e1-6a7d-afb2-a9bf-7f45fca1d24d",
+              "description": "Disorder of kidney due to diabetes mellitus (disorder)"
+            }
+          ]
+        },
+        {
+          "patient_synthea_id": "36d174e1-6a7d-afb2-5e23-399a1a21167f",
+          "patient_name": "Rashad361 German382 Gulgowski816",
+          "gap_type": "diabetic_missing_eye_exam",
+          "rationale": "Diabetic, age 46, no retinal eye exam on or after 2025-09-10.",
+          "evidence": [
+            {
+              "reference": "Condition/36d174e1-6a7d-afb2-a9bf-7f45fca1d24d",
+              "description": "Disorder of kidney due to diabetes mellitus (disorder)"
+            }
+          ]
+        },
+        {
+          "patient_synthea_id": "36d174e1-6a7d-afb2-5e23-399a1a21167f",
+          "patient_name": "Rashad361 German382 Gulgowski816",
+          "gap_type": "uncontrolled_bp_despite_therapy",
+          "rationale": "On antihypertensive therapy, latest BP 131/99 on 2026-04-22 still >= 140/90.",
+          "evidence": [
+            {
+              "reference": "Condition/36d174e1-6a7d-afb2-4ec6-282750ef5e7d",
+              "description": "Essential hypertension (disorder)"
+            },
+            {
+              "reference": "MedicationRequest/36d174e1-6a7d-afb2-4a53-2bbdb0eaf133",
+              "description": "Hydrochlorothiazide 25 MG Oral Tablet"
+            },
+            {
+              "reference": "Observation/36d174e1-6a7d-afb2-31fa-f09fff43b1ad",
+              "description": "BP 131/99 mmHg on 2026-04-22"
+            }
+          ]
+        },
+        {
+          "patient_synthea_id": "36d174e1-6a7d-afb2-5e23-399a1a21167f",
+          "patient_name": "Rashad361 German382 Gulgowski816",
+          "gap_type": "missing_colorectal_screening",
+          "rationale": "Age 46, no colorectal cancer screening within the applicable interval.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "3827d481-a23f-fa14-9e83-f507cebba7e5",
+      "name": "Joi660 Blondell454 Marvin195",
+      "age": 17,
+      "sex": "female",
+      "deceased": true,
+      "gaps": []
+    },
+    {
+      "id": "3c046dfa-2065-60c3-1db7-45d5b53285b2",
+      "name": "Tanesha560 Lisbeth69 Will178",
+      "age": 42,
+      "sex": "female",
+      "deceased": true,
+      "gaps": []
+    },
+    {
+      "id": "3cb2ead1-c9fe-82f5-9392-ed1b50ce2763",
+      "name": "Lenita591 Friesen796",
+      "age": 16,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "3d7137ce-b651-7e30-7d4b-6d9518524e50",
+      "name": "Jona712 Darlena95 Towne435",
+      "age": 27,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "3e38caf6-6115-cb49-ca5e-f9783fc37d21",
+      "name": "Jonathon205 Warren653 Fisher429",
+      "age": 68,
+      "sex": "male",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "3e38caf6-6115-cb49-ca5e-f9783fc37d21",
+          "patient_name": "Jonathon205 Warren653 Fisher429",
+          "gap_type": "uncontrolled_bp_despite_therapy",
+          "rationale": "On antihypertensive therapy, latest BP 139/92 on 2025-12-14 still >= 140/90.",
+          "evidence": [
+            {
+              "reference": "Condition/3e38caf6-6115-cb49-acd4-678fcc1348cb",
+              "description": "Essential hypertension (disorder)"
+            },
+            {
+              "reference": "MedicationRequest/3e38caf6-6115-cb49-91e4-ca2ab9ff99f8",
+              "description": "lisinopril 10 MG Oral Tablet"
+            },
+            {
+              "reference": "Observation/3e38caf6-6115-cb49-f82f-14491d108601",
+              "description": "BP 139/92 mmHg on 2025-12-14"
+            }
+          ]
+        },
+        {
+          "patient_synthea_id": "3e38caf6-6115-cb49-ca5e-f9783fc37d21",
+          "patient_name": "Jonathon205 Warren653 Fisher429",
+          "gap_type": "missing_colorectal_screening",
+          "rationale": "Age 68, no colorectal cancer screening within the applicable interval.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "3f1480d5-646d-bdfe-20cf-056155348734",
+      "name": "Danny396 Guy979 Beier427",
+      "age": 11,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "41f39284-d69b-fbff-4b99-844de5e158a6",
+      "name": "Rick943 Jospeh459 Toy286",
+      "age": 6,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "426479ed-b709-8ec5-e976-fdce87c9d894",
+      "name": "Hildegarde627 Stracke611",
+      "age": 70,
+      "sex": "female",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "426479ed-b709-8ec5-e976-fdce87c9d894",
+          "patient_name": "Hildegarde627 Stracke611",
+          "gap_type": "diabetic_missing_hba1c",
+          "rationale": "Diabetic, age 70, no HbA1c result on or after 2026-03-10.",
+          "evidence": [
+            {
+              "reference": "Condition/426479ed-b709-8ec5-e628-42d9b1ea6c1b",
+              "description": "Disorder of kidney due to diabetes mellitus (disorder)"
+            }
+          ]
+        },
+        {
+          "patient_synthea_id": "426479ed-b709-8ec5-e976-fdce87c9d894",
+          "patient_name": "Hildegarde627 Stracke611",
+          "gap_type": "diabetic_missing_eye_exam",
+          "rationale": "Diabetic, age 70, no retinal eye exam on or after 2025-09-10.",
+          "evidence": [
+            {
+              "reference": "Condition/426479ed-b709-8ec5-e628-42d9b1ea6c1b",
+              "description": "Disorder of kidney due to diabetes mellitus (disorder)"
+            }
+          ]
+        },
+        {
+          "patient_synthea_id": "426479ed-b709-8ec5-e976-fdce87c9d894",
+          "patient_name": "Hildegarde627 Stracke611",
+          "gap_type": "uncontrolled_bp_despite_therapy",
+          "rationale": "On antihypertensive therapy, latest BP 120/95 on 2026-05-19 still >= 140/90.",
+          "evidence": [
+            {
+              "reference": "Condition/426479ed-b709-8ec5-5d35-610cbf5e2445",
+              "description": "Essential hypertension (disorder)"
+            },
+            {
+              "reference": "MedicationRequest/426479ed-b709-8ec5-1633-ffb7ca7c872d",
+              "description": "Hydrochlorothiazide 25 MG Oral Tablet"
+            },
+            {
+              "reference": "Observation/426479ed-b709-8ec5-1e3c-c20165bb36d7",
+              "description": "BP 120/95 mmHg on 2026-05-19"
+            }
+          ]
+        },
+        {
+          "patient_synthea_id": "426479ed-b709-8ec5-e976-fdce87c9d894",
+          "patient_name": "Hildegarde627 Stracke611",
+          "gap_type": "missing_colorectal_screening",
+          "rationale": "Age 70, no colorectal cancer screening within the applicable interval.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "43163616-b128-14b1-f2db-174cfb9d3408",
+      "name": "Neva514 Remona896 Crooks415",
+      "age": 16,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "45e736b2-19ae-4b02-47c4-2101530d12d8",
+      "name": "Warner493 Kertzmann286",
+      "age": 19,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "45ee9f0b-16cd-d2c1-bb18-c65538d7f8a9",
+      "name": "Ron353 Broderick767 Heaney114",
+      "age": 58,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "47343bdc-d853-c71c-7881-a67d51d1285c",
+      "name": "Susannah249 Josefine519 Tremblay80",
+      "age": 12,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "477524fa-16ce-9ee4-3c8f-f315e2c53063",
+      "name": "Alphonso102 Hosea56 Marks830",
+      "age": 43,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "4a64123f-2604-daf2-6d2c-e438f449ea5f",
+      "name": "Aldo414 Sung603 Rempel203",
+      "age": 42,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "4b524af5-0cfc-e1b9-4e65-a6b1c5fcdbb0",
+      "name": "Jorge203 Germ\u00e1n350 Vargas494",
+      "age": 29,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "4e0efaa3-b883-b5f2-3268-45de406cabeb",
+      "name": "Malcolm243 Lupe126 Barton704",
+      "age": 53,
+      "sex": "male",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "4e0efaa3-b883-b5f2-3268-45de406cabeb",
+          "patient_name": "Malcolm243 Lupe126 Barton704",
+          "gap_type": "diabetic_missing_eye_exam",
+          "rationale": "Diabetic, age 53, no retinal eye exam on or after 2025-09-10.",
+          "evidence": [
+            {
+              "reference": "Condition/4e0efaa3-b883-b5f2-415d-da0d3629e799",
+              "description": "Disorder of kidney due to diabetes mellitus (disorder)"
+            },
+            {
+              "reference": "Condition/4e0efaa3-b883-b5f2-ac2b-66b7671c4c96",
+              "description": "Microalbuminuria due to type 2 diabetes mellitus (disorder)"
+            },
+            {
+              "reference": "Condition/4e0efaa3-b883-b5f2-c76f-a21708aad6cc",
+              "description": "Proteinuria due to type 2 diabetes mellitus (disorder)"
+            },
+            {
+              "reference": "MedicationRequest/4e0efaa3-b883-b5f2-0808-e0255ad69d20",
+              "description": "insulin isophane, human 70 UNT/ML / insulin, regular, human 30 UNT/ML Injectable Suspension [Humulin]"
+            }
+          ]
+        },
+        {
+          "patient_synthea_id": "4e0efaa3-b883-b5f2-3268-45de406cabeb",
+          "patient_name": "Malcolm243 Lupe126 Barton704",
+          "gap_type": "uncontrolled_bp_despite_therapy",
+          "rationale": "On antihypertensive therapy, latest BP 156/95 on 2026-05-13 still >= 140/90.",
+          "evidence": [
+            {
+              "reference": "Condition/4e0efaa3-b883-b5f2-2d57-be07a047d999",
+              "description": "Essential hypertension (disorder)"
+            },
+            {
+              "reference": "MedicationRequest/4e0efaa3-b883-b5f2-3ffe-b3f8fdf45a42",
+              "description": "Hydrochlorothiazide 25 MG Oral Tablet"
+            },
+            {
+              "reference": "Observation/4e0efaa3-b883-b5f2-3fb1-8bccc94ee071",
+              "description": "BP 156/95 mmHg on 2026-05-13"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4e7e9a2c-bb1f-50da-24b9-62b6cd5e1205",
+      "name": "Agustina460 Rosemary734 Hauck852",
+      "age": 45,
+      "sex": "female",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "4e7e9a2c-bb1f-50da-24b9-62b6cd5e1205",
+          "patient_name": "Agustina460 Rosemary734 Hauck852",
+          "gap_type": "missing_colorectal_screening",
+          "rationale": "Age 45, no colorectal cancer screening within the applicable interval.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "4efd902d-c205-b6d0-00b8-35b408d9a57c",
+      "name": "Albert312 Adrian111 Langosh790",
+      "age": 27,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "4fec4440-0c2a-f3b2-80c5-b6ea2c6f645a",
+      "name": "Ula130 Charolette797 Rodriguez71",
+      "age": 1,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "522e4822-e897-73c9-4224-cb96a849fcff",
+      "name": "Ariel183 Lucien408 Heller342",
+      "age": 60,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "534680d3-90db-518b-e13d-5cfe6ff45247",
+      "name": "Margot418 Savannah232 Mraz590",
+      "age": 76,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "53af7aca-a935-efb6-b2fd-f008fdfbe257",
+      "name": "Clyde817 Garrett899 White193",
+      "age": 23,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "55121443-23e1-41f3-6514-35af4df04c40",
+      "name": "Hilario934 Hartmann983",
+      "age": 26,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "56009e3b-52bd-132d-d132-95d8435ea2d6",
+      "name": "Reena181 Sudie246 Barton704",
+      "age": 55,
+      "sex": "female",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "56009e3b-52bd-132d-d132-95d8435ea2d6",
+          "patient_name": "Reena181 Sudie246 Barton704",
+          "gap_type": "missing_colorectal_screening",
+          "rationale": "Age 55, no colorectal cancer screening within the applicable interval.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "5a3f6a35-9ed3-af32-c6dd-51fd3f081665",
+      "name": "Shayne60 Rickie717 Grady603",
+      "age": 15,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "5a951c5a-f46b-b457-1f3c-cd2942834d48",
+      "name": "Carmine137 Blair400 Hahn503",
+      "age": 27,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "5b0a59a9-bd0c-0df5-610e-32178552309b",
+      "name": "Timothy142 Noel608 Pacocha935",
+      "age": 29,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "5b333839-b695-e16c-6498-d0445edf9ef5",
+      "name": "Christal240 Anglea614 DuBuque211",
+      "age": 17,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "5b845eff-ef05-3783-78a3-a502875b0e45",
+      "name": "Kacy732 Aleida76 Herman763",
+      "age": 37,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "5cae2f9a-93b7-75fc-dee0-ffb46ad3c007",
+      "name": "Quincy153 Kautzer186",
+      "age": 51,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "5d2315f2-68cc-aac0-9041-4050d3764236",
+      "name": "Carri827 Shane235 O'Connell601",
+      "age": 58,
+      "sex": "female",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "5d2315f2-68cc-aac0-9041-4050d3764236",
+          "patient_name": "Carri827 Shane235 O'Connell601",
+          "gap_type": "uncontrolled_bp_despite_therapy",
+          "rationale": "On antihypertensive therapy, latest BP 132/97 on 2026-04-27 still >= 140/90.",
+          "evidence": [
+            {
+              "reference": "Condition/5d2315f2-68cc-aac0-1bc9-5b9ed961901d",
+              "description": "Essential hypertension (disorder)"
+            },
+            {
+              "reference": "MedicationRequest/5d2315f2-68cc-aac0-7825-411d0c22adce",
+              "description": "lisinopril 10 MG Oral Tablet"
+            },
+            {
+              "reference": "Observation/5d2315f2-68cc-aac0-88ca-de329e0dd11b",
+              "description": "BP 132/97 mmHg on 2026-04-27"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5d8f32f8-c09d-db67-1018-2af0da35e957",
+      "name": "Scarlet110 Veronika907 Kuphal363",
+      "age": 67,
+      "sex": "female",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "5d8f32f8-c09d-db67-1018-2af0da35e957",
+          "patient_name": "Scarlet110 Veronika907 Kuphal363",
+          "gap_type": "missing_colorectal_screening",
+          "rationale": "Age 67, no colorectal cancer screening within the applicable interval.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "5ef7d8be-77ef-5913-adbd-eddb938b62c0",
+      "name": "Norberto865 Gustavo235 O'Connell601",
+      "age": 2,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "6205c94d-ad38-b7f8-28fa-57a245e0a867",
+      "name": "Berry486 Doyle959",
+      "age": 6,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "650d52d4-b22f-dae5-992b-ec558216fa2f",
+      "name": "Leon728 Marcia467 Turner526",
+      "age": 33,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "6594833e-dbe8-4ce3-8fb4-9377d20ba96a",
+      "name": "Irish781 Leandra549 Cole117",
+      "age": 47,
+      "sex": "female",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "6594833e-dbe8-4ce3-8fb4-9377d20ba96a",
+          "patient_name": "Irish781 Leandra549 Cole117",
+          "gap_type": "missing_colorectal_screening",
+          "rationale": "Age 47, no colorectal cancer screening within the applicable interval.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "6665bb4a-2059-7fbe-9c89-90df7706a5c8",
+      "name": "Marcos263 Rafael239 Apodaca347",
+      "age": 5,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "69d34da6-eed8-d998-6c59-0adb27edcd72",
+      "name": "Boris111 Muller251",
+      "age": 40,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "6a45aee6-465b-6cfd-2914-c68e48aab519",
+      "name": "Ivana95 Rosenda12 VonRueden376",
+      "age": 39,
+      "sex": "female",
+      "deceased": true,
+      "gaps": []
+    },
+    {
+      "id": "6c038496-cc9c-6677-4655-400ff26b2f30",
+      "name": "Yaeko585 Elina789 Parisian75",
+      "age": 13,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "6e079e2d-a1a5-9545-5eaa-8425ff9d8542",
+      "name": "Val761 Theodore876 Lakin515",
+      "age": 64,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "6ee86331-2ffa-c5bb-1424-9cd326ea530d",
+      "name": "Maria750 Shields502",
+      "age": 16,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "721bcdb7-0b22-fcce-e850-352282ff67a2",
+      "name": "Patrick786 Lemuel304 Rippin620",
+      "age": 51,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "72a1ccd3-e890-2b37-b00e-01e63b25fa4f",
+      "name": "Brain142 Loyd638 Lubowitz58",
+      "age": 22,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "72bb699a-9b35-3053-b206-3089ff595437",
+      "name": "Kerry175 Joel444 Jast432",
+      "age": 74,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "73c39b22-04be-f989-f006-3ec154b3e764",
+      "name": "Theola421 Lorilee250 Conn188",
+      "age": 33,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "74322f60-5fda-7765-b04c-25fbbcc314eb",
+      "name": "Shakia673 Darlene91 Schumm995",
+      "age": 12,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "7475009f-daa7-5388-c8df-f05bcaadc242",
+      "name": "Jacelyn576 Kamilah729 Kuhic920",
+      "age": 36,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "761a0718-3b31-d133-af65-9dc81414f2c6",
+      "name": "Audrie782 Beaulah36 Howe413",
+      "age": 66,
+      "sex": "female",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "761a0718-3b31-d133-af65-9dc81414f2c6",
+          "patient_name": "Audrie782 Beaulah36 Howe413",
+          "gap_type": "missing_colorectal_screening",
+          "rationale": "Age 66, no colorectal cancer screening within the applicable interval.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "77005288-dc0f-ce8d-6666-bcfc4f479993",
+      "name": "Mellissa304 Romaguera67",
+      "age": 18,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "783753e5-42d8-3cec-0ef9-c735dcb065c1",
+      "name": "Sidney996 Kathrine376 Kiehn525",
+      "age": 59,
+      "sex": "female",
+      "deceased": true,
+      "gaps": []
+    },
+    {
+      "id": "78ec6b55-7439-f366-55d3-28dfcaf8602c",
+      "name": "Philip822 Erdman779",
+      "age": 38,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "79df6be1-8bb1-bad8-0636-17be44df9bac",
+      "name": "Ricardo560 Armando772 Orosco477",
+      "age": 40,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "7a357400-508c-99c1-fc88-755b6767bfb6",
+      "name": "Ignacio928 Rex53 Boyle917",
+      "age": 59,
+      "sex": "male",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "7a357400-508c-99c1-fc88-755b6767bfb6",
+          "patient_name": "Ignacio928 Rex53 Boyle917",
+          "gap_type": "uncontrolled_bp_despite_therapy",
+          "rationale": "On antihypertensive therapy, latest BP 158/92 on 2025-12-28 still >= 140/90.",
+          "evidence": [
+            {
+              "reference": "Condition/7a357400-508c-99c1-c318-38656eb9bb28",
+              "description": "Essential hypertension (disorder)"
+            },
+            {
+              "reference": "MedicationRequest/7a357400-508c-99c1-c2fa-36d2d428b515",
+              "description": "Hydrochlorothiazide 25 MG Oral Tablet"
+            },
+            {
+              "reference": "Observation/7a357400-508c-99c1-1cce-38b8a427d341",
+              "description": "BP 158/92 mmHg on 2025-12-28"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7aaca401-98ae-81a2-c3de-ab101116ee38",
+      "name": "Barney639 Sandy901 Hauck852",
+      "age": 61,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "7bb6bedc-a7c8-86c1-7549-a06b38c80e05",
+      "name": "Kandra693 Sauer652",
+      "age": 70,
+      "sex": "female",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "7bb6bedc-a7c8-86c1-7549-a06b38c80e05",
+          "patient_name": "Kandra693 Sauer652",
+          "gap_type": "diabetic_missing_hba1c",
+          "rationale": "Diabetic, age 70, no HbA1c result on or after 2026-03-10.",
+          "evidence": [
+            {
+              "reference": "Condition/7bb6bedc-a7c8-86c1-718c-696dc4f10fb2",
+              "description": "Disorder of kidney due to diabetes mellitus (disorder)"
+            }
+          ]
+        },
+        {
+          "patient_synthea_id": "7bb6bedc-a7c8-86c1-7549-a06b38c80e05",
+          "patient_name": "Kandra693 Sauer652",
+          "gap_type": "diabetic_missing_eye_exam",
+          "rationale": "Diabetic, age 70, no retinal eye exam on or after 2025-09-10.",
+          "evidence": [
+            {
+              "reference": "Condition/7bb6bedc-a7c8-86c1-718c-696dc4f10fb2",
+              "description": "Disorder of kidney due to diabetes mellitus (disorder)"
+            }
+          ]
+        },
+        {
+          "patient_synthea_id": "7bb6bedc-a7c8-86c1-7549-a06b38c80e05",
+          "patient_name": "Kandra693 Sauer652",
+          "gap_type": "missing_colorectal_screening",
+          "rationale": "Age 70, no colorectal cancer screening within the applicable interval.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "7c855ba0-5b6a-8a64-34a2-a79b2f80ea5c",
+      "name": "Margart214 Ruby458 Jacobs452",
+      "age": 47,
+      "sex": "female",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "7c855ba0-5b6a-8a64-34a2-a79b2f80ea5c",
+          "patient_name": "Margart214 Ruby458 Jacobs452",
+          "gap_type": "missing_colorectal_screening",
+          "rationale": "Age 47, no colorectal cancer screening within the applicable interval.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "7e7c20ee-7d0f-f578-ee8a-4a30cab72c72",
+      "name": "Arnoldo445 Noah480 Beatty507",
+      "age": 51,
+      "sex": "male",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "7e7c20ee-7d0f-f578-ee8a-4a30cab72c72",
+          "patient_name": "Arnoldo445 Noah480 Beatty507",
+          "gap_type": "missing_colorectal_screening",
+          "rationale": "Age 51, no colorectal cancer screening within the applicable interval.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "7f4bc575-db6c-8cd2-9407-cd6ca28e0ffa",
+      "name": "Ji399 Casimira119 Kohler843",
+      "age": 60,
+      "sex": "female",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "7f4bc575-db6c-8cd2-9407-cd6ca28e0ffa",
+          "patient_name": "Ji399 Casimira119 Kohler843",
+          "gap_type": "missing_colorectal_screening",
+          "rationale": "Age 60, no colorectal cancer screening within the applicable interval.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "7ff36d2b-1473-84bf-c9e4-a73ba9d9609f",
+      "name": "Lonny638 Hosea56 Bartell116",
+      "age": 26,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "81986395-8a05-bd21-3535-75a9d5c1fd5b",
+      "name": "Benny518 Mickey576 Boehm581",
+      "age": 19,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "81d8c439-1153-bbec-e937-2d85af2b75b4",
+      "name": "Orlando897 White193",
+      "age": 6,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "86677fc0-1b9c-9aa6-7e9a-02b7a4b16e37",
+      "name": "Luis923 Germ\u00e1n350 Qui\u00f1\u00f3nez764",
+      "age": 19,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "880eb0f6-06f2-bb47-5a8b-af449db22494",
+      "name": "Gerda633 Vanetta255 Batz141",
+      "age": 37,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "8881670b-3b2d-6d87-5f8c-469c5ee090cc",
+      "name": "Dexter530 Mack300 Hackett68",
+      "age": 17,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "88a51416-2dba-9e70-dd5a-c1660e33fd5f",
+      "name": "Joetta231 Dulcie148 Murray856",
+      "age": 38,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "8964bd9b-0f8c-0c54-753b-d74076801035",
+      "name": "Jeff859 Terry864 Dickinson688",
+      "age": 25,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "89b2823c-1201-dec4-ed1f-520078a5de4b",
+      "name": "Codi873 Hanna456 Bednar518",
+      "age": 65,
+      "sex": "female",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "89b2823c-1201-dec4-ed1f-520078a5de4b",
+          "patient_name": "Codi873 Hanna456 Bednar518",
+          "gap_type": "diabetic_missing_eye_exam",
+          "rationale": "Diabetic, age 65, no retinal eye exam on or after 2025-09-10.",
+          "evidence": [
+            {
+              "reference": "Condition/89b2823c-1201-dec4-335d-d56b58ba4cab",
+              "description": "Disorder of kidney due to diabetes mellitus (disorder)"
+            },
+            {
+              "reference": "Condition/89b2823c-1201-dec4-0a44-d7507b91f166",
+              "description": "Microalbuminuria due to type 2 diabetes mellitus (disorder)"
+            },
+            {
+              "reference": "MedicationRequest/89b2823c-1201-dec4-85f5-5f593bc1e25f",
+              "description": "insulin isophane, human 70 UNT/ML / insulin, regular, human 30 UNT/ML Injectable Suspension [Humulin]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8bad4c36-03b6-810e-5816-a4156c4ea1d9",
+      "name": "Kelly223 Harold594 Borer986",
+      "age": 2,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "8ce573f8-8372-a636-8ede-6eac1785055f",
+      "name": "Richard937 Lynsey2 Raynor401",
+      "age": 84,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "8e99cef6-b437-7202-2670-bd6feb5e26cc",
+      "name": "Mayte822 Mar\u00eda842 Cotto891",
+      "age": 17,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "8eab9996-5c9e-6e83-2539-a7f15a129520",
+      "name": "Jeneva675 Amy965 Flatley871",
+      "age": 31,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "8f38ba84-35b9-437d-7a19-098c737ac6e4",
+      "name": "Andreas188 Fay398",
+      "age": 33,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "90116244-0588-4ac1-e5ba-9a8c2e47ba13",
+      "name": "Jerold208 Hyatt152",
+      "age": 24,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "916dafcf-4db3-7582-93a3-6ce0b43c0ba8",
+      "name": "Waylon572 Rory188 Walsh511",
+      "age": 17,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "91da0a33-3d5b-80f6-d846-a69afa5a7d43",
+      "name": "Ardath226 Refugia211 Toy286",
+      "age": 37,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "932879b8-75d5-7088-71d3-115d9b63349a",
+      "name": "Mary779 Jewell855 Walker122",
+      "age": 80,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "93a05ecd-bb7a-4d20-6f37-72cde20fb7c0",
+      "name": "Jack927 Eliseo499 Mosciski958",
+      "age": 11,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "96d37096-3af5-5fd7-dae4-8ad2680c6a66",
+      "name": "Leila837 Esperanza675 Schaden604",
+      "age": 43,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "971fd4ae-3290-0c89-eedc-47f7af828e85",
+      "name": "Bennett146 Reilly981",
+      "age": 40,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "972edab5-688f-4655-53bc-e2310fcab161",
+      "name": "Johnnie679 Will178 Robel940",
+      "age": 56,
+      "sex": "male",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "972edab5-688f-4655-53bc-e2310fcab161",
+          "patient_name": "Johnnie679 Will178 Robel940",
+          "gap_type": "diabetic_missing_hba1c",
+          "rationale": "Diabetic, age 56, no HbA1c result on or after 2026-03-10.",
+          "evidence": [
+            {
+              "reference": "Condition/972edab5-688f-4655-8281-870ace1e61c6",
+              "description": "Disorder of kidney due to diabetes mellitus (disorder)"
+            },
+            {
+              "reference": "Condition/972edab5-688f-4655-bcdc-d49c94eff4b1",
+              "description": "Microalbuminuria due to type 2 diabetes mellitus (disorder)"
+            },
+            {
+              "reference": "Condition/972edab5-688f-4655-3f10-1c56680407f5",
+              "description": "Proteinuria due to type 2 diabetes mellitus (disorder)"
+            },
+            {
+              "reference": "MedicationRequest/972edab5-688f-4655-45dd-960c9dbfe2ed",
+              "description": "insulin isophane, human 70 UNT/ML / insulin, regular, human 30 UNT/ML Injectable Suspension [Humulin]"
+            }
+          ]
+        },
+        {
+          "patient_synthea_id": "972edab5-688f-4655-53bc-e2310fcab161",
+          "patient_name": "Johnnie679 Will178 Robel940",
+          "gap_type": "diabetic_missing_eye_exam",
+          "rationale": "Diabetic, age 56, no retinal eye exam on or after 2025-09-10.",
+          "evidence": [
+            {
+              "reference": "Condition/972edab5-688f-4655-8281-870ace1e61c6",
+              "description": "Disorder of kidney due to diabetes mellitus (disorder)"
+            },
+            {
+              "reference": "Condition/972edab5-688f-4655-bcdc-d49c94eff4b1",
+              "description": "Microalbuminuria due to type 2 diabetes mellitus (disorder)"
+            },
+            {
+              "reference": "Condition/972edab5-688f-4655-3f10-1c56680407f5",
+              "description": "Proteinuria due to type 2 diabetes mellitus (disorder)"
+            },
+            {
+              "reference": "MedicationRequest/972edab5-688f-4655-45dd-960c9dbfe2ed",
+              "description": "insulin isophane, human 70 UNT/ML / insulin, regular, human 30 UNT/ML Injectable Suspension [Humulin]"
+            }
+          ]
+        },
+        {
+          "patient_synthea_id": "972edab5-688f-4655-53bc-e2310fcab161",
+          "patient_name": "Johnnie679 Will178 Robel940",
+          "gap_type": "uncontrolled_bp_despite_therapy",
+          "rationale": "On antihypertensive therapy, latest BP 138/91 on 2026-03-01 still >= 140/90.",
+          "evidence": [
+            {
+              "reference": "Condition/972edab5-688f-4655-0873-213d019a5034",
+              "description": "Essential hypertension (disorder)"
+            },
+            {
+              "reference": "MedicationRequest/972edab5-688f-4655-69f3-e9f9d0a46211",
+              "description": "Hydrochlorothiazide 25 MG Oral Tablet"
+            },
+            {
+              "reference": "Observation/972edab5-688f-4655-7304-3f56bcd50ba9",
+              "description": "BP 138/91 mmHg on 2026-03-01"
+            }
+          ]
+        },
+        {
+          "patient_synthea_id": "972edab5-688f-4655-53bc-e2310fcab161",
+          "patient_name": "Johnnie679 Will178 Robel940",
+          "gap_type": "missing_colorectal_screening",
+          "rationale": "Age 56, no colorectal cancer screening within the applicable interval.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "980bf0c2-950c-0105-7562-e458cfcd2ab3",
+      "name": "Erlinda993 Dawna21 Kiehn525",
+      "age": 44,
+      "sex": "female",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "980bf0c2-950c-0105-7562-e458cfcd2ab3",
+          "patient_name": "Erlinda993 Dawna21 Kiehn525",
+          "gap_type": "uncontrolled_bp_despite_therapy",
+          "rationale": "On antihypertensive therapy, latest BP 134/112 on 2026-08-15 still >= 140/90.",
+          "evidence": [
+            {
+              "reference": "Condition/980bf0c2-950c-0105-4119-2193b8af5ef2",
+              "description": "Essential hypertension (disorder)"
+            },
+            {
+              "reference": "MedicationRequest/980bf0c2-950c-0105-432b-4a3cc7cb476b",
+              "description": "lisinopril 10 MG Oral Tablet"
+            },
+            {
+              "reference": "Observation/980bf0c2-950c-0105-27ab-ebbdd2003df6",
+              "description": "BP 134/112 mmHg on 2026-08-15"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "99cef348-692d-656f-ac64-3af61a3208ce",
+      "name": "Wendell199 Jonah176 Gusikowski974",
+      "age": 53,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "9a1ed8ed-ce34-a8c2-8dc2-f066f1160180",
+      "name": "Cyril535 Terrence276 Mayert710",
+      "age": 13,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "9a50266f-80ae-b02a-3e96-43bb3f67e237",
+      "name": "Bettyann83 Bednar518",
+      "age": 23,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "9b83e725-fa30-5221-8702-b04bd1f1fb3f",
+      "name": "Lisha487 Gulgowski816",
+      "age": 26,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "9bac4278-0a87-d073-84af-fff59f0eb4f0",
+      "name": "Daniel959 Lorenzo669 Trantow673",
+      "age": 31,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "9c208564-42a3-abc1-ba65-d8fa56a581cc",
+      "name": "Jere230 Augustine565 McCullough561",
+      "age": 64,
+      "sex": "male",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "9c208564-42a3-abc1-ba65-d8fa56a581cc",
+          "patient_name": "Jere230 Augustine565 McCullough561",
+          "gap_type": "missing_colorectal_screening",
+          "rationale": "Age 64, no colorectal cancer screening within the applicable interval.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "9d1e2f36-f55a-4cd7-696e-ec5429c55b40",
+      "name": "Karyl215 Rice937",
+      "age": 59,
+      "sex": "female",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "9d1e2f36-f55a-4cd7-696e-ec5429c55b40",
+          "patient_name": "Karyl215 Rice937",
+          "gap_type": "missing_colorectal_screening",
+          "rationale": "Age 59, no colorectal cancer screening within the applicable interval.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "9deb80a5-4db3-9ab4-43a3-e92e50b81c12",
+      "name": "Esperanza675 Cristina921 Salinas3",
+      "age": 77,
+      "sex": "female",
+      "deceased": true,
+      "gaps": []
+    },
+    {
+      "id": "a051aa46-5a58-6e8f-11fe-973248b60118",
+      "name": "Merle11 Micheal721 Block661",
+      "age": 59,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "a0a21e57-941c-49c4-c996-5f311682d5a5",
+      "name": "Gustavo235 Fadel536",
+      "age": 23,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "a14cd11c-c04d-270e-2e31-3061dc85c9a1",
+      "name": "Marc757 Roberto515 Gusikowski974",
+      "age": 56,
+      "sex": "male",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "a14cd11c-c04d-270e-2e31-3061dc85c9a1",
+          "patient_name": "Marc757 Roberto515 Gusikowski974",
+          "gap_type": "diabetic_missing_hba1c",
+          "rationale": "Diabetic, age 56, no HbA1c result on or after 2026-03-10.",
+          "evidence": [
+            {
+              "reference": "Condition/a14cd11c-c04d-270e-a7b1-d456af49a7b9",
+              "description": "Disorder of kidney due to diabetes mellitus (disorder)"
+            },
+            {
+              "reference": "Condition/a14cd11c-c04d-270e-c5cc-c33fedc839fb",
+              "description": "Microalbuminuria due to type 2 diabetes mellitus (disorder)"
+            },
+            {
+              "reference": "Condition/a14cd11c-c04d-270e-e022-e03a562d524d",
+              "description": "Proteinuria due to type 2 diabetes mellitus (disorder)"
+            }
+          ]
+        },
+        {
+          "patient_synthea_id": "a14cd11c-c04d-270e-2e31-3061dc85c9a1",
+          "patient_name": "Marc757 Roberto515 Gusikowski974",
+          "gap_type": "diabetic_missing_eye_exam",
+          "rationale": "Diabetic, age 56, no retinal eye exam on or after 2025-09-10.",
+          "evidence": [
+            {
+              "reference": "Condition/a14cd11c-c04d-270e-a7b1-d456af49a7b9",
+              "description": "Disorder of kidney due to diabetes mellitus (disorder)"
+            },
+            {
+              "reference": "Condition/a14cd11c-c04d-270e-c5cc-c33fedc839fb",
+              "description": "Microalbuminuria due to type 2 diabetes mellitus (disorder)"
+            },
+            {
+              "reference": "Condition/a14cd11c-c04d-270e-e022-e03a562d524d",
+              "description": "Proteinuria due to type 2 diabetes mellitus (disorder)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a1fa90af-3c53-dcd5-be5d-021a8c8d6872",
+      "name": "Darwin703 Palmer257 Hamill307",
+      "age": 41,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "a3026d97-abfc-ca7c-7ebb-f89e757e7181",
+      "name": "Mi492 Johnnie679 Zemlak964",
+      "age": 69,
+      "sex": "female",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "a3026d97-abfc-ca7c-7ebb-f89e757e7181",
+          "patient_name": "Mi492 Johnnie679 Zemlak964",
+          "gap_type": "uncontrolled_bp_despite_therapy",
+          "rationale": "On antihypertensive therapy, latest BP 141/106 on 2025-12-12 still >= 140/90.",
+          "evidence": [
+            {
+              "reference": "Condition/a3026d97-abfc-ca7c-bc5b-974a26e48957",
+              "description": "Essential hypertension (disorder)"
+            },
+            {
+              "reference": "MedicationRequest/a3026d97-abfc-ca7c-4ea5-76d6af8590f2",
+              "description": "amLODIPine 2.5 MG Oral Tablet"
+            },
+            {
+              "reference": "Observation/a3026d97-abfc-ca7c-3f21-fd9f6b651aaa",
+              "description": "BP 141/106 mmHg on 2025-12-12"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a3685581-bf5d-55f5-c09c-b31a494f2811",
+      "name": "Allan198 Lawerence6 Roberts511",
+      "age": 3,
+      "sex": "male",
+      "deceased": true,
+      "gaps": []
+    },
+    {
+      "id": "a3a7d0ab-f67f-ecc6-57ca-bfec84d0841a",
+      "name": "Ola364 Clyde817 Lindgren255",
+      "age": 3,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "a5c3f5fb-5b48-9150-922a-e79e8b582c97",
+      "name": "Columbus656 Rodger755 Steuber698",
+      "age": 65,
+      "sex": "male",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "a5c3f5fb-5b48-9150-922a-e79e8b582c97",
+          "patient_name": "Columbus656 Rodger755 Steuber698",
+          "gap_type": "missing_colorectal_screening",
+          "rationale": "Age 65, no colorectal cancer screening within the applicable interval.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "a6b6cc89-5be9-4f97-6f46-e2fb7c8d78c3",
+      "name": "Mahalia897 Stacia109 Stamm704",
+      "age": 67,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "a7fd6859-eb69-e336-22f9-32a8aeaaf09a",
+      "name": "Billi682 Jessie665 Rau926",
+      "age": 34,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "a8479560-2317-ddfa-b03b-4efadeb3586b",
+      "name": "Elza246 Glennie916 Hickle134",
+      "age": 49,
+      "sex": "female",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "a8479560-2317-ddfa-b03b-4efadeb3586b",
+          "patient_name": "Elza246 Glennie916 Hickle134",
+          "gap_type": "diabetic_missing_hba1c",
+          "rationale": "Diabetic, age 49, no HbA1c result on or after 2026-03-10.",
+          "evidence": [
+            {
+              "reference": "Condition/a8479560-2317-ddfa-c2ad-1b03f530e118",
+              "description": "Diabetes mellitus type 2 (disorder)"
+            },
+            {
+              "reference": "MedicationRequest/a8479560-2317-ddfa-8109-911160aa5109",
+              "description": "24 HR Metformin hydrochloride 500 MG Extended Release Oral Tablet"
+            },
+            {
+              "reference": "Observation/a8479560-2317-ddfa-2dbb-4215737e3db8",
+              "description": "HbA1c 7.53% on 2019-10-05"
+            }
+          ]
+        },
+        {
+          "patient_synthea_id": "a8479560-2317-ddfa-b03b-4efadeb3586b",
+          "patient_name": "Elza246 Glennie916 Hickle134",
+          "gap_type": "missing_colorectal_screening",
+          "rationale": "Age 49, no colorectal cancer screening within the applicable interval.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "a87683dd-0234-06a4-6ad5-9647a0db2a01",
+      "name": "Anita473 Medrano332",
+      "age": 18,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "aba8c294-6e62-441e-b52e-0d9b7df6ea55",
+      "name": "Keesha623 Cremin516",
+      "age": 21,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "ad999acd-aa4a-95fd-4223-0d17bd65e323",
+      "name": "Debrah72 Robbie31 Macejkovic424",
+      "age": 54,
+      "sex": "female",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "ad999acd-aa4a-95fd-4223-0d17bd65e323",
+          "patient_name": "Debrah72 Robbie31 Macejkovic424",
+          "gap_type": "diabetic_missing_eye_exam",
+          "rationale": "Diabetic, age 54, no retinal eye exam on or after 2025-09-10.",
+          "evidence": [
+            {
+              "reference": "Condition/ad999acd-aa4a-95fd-4b07-7f604920ab95",
+              "description": "Disorder of kidney due to diabetes mellitus (disorder)"
+            },
+            {
+              "reference": "Condition/ad999acd-aa4a-95fd-5ef7-b5109afda5df",
+              "description": "Microalbuminuria due to type 2 diabetes mellitus (disorder)"
+            },
+            {
+              "reference": "Condition/ad999acd-aa4a-95fd-aa88-f861147758ea",
+              "description": "Proteinuria due to type 2 diabetes mellitus (disorder)"
+            },
+            {
+              "reference": "MedicationRequest/ad999acd-aa4a-95fd-1dbb-2ccecb1c0376",
+              "description": "insulin isophane, human 70 UNT/ML / insulin, regular, human 30 UNT/ML Injectable Suspension [Humulin]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ade90afa-dcc6-73bd-8e94-9a738637d342",
+      "name": "Aron520 Myles862 Kozey370",
+      "age": 59,
+      "sex": "male",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "ade90afa-dcc6-73bd-8e94-9a738637d342",
+          "patient_name": "Aron520 Myles862 Kozey370",
+          "gap_type": "uncontrolled_bp_despite_therapy",
+          "rationale": "On antihypertensive therapy, latest BP 122/92 on 2026-08-19 still >= 140/90.",
+          "evidence": [
+            {
+              "reference": "Condition/ade90afa-dcc6-73bd-2b90-1458b0e347bb",
+              "description": "Essential hypertension (disorder)"
+            },
+            {
+              "reference": "MedicationRequest/ade90afa-dcc6-73bd-d8aa-acb111dc3548",
+              "description": "Hydrochlorothiazide 25 MG Oral Tablet"
+            },
+            {
+              "reference": "Observation/ade90afa-dcc6-73bd-127b-b697cdeadff6",
+              "description": "BP 122/92 mmHg on 2026-08-19"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "af88b5fb-304b-79f8-1fd2-9e1f77e2ea39",
+      "name": "Amiee221 Balistreri607",
+      "age": 53,
+      "sex": "female",
+      "deceased": true,
+      "gaps": []
+    },
+    {
+      "id": "b23d1325-b70d-bdeb-c350-bbdf25043db2",
+      "name": "Toni630 Hamill307",
+      "age": 50,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "b24a3609-5e68-3193-1028-70abeeb6e25e",
+      "name": "Juan88 Maynard46 Harber290",
+      "age": 48,
+      "sex": "male",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "b24a3609-5e68-3193-1028-70abeeb6e25e",
+          "patient_name": "Juan88 Maynard46 Harber290",
+          "gap_type": "missing_colorectal_screening",
+          "rationale": "Age 48, no colorectal cancer screening within the applicable interval.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "b3bfd6d0-6902-ac51-0d3b-739b0e16b7ef",
+      "name": "Leopoldo762 Tracey100 Lang846",
+      "age": 35,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "b5ceadaf-3f35-da2f-1017-741e00f0e3dc",
+      "name": "Justin359 Theo630 Roob72",
+      "age": 18,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "b70f88c2-5449-1be1-0116-90c8f4be084a",
+      "name": "Andreas188 Gregory545 Runolfsdottir785",
+      "age": 54,
+      "sex": "male",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "b70f88c2-5449-1be1-0116-90c8f4be084a",
+          "patient_name": "Andreas188 Gregory545 Runolfsdottir785",
+          "gap_type": "missing_colorectal_screening",
+          "rationale": "Age 54, no colorectal cancer screening within the applicable interval.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "b7bb7c2c-a013-6c41-275b-68497ce052b0",
+      "name": "Marta91 Ure\u00f1a88",
+      "age": 15,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "b8300224-47b4-355f-9a96-1cb917ef326b",
+      "name": "Virgilio529 Rich940 Kutch271",
+      "age": 99,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "bac68efe-ff12-8156-dfb3-11a9ffaf3c5c",
+      "name": "Rosalee63 Gerlach374",
+      "age": 47,
+      "sex": "female",
+      "deceased": true,
+      "gaps": []
+    },
+    {
+      "id": "bef650a1-cae4-4dd3-dc66-d33811bd8ca6",
+      "name": "Digna973 Madelaine318 Rutherford999",
+      "age": 19,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "bf266d25-a4d1-39de-97cd-542a2de54ca4",
+      "name": "Robena997 Lori426 Pagac496",
+      "age": 16,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "c0b4f1a2-70ac-ef21-a75e-3a0589d69452",
+      "name": "Dwight645 Cedrick207 Dach178",
+      "age": 5,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "c0da3e48-f8b2-16fe-2b42-4f308eb9cdae",
+      "name": "Lewis216 Olson653",
+      "age": 51,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "c48e6705-55f0-7119-78de-69f44b03e6ca",
+      "name": "Jeraldine574 Sporer811",
+      "age": 65,
+      "sex": "female",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "c48e6705-55f0-7119-78de-69f44b03e6ca",
+          "patient_name": "Jeraldine574 Sporer811",
+          "gap_type": "diabetic_missing_hba1c",
+          "rationale": "Diabetic, age 65, no HbA1c result on or after 2026-03-10.",
+          "evidence": [
+            {
+              "reference": "Condition/c48e6705-55f0-7119-2e52-2069a0d41cd1",
+              "description": "Diabetes mellitus type 2 (disorder)"
+            },
+            {
+              "reference": "Condition/c48e6705-55f0-7119-c378-8fab6aaf5449",
+              "description": "Neuropathy due to type 2 diabetes mellitus (disorder)"
+            },
+            {
+              "reference": "Observation/c48e6705-55f0-7119-a301-bb9e7e179a20",
+              "description": "HbA1c 6.81% on 2026-03-07"
+            }
+          ]
+        },
+        {
+          "patient_synthea_id": "c48e6705-55f0-7119-78de-69f44b03e6ca",
+          "patient_name": "Jeraldine574 Sporer811",
+          "gap_type": "diabetic_missing_eye_exam",
+          "rationale": "Diabetic, age 65, no retinal eye exam on or after 2025-09-10.",
+          "evidence": [
+            {
+              "reference": "Condition/c48e6705-55f0-7119-2e52-2069a0d41cd1",
+              "description": "Diabetes mellitus type 2 (disorder)"
+            },
+            {
+              "reference": "Condition/c48e6705-55f0-7119-c378-8fab6aaf5449",
+              "description": "Neuropathy due to type 2 diabetes mellitus (disorder)"
+            },
+            {
+              "reference": "Observation/c48e6705-55f0-7119-a301-bb9e7e179a20",
+              "description": "HbA1c 6.81% on 2026-03-07"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c4aec48b-4efe-476f-029a-5b192fabe8b5",
+      "name": "Rigoberto443 Mike230 Friesen796",
+      "age": 42,
+      "sex": "male",
+      "deceased": true,
+      "gaps": []
+    },
+    {
+      "id": "c60c22d3-f73e-01c2-b150-05f2103dddc7",
+      "name": "Ramiro608 Keven605 Huel628",
+      "age": 34,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "c631259b-db38-0469-8190-3a50633df025",
+      "name": "Hye44 Stroman228",
+      "age": 28,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "c6a08e51-40b6-f0fe-4856-b4f948e423a0",
+      "name": "Kattie846 Melodie819 Corkery305",
+      "age": 28,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "c6b0d4b7-7536-7409-b891-259e1769eb8a",
+      "name": "Maxwell782 Cody889 Mohr916",
+      "age": 26,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "c7ace76a-0ec1-7461-732e-bfa8a795fbe5",
+      "name": "Jonathan639 Lesch175",
+      "age": 4,
+      "sex": "male",
+      "deceased": true,
+      "gaps": []
+    },
+    {
+      "id": "c7c84c4c-c94b-6f55-329e-2bf3bacf74b1",
+      "name": "Willian804 Rene434 Emmerich580",
+      "age": 50,
+      "sex": "male",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "c7c84c4c-c94b-6f55-329e-2bf3bacf74b1",
+          "patient_name": "Willian804 Rene434 Emmerich580",
+          "gap_type": "missing_colorectal_screening",
+          "rationale": "Age 50, no colorectal cancer screening within the applicable interval.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "c8b94d47-1fde-e487-82b3-a6fdafbafa03",
+      "name": "Loura465 Domonique463 Treutel973",
+      "age": 26,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "c9208037-d18b-d129-5b38-9bd64f03506b",
+      "name": "Jeremiah751 Lamont867 Kassulke119",
+      "age": 37,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "c928dd06-3f3d-8e81-7423-e4407a9a7bd7",
+      "name": "Ha329 Kasie673 Becker968",
+      "age": 49,
+      "sex": "female",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "c928dd06-3f3d-8e81-7423-e4407a9a7bd7",
+          "patient_name": "Ha329 Kasie673 Becker968",
+          "gap_type": "missing_colorectal_screening",
+          "rationale": "Age 49, no colorectal cancer screening within the applicable interval.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "c9a2a14b-dc3b-2f03-796e-7573675988e9",
+      "name": "Tashina114 Schoen8",
+      "age": 53,
+      "sex": "female",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "c9a2a14b-dc3b-2f03-796e-7573675988e9",
+          "patient_name": "Tashina114 Schoen8",
+          "gap_type": "uncontrolled_bp_despite_therapy",
+          "rationale": "On antihypertensive therapy, latest BP 153/88 on 2026-08-15 still >= 140/90.",
+          "evidence": [
+            {
+              "reference": "Condition/c9a2a14b-dc3b-2f03-98b0-bb1f2ade9a56",
+              "description": "Essential hypertension (disorder)"
+            },
+            {
+              "reference": "MedicationRequest/c9a2a14b-dc3b-2f03-efaf-e6171d8ef95a",
+              "description": "losartan potassium 25 MG Oral Tablet"
+            },
+            {
+              "reference": "Observation/c9a2a14b-dc3b-2f03-44a7-76bbd0c72d4c",
+              "description": "BP 153/88 mmHg on 2026-08-15"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caaacbc1-8fc5-7d27-a406-190e0d7f0935",
+      "name": "Alysia661 Hartmann983",
+      "age": 29,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "cbade59b-16e5-df28-cf1b-8ee53452f146",
+      "name": "Gregg522 Hayden835 Kovacek682",
+      "age": 20,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "cc36c643-fbc4-735e-bff9-9078ae056b08",
+      "name": "Theron432 Streich926",
+      "age": 55,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "cc597086-648e-0005-9af4-68bd5cdfb8c5",
+      "name": "Angela104 Suellen60 Kunze215",
+      "age": 26,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "ccf3d8db-3e91-9b29-3f7d-925ef628be8f",
+      "name": "Chase54 Jack927 Kemmer137",
+      "age": 29,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "cd1a9f62-72e4-1373-cfd2-e110774aed52",
+      "name": "Nisha529 Ione925 Feil794",
+      "age": 21,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "cf0bca22-9a9e-1ef4-d5fc-f85cfbb4e758",
+      "name": "Alvin56 Mills423",
+      "age": 39,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "cf6be33d-7653-a290-118b-6ca6dbddade4",
+      "name": "Cicely661 Block661",
+      "age": 50,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "d41be1ac-f07b-cba5-60bf-5a4d2d020dc5",
+      "name": "Britta584 Joann92 Shields502",
+      "age": 15,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "d82e9b33-5c3a-bf38-8c14-b74d13c6e016",
+      "name": "Adrienne302 Halvorson124",
+      "age": 57,
+      "sex": "female",
+      "deceased": true,
+      "gaps": []
+    },
+    {
+      "id": "d9545eda-f6e1-4b45-9738-02297b4ff1f1",
+      "name": "Rhonda22 Melva551 Hills818",
+      "age": 28,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "d954c92f-503f-d2e4-2d1b-bd2bc02df0f7",
+      "name": "Alexis664 Raymundo71 Welch179",
+      "age": 50,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "d9e5fca0-6f66-e1c1-d478-01555175f92a",
+      "name": "Luisa710 Lola232 Montes106",
+      "age": 78,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "dae6a90a-5fe7-22d6-d4f4-ab6abc30bde3",
+      "name": "Marianela210 Jami235 Pollich983",
+      "age": 5,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "df809338-7535-197e-86e3-ba43b14e8204",
+      "name": "Genesis248 Laure395 Barrows492",
+      "age": 51,
+      "sex": "female",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "df809338-7535-197e-86e3-ba43b14e8204",
+          "patient_name": "Genesis248 Laure395 Barrows492",
+          "gap_type": "missing_colorectal_screening",
+          "rationale": "Age 51, no colorectal cancer screening within the applicable interval.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "e0292e35-2827-50c4-942e-de53d1353842",
+      "name": "Kristi306 Moriah648 Kassulke119",
+      "age": 49,
+      "sex": "female",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "e0292e35-2827-50c4-942e-de53d1353842",
+          "patient_name": "Kristi306 Moriah648 Kassulke119",
+          "gap_type": "missing_colorectal_screening",
+          "rationale": "Age 49, no colorectal cancer screening within the applicable interval.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "e3027a69-2925-5ba1-d299-6259b6f50655",
+      "name": "Roberta529 Orn563",
+      "age": 39,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "e471c0e4-a0b9-a463-7670-9467de3f80ef",
+      "name": "Cleta89 Toby274 Emmerich580",
+      "age": 29,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "e4db2603-93a3-358a-d7ce-bd604a6a14de",
+      "name": "Kennith515 Benjamin360 Wyman904",
+      "age": 2,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "e5f79727-eb7b-4361-533d-1e93327dbca3",
+      "name": "Phil587 Ernser583",
+      "age": 55,
+      "sex": "male",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "e5f79727-eb7b-4361-533d-1e93327dbca3",
+          "patient_name": "Phil587 Ernser583",
+          "gap_type": "missing_colorectal_screening",
+          "rationale": "Age 55, no colorectal cancer screening within the applicable interval.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "e5ffa6d2-4a3d-9289-18d5-bec5cb50a6d3",
+      "name": "Raphael767 Ricardo560 Stiedemann542",
+      "age": 84,
+      "sex": "male",
+      "deceased": true,
+      "gaps": []
+    },
+    {
+      "id": "e626d29e-238f-e3c2-3248-4bff871704bd",
+      "name": "Julius90 Frances376 Jacobi462",
+      "age": 7,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "e62bd4bf-c29d-79b8-37cc-fc630a28dc17",
+      "name": "Sammy219 Lupe126 Reichert620",
+      "age": 18,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "e6666e33-d79f-6170-4932-5aa656551d1f",
+      "name": "Rochell365 Cole117",
+      "age": 25,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "e687f937-4eb6-9c42-71ed-b84506efb0c2",
+      "name": "Mae105 Ardella559 Eichmann909",
+      "age": 62,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "e8d0c51c-761d-4ffb-2fc1-d429375b22be",
+      "name": "Cheree978 Ligia986 Bartoletti50",
+      "age": 20,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "eae0004c-0045-f206-c0f6-82c87d84683e",
+      "name": "Nada112 Regine404 Kuhlman484",
+      "age": 59,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "ec45893c-66cf-0315-9a43-b297ada56573",
+      "name": "Delsie188 Naida467 Block661",
+      "age": 20,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "edc50674-550f-7366-1dbb-19b09a4b3bf3",
+      "name": "Todd315 Stuart913 Hansen121",
+      "age": 54,
+      "sex": "male",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "edc50674-550f-7366-1dbb-19b09a4b3bf3",
+          "patient_name": "Todd315 Stuart913 Hansen121",
+          "gap_type": "missing_colorectal_screening",
+          "rationale": "Age 54, no colorectal cancer screening within the applicable interval.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "f12122fb-d3da-5a6f-f2b9-3cf7927e1a8e",
+      "name": "Ali918 Vance413 Douglas31",
+      "age": 16,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "f157b0ed-37dc-014a-3ec1-29ff4ee30096",
+      "name": "Forrest301 Damion480 Kshlerin58",
+      "age": 1,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "f1df7e25-cc9d-e844-e0c0-51e76dbefdff",
+      "name": "Ceola914 Leeann571 Witting912",
+      "age": 54,
+      "sex": "female",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "f1df7e25-cc9d-e844-e0c0-51e76dbefdff",
+          "patient_name": "Ceola914 Leeann571 Witting912",
+          "gap_type": "missing_colorectal_screening",
+          "rationale": "Age 54, no colorectal cancer screening within the applicable interval.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "f1e7aae0-4359-02ff-3f1d-a80fefa8735a",
+      "name": "Stephan15 Rodrigo242 Hammes673",
+      "age": 10,
+      "sex": "male",
+      "deceased": true,
+      "gaps": []
+    },
+    {
+      "id": "f24887a0-0413-d57a-358f-26b9a9820346",
+      "name": "Pilar644 Saldivar860",
+      "age": 10,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "f278db25-6374-ea60-d8e8-8617b8f0d89f",
+      "name": "Cristopher265 Boyce638 Kunze215",
+      "age": 45,
+      "sex": "male",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "f278db25-6374-ea60-d8e8-8617b8f0d89f",
+          "patient_name": "Cristopher265 Boyce638 Kunze215",
+          "gap_type": "missing_colorectal_screening",
+          "rationale": "Age 45, no colorectal cancer screening within the applicable interval.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "f3323144-6b6b-e36c-b734-c85d0a1e4d03",
+      "name": "Louise871 Monnie762 Walter473",
+      "age": 1,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "f3dd3a42-75c1-133e-973d-2f9a50e8772a",
+      "name": "Bruno518 Luigi346 Howell947",
+      "age": 1,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "f4159f1e-9fe5-4f5a-b411-e6904183e240",
+      "name": "Vicente970 Jorge203 Casanova632",
+      "age": 29,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "f4daec06-aa1e-2cc6-af41-2a36b523ee6e",
+      "name": "Miguel815 Marlin805 Von197",
+      "age": 30,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "f52fc411-65af-c26f-a4a1-5f85feb63f6e",
+      "name": "Sung603 Amos720 Bins636",
+      "age": 5,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "f7c5c301-4bf5-91a0-1e7c-df671787d1f1",
+      "name": "Warner493 Nolan344",
+      "age": 42,
+      "sex": "male",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "f7c5c301-4bf5-91a0-1e7c-df671787d1f1",
+          "patient_name": "Warner493 Nolan344",
+          "gap_type": "diabetic_missing_hba1c",
+          "rationale": "Diabetic, age 42, no HbA1c result on or after 2026-03-10.",
+          "evidence": [
+            {
+              "reference": "Condition/f7c5c301-4bf5-91a0-9e08-77586d5d47c1",
+              "description": "Disorder of kidney due to diabetes mellitus (disorder)"
+            },
+            {
+              "reference": "Condition/f7c5c301-4bf5-91a0-1bff-ea37c1d2709d",
+              "description": "Microalbuminuria due to type 2 diabetes mellitus (disorder)"
+            }
+          ]
+        },
+        {
+          "patient_synthea_id": "f7c5c301-4bf5-91a0-1e7c-df671787d1f1",
+          "patient_name": "Warner493 Nolan344",
+          "gap_type": "diabetic_missing_eye_exam",
+          "rationale": "Diabetic, age 42, no retinal eye exam on or after 2025-09-10.",
+          "evidence": [
+            {
+              "reference": "Condition/f7c5c301-4bf5-91a0-9e08-77586d5d47c1",
+              "description": "Disorder of kidney due to diabetes mellitus (disorder)"
+            },
+            {
+              "reference": "Condition/f7c5c301-4bf5-91a0-1bff-ea37c1d2709d",
+              "description": "Microalbuminuria due to type 2 diabetes mellitus (disorder)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f8ea9e82-f0c1-0efd-83e4-838eeedf0d21",
+      "name": "Hermine424 Tawanna466 Anderson154",
+      "age": 7,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "f8eebbdc-7f22-e1bd-4ffb-f5e526761e2b",
+      "name": "Kristel938 Mercy752 Eichmann909",
+      "age": 19,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "f920bb72-3f8b-0da1-491c-5b72c48652fc",
+      "name": "Brain142 Florentino8 Watsica258",
+      "age": 55,
+      "sex": "male",
+      "deceased": true,
+      "gaps": []
+    },
+    {
+      "id": "f9789a77-5a87-7bc2-e849-076a1fff18e2",
+      "name": "Christoper325 Coleman27 Daugherty69",
+      "age": 16,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "fc83405e-1d1e-98ed-a027-9e4d344cbe15",
+      "name": "Norman647 Adrien235 Ratke343",
+      "age": 80,
+      "sex": "female",
+      "deceased": false,
+      "gaps": []
+    },
+    {
+      "id": "fcd04af5-485c-5486-8826-ede73f4a7e7b",
+      "name": "Genaro214 Gregorio366 Shields502",
+      "age": 47,
+      "sex": "male",
+      "deceased": false,
+      "gaps": [
+        {
+          "patient_synthea_id": "fcd04af5-485c-5486-8826-ede73f4a7e7b",
+          "patient_name": "Genaro214 Gregorio366 Shields502",
+          "gap_type": "missing_colorectal_screening",
+          "rationale": "Age 47, no colorectal cancer screening within the applicable interval.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "fde33829-5050-d5b2-27ba-0ad490b7e6d5",
+      "name": "Bertram873 Mante251",
+      "age": 81,
+      "sex": "male",
+      "deceased": false,
+      "gaps": []
+    }
+  ]
+}

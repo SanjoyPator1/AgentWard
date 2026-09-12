@@ -1,0 +1,873 @@
+[
+  {
+    "patient_synthea_id": "4e7e9a2c-bb1f-50da-24b9-62b6cd5e1205",
+    "patient_name": "Agustina460 Rosemary734 Hauck852",
+    "gap_type": "missing_colorectal_screening",
+    "rationale": "Age 45, no colorectal cancer screening within the applicable interval.",
+    "evidence": []
+  },
+  {
+    "patient_synthea_id": "b70f88c2-5449-1be1-0116-90c8f4be084a",
+    "patient_name": "Andreas188 Gregory545 Runolfsdottir785",
+    "gap_type": "missing_colorectal_screening",
+    "rationale": "Age 54, no colorectal cancer screening within the applicable interval.",
+    "evidence": []
+  },
+  {
+    "patient_synthea_id": "7e7c20ee-7d0f-f578-ee8a-4a30cab72c72",
+    "patient_name": "Arnoldo445 Noah480 Beatty507",
+    "gap_type": "missing_colorectal_screening",
+    "rationale": "Age 51, no colorectal cancer screening within the applicable interval.",
+    "evidence": []
+  },
+  {
+    "patient_synthea_id": "ade90afa-dcc6-73bd-8e94-9a738637d342",
+    "patient_name": "Aron520 Myles862 Kozey370",
+    "gap_type": "uncontrolled_bp_despite_therapy",
+    "rationale": "On antihypertensive therapy, latest BP 122/92 on 2026-08-19 still >= 140/90.",
+    "evidence": [
+      {
+        "reference": "Condition/ade90afa-dcc6-73bd-2b90-1458b0e347bb",
+        "description": "Essential hypertension (disorder)"
+      },
+      {
+        "reference": "MedicationRequest/ade90afa-dcc6-73bd-d8aa-acb111dc3548",
+        "description": "Hydrochlorothiazide 25 MG Oral Tablet"
+      },
+      {
+        "reference": "Observation/ade90afa-dcc6-73bd-127b-b697cdeadff6",
+        "description": "BP 122/92 mmHg on 2026-08-19"
+      }
+    ]
+  },
+  {
+    "patient_synthea_id": "761a0718-3b31-d133-af65-9dc81414f2c6",
+    "patient_name": "Audrie782 Beaulah36 Howe413",
+    "gap_type": "missing_colorectal_screening",
+    "rationale": "Age 66, no colorectal cancer screening within the applicable interval.",
+    "evidence": []
+  },
+  {
+    "patient_synthea_id": "5d2315f2-68cc-aac0-9041-4050d3764236",
+    "patient_name": "Carri827 Shane235 O'Connell601",
+    "gap_type": "uncontrolled_bp_despite_therapy",
+    "rationale": "On antihypertensive therapy, latest BP 132/97 on 2026-04-27 still >= 140/90.",
+    "evidence": [
+      {
+        "reference": "Condition/5d2315f2-68cc-aac0-1bc9-5b9ed961901d",
+        "description": "Essential hypertension (disorder)"
+      },
+      {
+        "reference": "MedicationRequest/5d2315f2-68cc-aac0-7825-411d0c22adce",
+        "description": "lisinopril 10 MG Oral Tablet"
+      },
+      {
+        "reference": "Observation/5d2315f2-68cc-aac0-88ca-de329e0dd11b",
+        "description": "BP 132/97 mmHg on 2026-04-27"
+      }
+    ]
+  },
+  {
+    "patient_synthea_id": "f1df7e25-cc9d-e844-e0c0-51e76dbefdff",
+    "patient_name": "Ceola914 Leeann571 Witting912",
+    "gap_type": "missing_colorectal_screening",
+    "rationale": "Age 54, no colorectal cancer screening within the applicable interval.",
+    "evidence": []
+  },
+  {
+    "patient_synthea_id": "89b2823c-1201-dec4-ed1f-520078a5de4b",
+    "patient_name": "Codi873 Hanna456 Bednar518",
+    "gap_type": "diabetic_missing_eye_exam",
+    "rationale": "Diabetic, age 65, no retinal eye exam on or after 2025-09-10.",
+    "evidence": [
+      {
+        "reference": "Condition/89b2823c-1201-dec4-335d-d56b58ba4cab",
+        "description": "Disorder of kidney due to diabetes mellitus (disorder)"
+      },
+      {
+        "reference": "Condition/89b2823c-1201-dec4-0a44-d7507b91f166",
+        "description": "Microalbuminuria due to type 2 diabetes mellitus (disorder)"
+      },
+      {
+        "reference": "MedicationRequest/89b2823c-1201-dec4-85f5-5f593bc1e25f",
+        "description": "insulin isophane, human 70 UNT/ML / insulin, regular, human 30 UNT/ML Injectable Suspension [Humulin]"
+      }
+    ]
+  },
+  {
+    "patient_synthea_id": "a5c3f5fb-5b48-9150-922a-e79e8b582c97",
+    "patient_name": "Columbus656 Rodger755 Steuber698",
+    "gap_type": "missing_colorectal_screening",
+    "rationale": "Age 65, no colorectal cancer screening within the applicable interval.",
+    "evidence": []
+  },
+  {
+    "patient_synthea_id": "f278db25-6374-ea60-d8e8-8617b8f0d89f",
+    "patient_name": "Cristopher265 Boyce638 Kunze215",
+    "gap_type": "missing_colorectal_screening",
+    "rationale": "Age 45, no colorectal cancer screening within the applicable interval.",
+    "evidence": []
+  },
+  {
+    "patient_synthea_id": "00333573-ff50-9e42-296f-58427afdb2e4",
+    "patient_name": "Dalton260 Taylor21 Spinka232",
+    "gap_type": "missing_colorectal_screening",
+    "rationale": "Age 50, no colorectal cancer screening within the applicable interval.",
+    "evidence": []
+  },
+  {
+    "patient_synthea_id": "ad999acd-aa4a-95fd-4223-0d17bd65e323",
+    "patient_name": "Debrah72 Robbie31 Macejkovic424",
+    "gap_type": "diabetic_missing_eye_exam",
+    "rationale": "Diabetic, age 54, no retinal eye exam on or after 2025-09-10.",
+    "evidence": [
+      {
+        "reference": "Condition/ad999acd-aa4a-95fd-4b07-7f604920ab95",
+        "description": "Disorder of kidney due to diabetes mellitus (disorder)"
+      },
+      {
+        "reference": "Condition/ad999acd-aa4a-95fd-5ef7-b5109afda5df",
+        "description": "Microalbuminuria due to type 2 diabetes mellitus (disorder)"
+      },
+      {
+        "reference": "Condition/ad999acd-aa4a-95fd-aa88-f861147758ea",
+        "description": "Proteinuria due to type 2 diabetes mellitus (disorder)"
+      },
+      {
+        "reference": "MedicationRequest/ad999acd-aa4a-95fd-1dbb-2ccecb1c0376",
+        "description": "insulin isophane, human 70 UNT/ML / insulin, regular, human 30 UNT/ML Injectable Suspension [Humulin]"
+      }
+    ]
+  },
+  {
+    "patient_synthea_id": "1f913b45-1129-fbaa-9f98-fe74faed8257",
+    "patient_name": "Elwanda490 Terry864",
+    "gap_type": "uncontrolled_bp_despite_therapy",
+    "rationale": "On antihypertensive therapy, latest BP 135/90 on 2026-07-02 still >= 140/90.",
+    "evidence": [
+      {
+        "reference": "Condition/1f913b45-1129-fbaa-9675-c1bb51eab375",
+        "description": "Essential hypertension (disorder)"
+      },
+      {
+        "reference": "MedicationRequest/1f913b45-1129-fbaa-f5fb-6ce083c7e383",
+        "description": "lisinopril 10 MG Oral Tablet"
+      },
+      {
+        "reference": "Observation/1f913b45-1129-fbaa-a683-6e53543cf350",
+        "description": "BP 135/90 mmHg on 2026-07-02"
+      }
+    ]
+  },
+  {
+    "patient_synthea_id": "a8479560-2317-ddfa-b03b-4efadeb3586b",
+    "patient_name": "Elza246 Glennie916 Hickle134",
+    "gap_type": "diabetic_missing_hba1c",
+    "rationale": "Diabetic, age 49, no HbA1c result on or after 2026-03-10.",
+    "evidence": [
+      {
+        "reference": "Condition/a8479560-2317-ddfa-c2ad-1b03f530e118",
+        "description": "Diabetes mellitus type 2 (disorder)"
+      },
+      {
+        "reference": "MedicationRequest/a8479560-2317-ddfa-8109-911160aa5109",
+        "description": "24 HR Metformin hydrochloride 500 MG Extended Release Oral Tablet"
+      },
+      {
+        "reference": "Observation/a8479560-2317-ddfa-2dbb-4215737e3db8",
+        "description": "HbA1c 7.53% on 2019-10-05"
+      }
+    ]
+  },
+  {
+    "patient_synthea_id": "a8479560-2317-ddfa-b03b-4efadeb3586b",
+    "patient_name": "Elza246 Glennie916 Hickle134",
+    "gap_type": "missing_colorectal_screening",
+    "rationale": "Age 49, no colorectal cancer screening within the applicable interval.",
+    "evidence": []
+  },
+  {
+    "patient_synthea_id": "980bf0c2-950c-0105-7562-e458cfcd2ab3",
+    "patient_name": "Erlinda993 Dawna21 Kiehn525",
+    "gap_type": "uncontrolled_bp_despite_therapy",
+    "rationale": "On antihypertensive therapy, latest BP 134/112 on 2026-08-15 still >= 140/90.",
+    "evidence": [
+      {
+        "reference": "Condition/980bf0c2-950c-0105-4119-2193b8af5ef2",
+        "description": "Essential hypertension (disorder)"
+      },
+      {
+        "reference": "MedicationRequest/980bf0c2-950c-0105-432b-4a3cc7cb476b",
+        "description": "lisinopril 10 MG Oral Tablet"
+      },
+      {
+        "reference": "Observation/980bf0c2-950c-0105-27ab-ebbdd2003df6",
+        "description": "BP 134/112 mmHg on 2026-08-15"
+      }
+    ]
+  },
+  {
+    "patient_synthea_id": "1d9d82d9-97b6-0926-e2ee-f01ef184371f",
+    "patient_name": "Evan94 Emerson869 Hessel84",
+    "gap_type": "missing_colorectal_screening",
+    "rationale": "Age 47, no colorectal cancer screening within the applicable interval.",
+    "evidence": []
+  },
+  {
+    "patient_synthea_id": "fcd04af5-485c-5486-8826-ede73f4a7e7b",
+    "patient_name": "Genaro214 Gregorio366 Shields502",
+    "gap_type": "missing_colorectal_screening",
+    "rationale": "Age 47, no colorectal cancer screening within the applicable interval.",
+    "evidence": []
+  },
+  {
+    "patient_synthea_id": "df809338-7535-197e-86e3-ba43b14e8204",
+    "patient_name": "Genesis248 Laure395 Barrows492",
+    "gap_type": "missing_colorectal_screening",
+    "rationale": "Age 51, no colorectal cancer screening within the applicable interval.",
+    "evidence": []
+  },
+  {
+    "patient_synthea_id": "c928dd06-3f3d-8e81-7423-e4407a9a7bd7",
+    "patient_name": "Ha329 Kasie673 Becker968",
+    "gap_type": "missing_colorectal_screening",
+    "rationale": "Age 49, no colorectal cancer screening within the applicable interval.",
+    "evidence": []
+  },
+  {
+    "patient_synthea_id": "426479ed-b709-8ec5-e976-fdce87c9d894",
+    "patient_name": "Hildegarde627 Stracke611",
+    "gap_type": "diabetic_missing_hba1c",
+    "rationale": "Diabetic, age 70, no HbA1c result on or after 2026-03-10.",
+    "evidence": [
+      {
+        "reference": "Condition/426479ed-b709-8ec5-e628-42d9b1ea6c1b",
+        "description": "Disorder of kidney due to diabetes mellitus (disorder)"
+      }
+    ]
+  },
+  {
+    "patient_synthea_id": "426479ed-b709-8ec5-e976-fdce87c9d894",
+    "patient_name": "Hildegarde627 Stracke611",
+    "gap_type": "diabetic_missing_eye_exam",
+    "rationale": "Diabetic, age 70, no retinal eye exam on or after 2025-09-10.",
+    "evidence": [
+      {
+        "reference": "Condition/426479ed-b709-8ec5-e628-42d9b1ea6c1b",
+        "description": "Disorder of kidney due to diabetes mellitus (disorder)"
+      }
+    ]
+  },
+  {
+    "patient_synthea_id": "426479ed-b709-8ec5-e976-fdce87c9d894",
+    "patient_name": "Hildegarde627 Stracke611",
+    "gap_type": "uncontrolled_bp_despite_therapy",
+    "rationale": "On antihypertensive therapy, latest BP 120/95 on 2026-05-19 still >= 140/90.",
+    "evidence": [
+      {
+        "reference": "Condition/426479ed-b709-8ec5-5d35-610cbf5e2445",
+        "description": "Essential hypertension (disorder)"
+      },
+      {
+        "reference": "MedicationRequest/426479ed-b709-8ec5-1633-ffb7ca7c872d",
+        "description": "Hydrochlorothiazide 25 MG Oral Tablet"
+      },
+      {
+        "reference": "Observation/426479ed-b709-8ec5-1e3c-c20165bb36d7",
+        "description": "BP 120/95 mmHg on 2026-05-19"
+      }
+    ]
+  },
+  {
+    "patient_synthea_id": "426479ed-b709-8ec5-e976-fdce87c9d894",
+    "patient_name": "Hildegarde627 Stracke611",
+    "gap_type": "missing_colorectal_screening",
+    "rationale": "Age 70, no colorectal cancer screening within the applicable interval.",
+    "evidence": []
+  },
+  {
+    "patient_synthea_id": "7a357400-508c-99c1-fc88-755b6767bfb6",
+    "patient_name": "Ignacio928 Rex53 Boyle917",
+    "gap_type": "uncontrolled_bp_despite_therapy",
+    "rationale": "On antihypertensive therapy, latest BP 158/92 on 2025-12-28 still >= 140/90.",
+    "evidence": [
+      {
+        "reference": "Condition/7a357400-508c-99c1-c318-38656eb9bb28",
+        "description": "Essential hypertension (disorder)"
+      },
+      {
+        "reference": "MedicationRequest/7a357400-508c-99c1-c2fa-36d2d428b515",
+        "description": "Hydrochlorothiazide 25 MG Oral Tablet"
+      },
+      {
+        "reference": "Observation/7a357400-508c-99c1-1cce-38b8a427d341",
+        "description": "BP 158/92 mmHg on 2025-12-28"
+      }
+    ]
+  },
+  {
+    "patient_synthea_id": "6594833e-dbe8-4ce3-8fb4-9377d20ba96a",
+    "patient_name": "Irish781 Leandra549 Cole117",
+    "gap_type": "missing_colorectal_screening",
+    "rationale": "Age 47, no colorectal cancer screening within the applicable interval.",
+    "evidence": []
+  },
+  {
+    "patient_synthea_id": "c48e6705-55f0-7119-78de-69f44b03e6ca",
+    "patient_name": "Jeraldine574 Sporer811",
+    "gap_type": "diabetic_missing_hba1c",
+    "rationale": "Diabetic, age 65, no HbA1c result on or after 2026-03-10.",
+    "evidence": [
+      {
+        "reference": "Condition/c48e6705-55f0-7119-2e52-2069a0d41cd1",
+        "description": "Diabetes mellitus type 2 (disorder)"
+      },
+      {
+        "reference": "Condition/c48e6705-55f0-7119-c378-8fab6aaf5449",
+        "description": "Neuropathy due to type 2 diabetes mellitus (disorder)"
+      },
+      {
+        "reference": "Observation/c48e6705-55f0-7119-a301-bb9e7e179a20",
+        "description": "HbA1c 6.81% on 2026-03-07"
+      }
+    ]
+  },
+  {
+    "patient_synthea_id": "c48e6705-55f0-7119-78de-69f44b03e6ca",
+    "patient_name": "Jeraldine574 Sporer811",
+    "gap_type": "diabetic_missing_eye_exam",
+    "rationale": "Diabetic, age 65, no retinal eye exam on or after 2025-09-10.",
+    "evidence": [
+      {
+        "reference": "Condition/c48e6705-55f0-7119-2e52-2069a0d41cd1",
+        "description": "Diabetes mellitus type 2 (disorder)"
+      },
+      {
+        "reference": "Condition/c48e6705-55f0-7119-c378-8fab6aaf5449",
+        "description": "Neuropathy due to type 2 diabetes mellitus (disorder)"
+      },
+      {
+        "reference": "Observation/c48e6705-55f0-7119-a301-bb9e7e179a20",
+        "description": "HbA1c 6.81% on 2026-03-07"
+      }
+    ]
+  },
+  {
+    "patient_synthea_id": "9c208564-42a3-abc1-ba65-d8fa56a581cc",
+    "patient_name": "Jere230 Augustine565 McCullough561",
+    "gap_type": "missing_colorectal_screening",
+    "rationale": "Age 64, no colorectal cancer screening within the applicable interval.",
+    "evidence": []
+  },
+  {
+    "patient_synthea_id": "7f4bc575-db6c-8cd2-9407-cd6ca28e0ffa",
+    "patient_name": "Ji399 Casimira119 Kohler843",
+    "gap_type": "missing_colorectal_screening",
+    "rationale": "Age 60, no colorectal cancer screening within the applicable interval.",
+    "evidence": []
+  },
+  {
+    "patient_synthea_id": "972edab5-688f-4655-53bc-e2310fcab161",
+    "patient_name": "Johnnie679 Will178 Robel940",
+    "gap_type": "diabetic_missing_hba1c",
+    "rationale": "Diabetic, age 56, no HbA1c result on or after 2026-03-10.",
+    "evidence": [
+      {
+        "reference": "Condition/972edab5-688f-4655-8281-870ace1e61c6",
+        "description": "Disorder of kidney due to diabetes mellitus (disorder)"
+      },
+      {
+        "reference": "Condition/972edab5-688f-4655-bcdc-d49c94eff4b1",
+        "description": "Microalbuminuria due to type 2 diabetes mellitus (disorder)"
+      },
+      {
+        "reference": "Condition/972edab5-688f-4655-3f10-1c56680407f5",
+        "description": "Proteinuria due to type 2 diabetes mellitus (disorder)"
+      },
+      {
+        "reference": "MedicationRequest/972edab5-688f-4655-45dd-960c9dbfe2ed",
+        "description": "insulin isophane, human 70 UNT/ML / insulin, regular, human 30 UNT/ML Injectable Suspension [Humulin]"
+      }
+    ]
+  },
+  {
+    "patient_synthea_id": "972edab5-688f-4655-53bc-e2310fcab161",
+    "patient_name": "Johnnie679 Will178 Robel940",
+    "gap_type": "diabetic_missing_eye_exam",
+    "rationale": "Diabetic, age 56, no retinal eye exam on or after 2025-09-10.",
+    "evidence": [
+      {
+        "reference": "Condition/972edab5-688f-4655-8281-870ace1e61c6",
+        "description": "Disorder of kidney due to diabetes mellitus (disorder)"
+      },
+      {
+        "reference": "Condition/972edab5-688f-4655-bcdc-d49c94eff4b1",
+        "description": "Microalbuminuria due to type 2 diabetes mellitus (disorder)"
+      },
+      {
+        "reference": "Condition/972edab5-688f-4655-3f10-1c56680407f5",
+        "description": "Proteinuria due to type 2 diabetes mellitus (disorder)"
+      },
+      {
+        "reference": "MedicationRequest/972edab5-688f-4655-45dd-960c9dbfe2ed",
+        "description": "insulin isophane, human 70 UNT/ML / insulin, regular, human 30 UNT/ML Injectable Suspension [Humulin]"
+      }
+    ]
+  },
+  {
+    "patient_synthea_id": "972edab5-688f-4655-53bc-e2310fcab161",
+    "patient_name": "Johnnie679 Will178 Robel940",
+    "gap_type": "uncontrolled_bp_despite_therapy",
+    "rationale": "On antihypertensive therapy, latest BP 138/91 on 2026-03-01 still >= 140/90.",
+    "evidence": [
+      {
+        "reference": "Condition/972edab5-688f-4655-0873-213d019a5034",
+        "description": "Essential hypertension (disorder)"
+      },
+      {
+        "reference": "MedicationRequest/972edab5-688f-4655-69f3-e9f9d0a46211",
+        "description": "Hydrochlorothiazide 25 MG Oral Tablet"
+      },
+      {
+        "reference": "Observation/972edab5-688f-4655-7304-3f56bcd50ba9",
+        "description": "BP 138/91 mmHg on 2026-03-01"
+      }
+    ]
+  },
+  {
+    "patient_synthea_id": "972edab5-688f-4655-53bc-e2310fcab161",
+    "patient_name": "Johnnie679 Will178 Robel940",
+    "gap_type": "missing_colorectal_screening",
+    "rationale": "Age 56, no colorectal cancer screening within the applicable interval.",
+    "evidence": []
+  },
+  {
+    "patient_synthea_id": "3e38caf6-6115-cb49-ca5e-f9783fc37d21",
+    "patient_name": "Jonathon205 Warren653 Fisher429",
+    "gap_type": "uncontrolled_bp_despite_therapy",
+    "rationale": "On antihypertensive therapy, latest BP 139/92 on 2025-12-14 still >= 140/90.",
+    "evidence": [
+      {
+        "reference": "Condition/3e38caf6-6115-cb49-acd4-678fcc1348cb",
+        "description": "Essential hypertension (disorder)"
+      },
+      {
+        "reference": "MedicationRequest/3e38caf6-6115-cb49-91e4-ca2ab9ff99f8",
+        "description": "lisinopril 10 MG Oral Tablet"
+      },
+      {
+        "reference": "Observation/3e38caf6-6115-cb49-f82f-14491d108601",
+        "description": "BP 139/92 mmHg on 2025-12-14"
+      }
+    ]
+  },
+  {
+    "patient_synthea_id": "3e38caf6-6115-cb49-ca5e-f9783fc37d21",
+    "patient_name": "Jonathon205 Warren653 Fisher429",
+    "gap_type": "missing_colorectal_screening",
+    "rationale": "Age 68, no colorectal cancer screening within the applicable interval.",
+    "evidence": []
+  },
+  {
+    "patient_synthea_id": "b24a3609-5e68-3193-1028-70abeeb6e25e",
+    "patient_name": "Juan88 Maynard46 Harber290",
+    "gap_type": "missing_colorectal_screening",
+    "rationale": "Age 48, no colorectal cancer screening within the applicable interval.",
+    "evidence": []
+  },
+  {
+    "patient_synthea_id": "18c82dfe-5f2e-bc65-5f5d-e9db8676bafc",
+    "patient_name": "Judson999 Dorian295 Nitzsche158",
+    "gap_type": "diabetic_missing_eye_exam",
+    "rationale": "Diabetic, age 74, no retinal eye exam on or after 2025-09-10.",
+    "evidence": [
+      {
+        "reference": "Condition/18c82dfe-5f2e-bc65-c084-264a63a9f555",
+        "description": "Disorder of kidney due to diabetes mellitus (disorder)"
+      },
+      {
+        "reference": "Condition/18c82dfe-5f2e-bc65-c34e-905d72b48682",
+        "description": "Microalbuminuria due to type 2 diabetes mellitus (disorder)"
+      },
+      {
+        "reference": "MedicationRequest/18c82dfe-5f2e-bc65-a6ad-da0eb23537c8",
+        "description": "insulin isophane, human 70 UNT/ML / insulin, regular, human 30 UNT/ML Injectable Suspension [Humulin]"
+      }
+    ]
+  },
+  {
+    "patient_synthea_id": "7bb6bedc-a7c8-86c1-7549-a06b38c80e05",
+    "patient_name": "Kandra693 Sauer652",
+    "gap_type": "diabetic_missing_hba1c",
+    "rationale": "Diabetic, age 70, no HbA1c result on or after 2026-03-10.",
+    "evidence": [
+      {
+        "reference": "Condition/7bb6bedc-a7c8-86c1-718c-696dc4f10fb2",
+        "description": "Disorder of kidney due to diabetes mellitus (disorder)"
+      }
+    ]
+  },
+  {
+    "patient_synthea_id": "7bb6bedc-a7c8-86c1-7549-a06b38c80e05",
+    "patient_name": "Kandra693 Sauer652",
+    "gap_type": "diabetic_missing_eye_exam",
+    "rationale": "Diabetic, age 70, no retinal eye exam on or after 2025-09-10.",
+    "evidence": [
+      {
+        "reference": "Condition/7bb6bedc-a7c8-86c1-718c-696dc4f10fb2",
+        "description": "Disorder of kidney due to diabetes mellitus (disorder)"
+      }
+    ]
+  },
+  {
+    "patient_synthea_id": "7bb6bedc-a7c8-86c1-7549-a06b38c80e05",
+    "patient_name": "Kandra693 Sauer652",
+    "gap_type": "missing_colorectal_screening",
+    "rationale": "Age 70, no colorectal cancer screening within the applicable interval.",
+    "evidence": []
+  },
+  {
+    "patient_synthea_id": "9d1e2f36-f55a-4cd7-696e-ec5429c55b40",
+    "patient_name": "Karyl215 Rice937",
+    "gap_type": "missing_colorectal_screening",
+    "rationale": "Age 59, no colorectal cancer screening within the applicable interval.",
+    "evidence": []
+  },
+  {
+    "patient_synthea_id": "e0292e35-2827-50c4-942e-de53d1353842",
+    "patient_name": "Kristi306 Moriah648 Kassulke119",
+    "gap_type": "missing_colorectal_screening",
+    "rationale": "Age 49, no colorectal cancer screening within the applicable interval.",
+    "evidence": []
+  },
+  {
+    "patient_synthea_id": "4e0efaa3-b883-b5f2-3268-45de406cabeb",
+    "patient_name": "Malcolm243 Lupe126 Barton704",
+    "gap_type": "diabetic_missing_eye_exam",
+    "rationale": "Diabetic, age 53, no retinal eye exam on or after 2025-09-10.",
+    "evidence": [
+      {
+        "reference": "Condition/4e0efaa3-b883-b5f2-415d-da0d3629e799",
+        "description": "Disorder of kidney due to diabetes mellitus (disorder)"
+      },
+      {
+        "reference": "Condition/4e0efaa3-b883-b5f2-ac2b-66b7671c4c96",
+        "description": "Microalbuminuria due to type 2 diabetes mellitus (disorder)"
+      },
+      {
+        "reference": "Condition/4e0efaa3-b883-b5f2-c76f-a21708aad6cc",
+        "description": "Proteinuria due to type 2 diabetes mellitus (disorder)"
+      },
+      {
+        "reference": "MedicationRequest/4e0efaa3-b883-b5f2-0808-e0255ad69d20",
+        "description": "insulin isophane, human 70 UNT/ML / insulin, regular, human 30 UNT/ML Injectable Suspension [Humulin]"
+      }
+    ]
+  },
+  {
+    "patient_synthea_id": "4e0efaa3-b883-b5f2-3268-45de406cabeb",
+    "patient_name": "Malcolm243 Lupe126 Barton704",
+    "gap_type": "uncontrolled_bp_despite_therapy",
+    "rationale": "On antihypertensive therapy, latest BP 156/95 on 2026-05-13 still >= 140/90.",
+    "evidence": [
+      {
+        "reference": "Condition/4e0efaa3-b883-b5f2-2d57-be07a047d999",
+        "description": "Essential hypertension (disorder)"
+      },
+      {
+        "reference": "MedicationRequest/4e0efaa3-b883-b5f2-3ffe-b3f8fdf45a42",
+        "description": "Hydrochlorothiazide 25 MG Oral Tablet"
+      },
+      {
+        "reference": "Observation/4e0efaa3-b883-b5f2-3fb1-8bccc94ee071",
+        "description": "BP 156/95 mmHg on 2026-05-13"
+      }
+    ]
+  },
+  {
+    "patient_synthea_id": "a14cd11c-c04d-270e-2e31-3061dc85c9a1",
+    "patient_name": "Marc757 Roberto515 Gusikowski974",
+    "gap_type": "diabetic_missing_hba1c",
+    "rationale": "Diabetic, age 56, no HbA1c result on or after 2026-03-10.",
+    "evidence": [
+      {
+        "reference": "Condition/a14cd11c-c04d-270e-a7b1-d456af49a7b9",
+        "description": "Disorder of kidney due to diabetes mellitus (disorder)"
+      },
+      {
+        "reference": "Condition/a14cd11c-c04d-270e-c5cc-c33fedc839fb",
+        "description": "Microalbuminuria due to type 2 diabetes mellitus (disorder)"
+      },
+      {
+        "reference": "Condition/a14cd11c-c04d-270e-e022-e03a562d524d",
+        "description": "Proteinuria due to type 2 diabetes mellitus (disorder)"
+      }
+    ]
+  },
+  {
+    "patient_synthea_id": "a14cd11c-c04d-270e-2e31-3061dc85c9a1",
+    "patient_name": "Marc757 Roberto515 Gusikowski974",
+    "gap_type": "diabetic_missing_eye_exam",
+    "rationale": "Diabetic, age 56, no retinal eye exam on or after 2025-09-10.",
+    "evidence": [
+      {
+        "reference": "Condition/a14cd11c-c04d-270e-a7b1-d456af49a7b9",
+        "description": "Disorder of kidney due to diabetes mellitus (disorder)"
+      },
+      {
+        "reference": "Condition/a14cd11c-c04d-270e-c5cc-c33fedc839fb",
+        "description": "Microalbuminuria due to type 2 diabetes mellitus (disorder)"
+      },
+      {
+        "reference": "Condition/a14cd11c-c04d-270e-e022-e03a562d524d",
+        "description": "Proteinuria due to type 2 diabetes mellitus (disorder)"
+      }
+    ]
+  },
+  {
+    "patient_synthea_id": "7c855ba0-5b6a-8a64-34a2-a79b2f80ea5c",
+    "patient_name": "Margart214 Ruby458 Jacobs452",
+    "gap_type": "missing_colorectal_screening",
+    "rationale": "Age 47, no colorectal cancer screening within the applicable interval.",
+    "evidence": []
+  },
+  {
+    "patient_synthea_id": "a3026d97-abfc-ca7c-7ebb-f89e757e7181",
+    "patient_name": "Mi492 Johnnie679 Zemlak964",
+    "gap_type": "uncontrolled_bp_despite_therapy",
+    "rationale": "On antihypertensive therapy, latest BP 141/106 on 2025-12-12 still >= 140/90.",
+    "evidence": [
+      {
+        "reference": "Condition/a3026d97-abfc-ca7c-bc5b-974a26e48957",
+        "description": "Essential hypertension (disorder)"
+      },
+      {
+        "reference": "MedicationRequest/a3026d97-abfc-ca7c-4ea5-76d6af8590f2",
+        "description": "amLODIPine 2.5 MG Oral Tablet"
+      },
+      {
+        "reference": "Observation/a3026d97-abfc-ca7c-3f21-fd9f6b651aaa",
+        "description": "BP 141/106 mmHg on 2025-12-12"
+      }
+    ]
+  },
+  {
+    "patient_synthea_id": "227847f9-2643-582d-9504-92712d598c1a",
+    "patient_name": "Nicolasa738 Ernser583",
+    "gap_type": "diabetic_missing_hba1c",
+    "rationale": "Diabetic, age 35, no HbA1c result on or after 2026-03-10.",
+    "evidence": [
+      {
+        "reference": "Condition/227847f9-2643-582d-31e9-22987f76284f",
+        "description": "Disorder of kidney due to diabetes mellitus (disorder)"
+      },
+      {
+        "reference": "Condition/227847f9-2643-582d-a590-7dc757f27ea3",
+        "description": "Microalbuminuria due to type 2 diabetes mellitus (disorder)"
+      },
+      {
+        "reference": "Condition/227847f9-2643-582d-a2c7-b1d44dbb71b1",
+        "description": "Proteinuria due to type 2 diabetes mellitus (disorder)"
+      }
+    ]
+  },
+  {
+    "patient_synthea_id": "227847f9-2643-582d-9504-92712d598c1a",
+    "patient_name": "Nicolasa738 Ernser583",
+    "gap_type": "diabetic_missing_eye_exam",
+    "rationale": "Diabetic, age 35, no retinal eye exam on or after 2025-09-10.",
+    "evidence": [
+      {
+        "reference": "Condition/227847f9-2643-582d-31e9-22987f76284f",
+        "description": "Disorder of kidney due to diabetes mellitus (disorder)"
+      },
+      {
+        "reference": "Condition/227847f9-2643-582d-a590-7dc757f27ea3",
+        "description": "Microalbuminuria due to type 2 diabetes mellitus (disorder)"
+      },
+      {
+        "reference": "Condition/227847f9-2643-582d-a2c7-b1d44dbb71b1",
+        "description": "Proteinuria due to type 2 diabetes mellitus (disorder)"
+      }
+    ]
+  },
+  {
+    "patient_synthea_id": "068d4d23-0976-3b1b-7e25-9976aca6e447",
+    "patient_name": "Oren284 Nolan344",
+    "gap_type": "uncontrolled_bp_despite_therapy",
+    "rationale": "On antihypertensive therapy, latest BP 119/100 on 2025-12-13 still >= 140/90.",
+    "evidence": [
+      {
+        "reference": "Condition/068d4d23-0976-3b1b-7fe3-612a95b4f600",
+        "description": "Essential hypertension (disorder)"
+      },
+      {
+        "reference": "MedicationRequest/068d4d23-0976-3b1b-9c6d-2f8cc89bd625",
+        "description": "amLODIPine 2.5 MG Oral Tablet"
+      },
+      {
+        "reference": "Observation/068d4d23-0976-3b1b-db97-3f1e76a9c915",
+        "description": "BP 119/100 mmHg on 2025-12-13"
+      }
+    ]
+  },
+  {
+    "patient_synthea_id": "068d4d23-0976-3b1b-7e25-9976aca6e447",
+    "patient_name": "Oren284 Nolan344",
+    "gap_type": "missing_colorectal_screening",
+    "rationale": "Age 47, no colorectal cancer screening within the applicable interval.",
+    "evidence": []
+  },
+  {
+    "patient_synthea_id": "e5f79727-eb7b-4361-533d-1e93327dbca3",
+    "patient_name": "Phil587 Ernser583",
+    "gap_type": "missing_colorectal_screening",
+    "rationale": "Age 55, no colorectal cancer screening within the applicable interval.",
+    "evidence": []
+  },
+  {
+    "patient_synthea_id": "0ae218fd-8929-81e0-92e8-0feba46a39a6",
+    "patient_name": "Quincy153 Duncan491 Will178",
+    "gap_type": "missing_colorectal_screening",
+    "rationale": "Age 67, no colorectal cancer screening within the applicable interval.",
+    "evidence": []
+  },
+  {
+    "patient_synthea_id": "36d174e1-6a7d-afb2-5e23-399a1a21167f",
+    "patient_name": "Rashad361 German382 Gulgowski816",
+    "gap_type": "diabetic_missing_hba1c",
+    "rationale": "Diabetic, age 46, no HbA1c result on or after 2026-03-10.",
+    "evidence": [
+      {
+        "reference": "Condition/36d174e1-6a7d-afb2-a9bf-7f45fca1d24d",
+        "description": "Disorder of kidney due to diabetes mellitus (disorder)"
+      }
+    ]
+  },
+  {
+    "patient_synthea_id": "36d174e1-6a7d-afb2-5e23-399a1a21167f",
+    "patient_name": "Rashad361 German382 Gulgowski816",
+    "gap_type": "diabetic_missing_eye_exam",
+    "rationale": "Diabetic, age 46, no retinal eye exam on or after 2025-09-10.",
+    "evidence": [
+      {
+        "reference": "Condition/36d174e1-6a7d-afb2-a9bf-7f45fca1d24d",
+        "description": "Disorder of kidney due to diabetes mellitus (disorder)"
+      }
+    ]
+  },
+  {
+    "patient_synthea_id": "36d174e1-6a7d-afb2-5e23-399a1a21167f",
+    "patient_name": "Rashad361 German382 Gulgowski816",
+    "gap_type": "uncontrolled_bp_despite_therapy",
+    "rationale": "On antihypertensive therapy, latest BP 131/99 on 2026-04-22 still >= 140/90.",
+    "evidence": [
+      {
+        "reference": "Condition/36d174e1-6a7d-afb2-4ec6-282750ef5e7d",
+        "description": "Essential hypertension (disorder)"
+      },
+      {
+        "reference": "MedicationRequest/36d174e1-6a7d-afb2-4a53-2bbdb0eaf133",
+        "description": "Hydrochlorothiazide 25 MG Oral Tablet"
+      },
+      {
+        "reference": "Observation/36d174e1-6a7d-afb2-31fa-f09fff43b1ad",
+        "description": "BP 131/99 mmHg on 2026-04-22"
+      }
+    ]
+  },
+  {
+    "patient_synthea_id": "36d174e1-6a7d-afb2-5e23-399a1a21167f",
+    "patient_name": "Rashad361 German382 Gulgowski816",
+    "gap_type": "missing_colorectal_screening",
+    "rationale": "Age 46, no colorectal cancer screening within the applicable interval.",
+    "evidence": []
+  },
+  {
+    "patient_synthea_id": "56009e3b-52bd-132d-d132-95d8435ea2d6",
+    "patient_name": "Reena181 Sudie246 Barton704",
+    "gap_type": "missing_colorectal_screening",
+    "rationale": "Age 55, no colorectal cancer screening within the applicable interval.",
+    "evidence": []
+  },
+  {
+    "patient_synthea_id": "5d8f32f8-c09d-db67-1018-2af0da35e957",
+    "patient_name": "Scarlet110 Veronika907 Kuphal363",
+    "gap_type": "missing_colorectal_screening",
+    "rationale": "Age 67, no colorectal cancer screening within the applicable interval.",
+    "evidence": []
+  },
+  {
+    "patient_synthea_id": "c9a2a14b-dc3b-2f03-796e-7573675988e9",
+    "patient_name": "Tashina114 Schoen8",
+    "gap_type": "uncontrolled_bp_despite_therapy",
+    "rationale": "On antihypertensive therapy, latest BP 153/88 on 2026-08-15 still >= 140/90.",
+    "evidence": [
+      {
+        "reference": "Condition/c9a2a14b-dc3b-2f03-98b0-bb1f2ade9a56",
+        "description": "Essential hypertension (disorder)"
+      },
+      {
+        "reference": "MedicationRequest/c9a2a14b-dc3b-2f03-efaf-e6171d8ef95a",
+        "description": "losartan potassium 25 MG Oral Tablet"
+      },
+      {
+        "reference": "Observation/c9a2a14b-dc3b-2f03-44a7-76bbd0c72d4c",
+        "description": "BP 153/88 mmHg on 2026-08-15"
+      }
+    ]
+  },
+  {
+    "patient_synthea_id": "edc50674-550f-7366-1dbb-19b09a4b3bf3",
+    "patient_name": "Todd315 Stuart913 Hansen121",
+    "gap_type": "missing_colorectal_screening",
+    "rationale": "Age 54, no colorectal cancer screening within the applicable interval.",
+    "evidence": []
+  },
+  {
+    "patient_synthea_id": "f7c5c301-4bf5-91a0-1e7c-df671787d1f1",
+    "patient_name": "Warner493 Nolan344",
+    "gap_type": "diabetic_missing_hba1c",
+    "rationale": "Diabetic, age 42, no HbA1c result on or after 2026-03-10.",
+    "evidence": [
+      {
+        "reference": "Condition/f7c5c301-4bf5-91a0-9e08-77586d5d47c1",
+        "description": "Disorder of kidney due to diabetes mellitus (disorder)"
+      },
+      {
+        "reference": "Condition/f7c5c301-4bf5-91a0-1bff-ea37c1d2709d",
+        "description": "Microalbuminuria due to type 2 diabetes mellitus (disorder)"
+      }
+    ]
+  },
+  {
+    "patient_synthea_id": "f7c5c301-4bf5-91a0-1e7c-df671787d1f1",
+    "patient_name": "Warner493 Nolan344",
+    "gap_type": "diabetic_missing_eye_exam",
+    "rationale": "Diabetic, age 42, no retinal eye exam on or after 2025-09-10.",
+    "evidence": [
+      {
+        "reference": "Condition/f7c5c301-4bf5-91a0-9e08-77586d5d47c1",
+        "description": "Disorder of kidney due to diabetes mellitus (disorder)"
+      },
+      {
+        "reference": "Condition/f7c5c301-4bf5-91a0-1bff-ea37c1d2709d",
+        "description": "Microalbuminuria due to type 2 diabetes mellitus (disorder)"
+      }
+    ]
+  },
+  {
+    "patient_synthea_id": "308951c9-3402-979a-ad0b-cccb1a853427",
+    "patient_name": "Werner409 Darnell564 Wintheiser220",
+    "gap_type": "missing_colorectal_screening",
+    "rationale": "Age 46, no colorectal cancer screening within the applicable interval.",
+    "evidence": []
+  },
+  {
+    "patient_synthea_id": "c7c84c4c-c94b-6f55-329e-2bf3bacf74b1",
+    "patient_name": "Willian804 Rene434 Emmerich580",
+    "gap_type": "missing_colorectal_screening",
+    "rationale": "Age 50, no colorectal cancer screening within the applicable interval.",
+    "evidence": []
+  }
+]

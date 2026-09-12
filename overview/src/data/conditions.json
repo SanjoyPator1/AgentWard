@@ -1,0 +1,167 @@
+{
+  "cohortTotal": 7002,
+  "cohortTagCounts": {
+    "finding": 3079,
+    "disorder": 2325,
+    "situation": 1533,
+    "morphologic abnormality": 52,
+    "untagged": 8,
+    "person": 5
+  },
+  "example": {
+    "patientFile": "Adrienne302_Halvorson124_d82e9b33-5c3a-bf38-8c14-b74d13c6e016.json",
+    "patientName": "Adrienne302 Halvorson124",
+    "totalAllConditions": 73,
+    "totalActive": 21,
+    "totalRealProblems": 11,
+    "conditions": [
+      {
+        "id": "d82e9b33-5c3a-bf38-235f-ad7c86107748",
+        "text": "Risk activity involvement (finding)",
+        "tag": "finding",
+        "isRealProblem": false,
+        "onsetDate": "1973-09-04T12:22:36+00:00"
+      },
+      {
+        "id": "d82e9b33-5c3a-bf38-f7e9-5ea5bdddf6cb",
+        "text": "Received higher education (finding)",
+        "tag": "finding",
+        "isRealProblem": false,
+        "onsetDate": "1974-09-10T11:49:03+00:00"
+      },
+      {
+        "id": "d82e9b33-5c3a-bf38-e54d-1fb3cd6cb36a",
+        "text": "Past pregnancy history of miscarriage (situation)",
+        "tag": "situation",
+        "isRealProblem": false,
+        "onsetDate": "1976-01-21T10:49:22+00:00"
+      },
+      {
+        "id": "d82e9b33-5c3a-bf38-aec5-2aeef28c8673",
+        "text": "Has a criminal record (finding)",
+        "tag": "finding",
+        "isRealProblem": false,
+        "onsetDate": "1987-09-29T11:30:59+00:00"
+      },
+      {
+        "id": "d82e9b33-5c3a-bf38-2d9c-c775ddd25d23",
+        "text": "Sleep disorder (disorder)",
+        "tag": "disorder",
+        "isRealProblem": true,
+        "onsetDate": "1997-07-07T10:49:22+00:00"
+      },
+      {
+        "id": "d82e9b33-5c3a-bf38-42c2-16d1936d19a1",
+        "text": "Obstructive sleep apnea syndrome (disorder)",
+        "tag": "disorder",
+        "isRealProblem": true,
+        "onsetDate": "1997-07-30T20:32:23+00:00"
+      },
+      {
+        "id": "d82e9b33-5c3a-bf38-9ed1-059286de0249",
+        "text": "Chronic obstructive bronchitis (disorder)",
+        "tag": "disorder",
+        "isRealProblem": true,
+        "onsetDate": "1998-07-28T10:49:22+00:00"
+      },
+      {
+        "id": "d82e9b33-5c3a-bf38-4911-66727b455b2f",
+        "text": "Essential hypertension (disorder)",
+        "tag": "disorder",
+        "isRealProblem": true,
+        "onsetDate": "1998-07-28T10:49:22+00:00"
+      },
+      {
+        "id": "d82e9b33-5c3a-bf38-a273-07818faa93f6",
+        "text": "Localized, primary osteoarthritis of the hand (disorder)",
+        "tag": "disorder",
+        "isRealProblem": true,
+        "onsetDate": "2008-06-30T10:49:22+00:00"
+      },
+      {
+        "id": "d82e9b33-5c3a-bf38-9ed1-a9a23cb5ec6c",
+        "text": "Prediabetes (finding)",
+        "tag": "finding",
+        "isRealProblem": false,
+        "onsetDate": "2008-09-23T10:49:22+00:00"
+      },
+      {
+        "id": "d82e9b33-5c3a-bf38-a017-10260e3bdb0d",
+        "text": "Chronic congestive heart failure (disorder)",
+        "tag": "disorder",
+        "isRealProblem": true,
+        "onsetDate": "2009-01-27T10:49:22+00:00"
+      },
+      {
+        "id": "d82e9b33-5c3a-bf38-e99f-5c3e07017d7f",
+        "text": "Chronic kidney disease stage 2 (disorder)",
+        "tag": "disorder",
+        "isRealProblem": true,
+        "onsetDate": "2010-06-15T10:49:22+00:00"
+      },
+      {
+        "id": "d82e9b33-5c3a-bf38-41ae-96482b24c47d",
+        "text": "Disorder of kidney due to diabetes mellitus (disorder)",
+        "tag": "disorder",
+        "isRealProblem": true,
+        "onsetDate": "2010-06-15T10:49:22+00:00"
+      },
+      {
+        "id": "d82e9b33-5c3a-bf38-22af-d43d294fe363",
+        "text": "Microalbuminuria due to type 2 diabetes mellitus (disorder)",
+        "tag": "disorder",
+        "isRealProblem": true,
+        "onsetDate": "2010-06-15T10:49:22+00:00"
+      },
+      {
+        "id": "d82e9b33-5c3a-bf38-e096-08b8b341c959",
+        "text": "Chronic kidney disease stage 3 (disorder)",
+        "tag": "disorder",
+        "isRealProblem": true,
+        "onsetDate": "2013-06-04T10:49:22+00:00"
+      },
+      {
+        "id": "d82e9b33-5c3a-bf38-cb58-9ffa4e58f30b",
+        "text": "Proteinuria due to type 2 diabetes mellitus (disorder)",
+        "tag": "disorder",
+        "isRealProblem": true,
+        "onsetDate": "2013-06-04T10:49:22+00:00"
+      },
+      {
+        "id": "d82e9b33-5c3a-bf38-bddd-49582b7a101f",
+        "text": "Stress (finding)",
+        "tag": "finding",
+        "isRealProblem": false,
+        "onsetDate": "2013-07-02T11:44:57+00:00"
+      },
+      {
+        "id": "d82e9b33-5c3a-bf38-8497-51ad1011da9e",
+        "text": "Full-time employment (finding)",
+        "tag": "finding",
+        "isRealProblem": false,
+        "onsetDate": "2013-08-27T11:48:33+00:00"
+      },
+      {
+        "id": "d82e9b33-5c3a-bf38-3a6a-68def8fd7aa1",
+        "text": "Medication review due (situation)",
+        "tag": "situation",
+        "isRealProblem": false,
+        "onsetDate": "2013-10-22T10:49:22+00:00"
+      },
+      {
+        "id": "d82e9b33-5c3a-bf38-f3ae-ccf956907c11",
+        "text": "Limited social contact (finding)",
+        "tag": "finding",
+        "isRealProblem": false,
+        "onsetDate": "2013-11-26T11:31:09+00:00"
+      },
+      {
+        "id": "d82e9b33-5c3a-bf38-2e6a-68e15ac441f0",
+        "text": "Reports of violence in the environment (finding)",
+        "tag": "finding",
+        "isRealProblem": false,
+        "onsetDate": "2013-11-26T11:31:09+00:00"
+      }
+    ]
+  }
+}
