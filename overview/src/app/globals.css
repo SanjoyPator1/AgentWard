@@ -1,0 +1,159 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+  --font-mono: var(--font-mono);
+  --font-hand: var(--font-hand);
+  --font-heading: var(--font-serif);
+
+  --color-paper: var(--paper);
+  --color-paper-soft: var(--paper-soft);
+  --color-paper-deep: var(--paper-deep);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-brand: var(--brand);
+  --color-brand-dark: var(--brand-dark);
+  --color-brand-soft: var(--brand-soft);
+  --color-flag: var(--flag);
+  --color-flag-dark: var(--flag-dark);
+  --color-flag-soft: var(--flag-soft);
+  --color-note: var(--note);
+  --color-note-tape: var(--note-tape);
+  --color-line: var(--line);
+
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  /* clinical paper + ward palette: quiet, legible, not another purple-blue
+     AI gradient. brand = deep chart-room teal (trust, the substrate).
+     flag = a warm clay/rust reserved for care-gap evidence and alerts. */
+  --paper: oklch(0.984 0.004 95);
+  --paper-soft: oklch(0.996 0.002 95);
+  --paper-deep: oklch(0.955 0.008 150);
+  --ink: oklch(0.24 0.025 235);
+  --ink-soft: oklch(0.42 0.02 235);
+  --ink-faint: oklch(0.6 0.015 235);
+  --brand: oklch(0.44 0.075 195);
+  --brand-dark: oklch(0.33 0.07 195);
+  --brand-soft: oklch(0.93 0.03 190);
+  --flag: oklch(0.58 0.14 45);
+  --flag-dark: oklch(0.46 0.13 40);
+  --flag-soft: oklch(0.92 0.05 55);
+  --note: oklch(0.92 0.075 95);
+  --note-tape: oklch(0.86 0.06 85);
+  --line: oklch(0.89 0.012 190);
+
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: var(--paper-soft);
+  --card-foreground: var(--ink);
+  --popover: var(--paper-soft);
+  --popover-foreground: var(--ink);
+  --primary: var(--brand);
+  --primary-foreground: oklch(0.98 0.006 190);
+  --secondary: var(--paper-deep);
+  --secondary-foreground: var(--ink);
+  --muted: var(--paper-deep);
+  --muted-foreground: var(--ink-soft);
+  --accent: var(--brand-soft);
+  --accent-foreground: var(--brand-dark);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: var(--line);
+  --input: var(--line);
+  --ring: var(--brand);
+  --chart-1: var(--brand);
+  --chart-2: var(--flag);
+  --chart-3: var(--ink-soft);
+  --chart-4: oklch(0.6 0.06 190);
+  --chart-5: oklch(0.4 0.04 235);
+  --radius: 0.7rem;
+  --sidebar: var(--paper-soft);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--brand);
+  --sidebar-primary-foreground: oklch(0.98 0.006 190);
+  --sidebar-accent: var(--brand-soft);
+  --sidebar-accent-foreground: var(--brand-dark);
+  --sidebar-border: var(--line);
+  --sidebar-ring: var(--brand);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-paper text-ink;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+@layer utilities {
+  .paper-grain {
+    background-image:
+      radial-gradient(oklch(0.5 0.02 55 / 0.06) 1px, transparent 1px);
+    background-size: 3px 3px;
+  }
+
+  .washi-tape {
+    background: repeating-linear-gradient(
+      135deg,
+      var(--note-tape),
+      var(--note-tape) 6px,
+      oklch(0.88 0.07 68) 6px,
+      oklch(0.88 0.07 68) 12px
+    );
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+}
