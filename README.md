@@ -44,7 +44,7 @@ above.
 ## Status
 
 Substrate working end to end. Synthea generates patients, HAPI FHIR holds them
-(214 loaded and verified), and fhir-mcp exposes them as MCP tools an agent can
+(217 loaded and verified), and fhir-mcp exposes them as MCP tools an agent can
 call. The tool layer is Level 1 only so far, read-only, thin passthrough over
 the FHIR API.
 

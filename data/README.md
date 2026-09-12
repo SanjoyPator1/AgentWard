@@ -25,10 +25,15 @@ Pinned to Synthea `v4.0.0` (set in `substrate/synthea/Dockerfile`).
 
 | Label | Seed | Population | Synthea version | Purpose |
 |---|---|---|---|---|
-| seed-1000-n200 | 1000 | 200 | v4.0.0 | first substrate smoke test, 214 patients (200 alive). Verified: valid FHIR bundles, 63 diabetes, 37 hypertension, 13 CKD cases |
+| seed-1000-n200 | 1000 | 200 | v4.0.0 | first substrate smoke test, 217 patients (200 alive, 17 deceased). Re-verified 2026-09-10 against the loaded server: 9 type-2 diabetes, 40 essential hypertension, 20 CKD (any stage) patients |
 
 Add a row here every time a dataset actually gets generated, so any of them
 can be reproduced later without guessing which seed made which folder.
+
+**Population is not the patient count.** Synthea's `-p` asks for that many
+*living* patients and emits deceased ones on top, so `-p 200` produced 217
+bundles here. The authoritative count for a run is `patientCount` in that run's
+`metadata/*.json`, not the number passed on the command line.
 
 ## What's inside each `synthea_output/<label>/fhir/` folder
 
