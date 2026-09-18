@@ -11,7 +11,7 @@ import {
   VizTooltip,
 } from "@/components/deck/parts";
 import { DotField, type DotNode, type PositionFn } from "@/components/deck/DotField";
-import { rowClusterCenter } from "@/components/deck/layouts";
+import { rowClusterCenter, packedCluster } from "@/components/deck/layouts";
 import type { CohortData, CohortPatient } from "@/lib/viz-types";
 import type { SlideProps } from "@/lib/slide-types";
 import cohortDataRaw from "@/data/cohort.json";
@@ -37,7 +37,10 @@ const nodes: DotNode[] = data.patients.map((p) => ({
 }));
 
 function stageLayout(step: number): PositionFn {
-  return (_node, _i, _nodes, width, height) => rowClusterCenter(step, STAGES.length, width, height, height * (BAND_Y / 220));
+  return (node, i, nodes, width, height) => {
+    const center = rowClusterCenter(step, STAGES.length, width, height, height * (BAND_Y / 220));
+    return packedCluster(center.x, center.y, i, nodes.length, node.r ?? 2.6);
+  };
 }
 
 function Slide04Substrate({ step }: SlideProps) {
@@ -75,6 +78,7 @@ function Slide04Substrate({ step }: SlideProps) {
           layout={layout}
           width={900}
           height={220}
+          forceStrength={0.09}
           ariaLabel={`All ${data.summary.totalPatients} patients moving through stage ${step + 1} of ${STAGES.length}: ${STAGES[step].label}`}
           renderTooltip={(node) => {
             const p = node.meta as CohortPatient;

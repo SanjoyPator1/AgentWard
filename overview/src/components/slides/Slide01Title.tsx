@@ -48,13 +48,13 @@ export default function Slide01Title(_props: SlideProps) {
 
         <p className="max-w-2xl text-base leading-relaxed text-ink-soft sm:text-lg">
           An AI agent harness for synthetic patients. A hospital ward staffed by agents is the
-          metaphor: a ward is a set of patients competing for a limited amount of attention —
+          metaphor: a ward is a set of patients competing for a limited amount of attention,
           which is what every feature here is really about.
         </p>
 
         <p className="max-w-2xl text-sm leading-relaxed text-ink-faint">
           Synthea-generated FHIR data, behind our own MCP tool layer, with every task graded by a
-          code oracle written against the same underlying data — not by a model judging its own
+          code oracle written against the same underlying data - not by a model judging its own
           homework.
         </p>
       </div>
