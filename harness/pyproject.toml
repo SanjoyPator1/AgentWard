@@ -1,0 +1,33 @@
+[project]
+name = "agentward-harness"
+version = "0.1.0"
+description = "Shared, feature-agnostic plumbing for AgentWard agents: model calling and trajectory logging"
+requires-python = ">=3.11"
+dependencies = [
+    "openai>=1.50",
+    "mcp[cli]>=2.1,<3",
+    "httpx>=0.27",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/agentward_harness"]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4",
+    "ruff>=0.14",
+]
+
+[tool.ruff]
+line-length = 100
+src = ["src"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
