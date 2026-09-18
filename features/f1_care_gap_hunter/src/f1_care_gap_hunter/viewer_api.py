@@ -20,6 +20,7 @@ import asyncio
 import json
 import logging
 import os
+from collections.abc import Awaitable, Callable
 from datetime import date
 from pathlib import Path
 from typing import Any
@@ -33,7 +34,7 @@ from pydantic import BaseModel
 from sse_starlette.sse import EventSourceResponse
 
 from .bundles import PatientRecord, load_all_patients
-from .harness.v1.chat_agent import run_chat_turn
+from .harness import CHAT_AGENTS, DEFAULT_CHAT_VERSION, get_chat_agent
 from .harness.v1.gap_agent import run_agent_on_patient
 from .patient_map import build_patient_map, load_cached_map, save_cached_map
 
@@ -56,7 +57,7 @@ _AS_OF = date.fromisoformat(os.environ.get("AGENT_AS_OF", "2026-09-10"))
 app = FastAPI(title="AgentWard F1 Viewer API")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=["http://localhost:3002"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -113,6 +114,11 @@ async def _ensure_patient_map() -> None:
 @app.get("/health")
 def health() -> dict[str, str]:
     return {"status": "ok"}
+
+
+@app.get("/harness-versions")
+def list_harness_versions() -> dict[str, Any]:
+    return {"versions": sorted(CHAT_AGENTS), "default": DEFAULT_CHAT_VERSION}
 
 
 @app.get("/patients")
@@ -197,6 +203,7 @@ class ChatRequest(BaseModel):
     messages: list[dict[str, Any]] = []
     message: str
     provider: str | None = None
+    harness_version: str | None = None
 
 
 @app.post("/chat")
@@ -206,10 +213,16 @@ async def chat(req: ChatRequest) -> EventSourceResponse:
     client to send back on the next turn - chat state lives in the browser,
     not here."""
     config = _resolve_config(req.provider)
-    return EventSourceResponse(_stream_chat(req.messages, req.message, config))
+    run_chat_turn = get_chat_agent(req.harness_version)
+    return EventSourceResponse(_stream_chat(req.messages, req.message, config, run_chat_turn))
 
 
-async def _stream_chat(messages: list[dict[str, Any]], message: str, config: ModelConfig) -> Any:
+async def _stream_chat(
+    messages: list[dict[str, Any]],
+    message: str,
+    config: ModelConfig,
+    run_chat_turn: Callable[..., Awaitable[Any]],
+) -> Any:
     events: asyncio.Queue[TrajectoryEvent | None] = asyncio.Queue()
     result_holder: dict[str, Any] = {}
     error_holder: dict[str, str] = {}
