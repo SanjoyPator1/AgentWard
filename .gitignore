@@ -3,6 +3,9 @@ self-docs
 # generated data, never committed, see data/README.md
 data/synthea_output/
 
+# eval/agent run output: trajectories, checkpoints, chat dumps - never committed
+features/f1_care_gap_hunter/runs/
+
 # python
 __pycache__/
 *.pyc
@@ -17,3 +20,6 @@ __pycache__/
 # macOS
 .DS_Store
 .claude
+
+# impeccable design skill state (per-project, machine-local)
+.impeccable/

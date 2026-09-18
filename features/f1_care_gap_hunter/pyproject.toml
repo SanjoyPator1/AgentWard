@@ -1,9 +1,17 @@
 [project]
 name = "f1-care-gap-hunter"
 version = "0.1.0"
-description = "F1: the care gap oracle, and later the agent it grades, for AgentWard"
+description = "F1: the care gap oracle, the agent it grades, and the viewer to watch it work"
 requires-python = ">=3.11"
-dependencies = []
+dependencies = [
+    "agentward-harness",
+    "mcp[cli]>=2.1,<3",
+    "fastapi>=0.115",
+    "sse-starlette>=2.1",
+    "uvicorn[standard]>=0.30",
+    "python-dotenv>=1.0",
+    "httpx>=0.27",
+]
 
 [build-system]
 requires = ["hatchling"]
@@ -12,9 +20,13 @@ build-backend = "hatchling.build"
 [tool.hatch.build.targets.wheel]
 packages = ["src/f1_care_gap_hunter"]
 
+[tool.uv.sources]
+agentward-harness = { path = "../../harness", editable = true }
+
 [dependency-groups]
 dev = [
     "pytest>=8.4",
+    "pytest-asyncio>=0.24",
     "ruff>=0.14",
 ]
 
@@ -27,3 +39,4 @@ select = ["E", "F", "I", "UP", "B"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+asyncio_mode = "auto"
