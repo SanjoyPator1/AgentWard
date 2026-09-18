@@ -25,7 +25,14 @@ services:
       # crash with "OutOfMemoryError: Java heap space". JAVA_TOOL_OPTIONS
       # is read directly by the JVM itself, not by an image-specific
       # script, so this works regardless of how this image launches Java.
-      JAVA_TOOL_OPTIONS: '-Xmx4g'
+      #
+      # -Xmx is a ceiling, not a reservation - the JVM only grows into what
+      # active work demands. 2g covers steady-state agent queries against
+      # already-loaded data with real headroom to spare, which keeps memory
+      # pressure down on a laptop also running a local model. Loading a large
+      # population is the one operation that needs more; raise this only for
+      # that operation if the OutOfMemoryError above recurs.
+      JAVA_TOOL_OPTIONS: '-Xmx2g'
       profiles.active: r4
       spring.datasource.url: 'jdbc:postgresql://postgres:5432/hapi'
       spring.datasource.username: hapi
