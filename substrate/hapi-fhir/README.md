@@ -31,13 +31,17 @@ schema is already broken and won't self-heal.
 ## A heap size crash you might hit
 
 Loading a batch of patients can fail partway through with
-`OutOfMemoryError: Java heap space`, seen first while still on the old H2
-setup. The image's built-in default JVM heap is small and doesn't scale up
-just because your machine has memory to spare, some Synthea patient bundles
-are tens of MB, and enough of those processed in a row can exceed it. Fixed
-here by setting `JAVA_TOOL_OPTIONS: -Xmx4g` on the hapi-fhir service. If it
-recurs at a larger population size, that's the number to raise, alongside
-checking Docker Desktop's own memory allocation actually has room for it.
+`OutOfMemoryError: Java heap space`. The image's built-in default JVM heap is
+small and doesn't scale up just because your machine has memory to spare,
+some Synthea patient bundles are tens of MB, and enough of those processed in
+a row can exceed it. Fixed by setting `JAVA_TOOL_OPTIONS: -Xmx2g` on the
+hapi-fhir service - a JVM's `-Xmx` is a ceiling it grows into, not memory
+reserved up front, and 2g is real headroom above what steady-state agent
+queries against already-loaded data need, while keeping the container's
+footprint light on a laptop also running a local model. If the
+OutOfMemoryError above recurs during a *load* (a
+larger population size, say), raise this back up for that operation - it's
+not evidence that steady-state serving needs it too.
 
 ## Starting it
 

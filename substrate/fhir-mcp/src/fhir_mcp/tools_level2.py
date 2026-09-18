@@ -294,6 +294,22 @@ class ProblemListResult(BaseModel):
     )
 
 
+def _patient_display_name(patient: dict[str, Any]) -> str | None:
+    """"Given Given Family" from a Patient's official HumanName, e.g.
+    "Aron520 Myles862 Kozey370" - Synthea's own naming convention, so this
+    matches what a caller sees anywhere else in the system that prints a
+    patient's name. None if the resource carries no name at all.
+    """
+    names = patient.get("name") or []
+    if not names:
+        return None
+    official = next((n for n in names if n.get("use") == "official"), names[0])
+    given = " ".join(official.get("given") or [])
+    family = official.get("family", "")
+    full = f"{given} {family}".strip()
+    return full or None
+
+
 def _is_disorder(condition_code: dict[str, Any] | None) -> bool:
     """True if a Condition's coded text carries SNOMED's '(disorder)' tag.
 
@@ -331,6 +347,13 @@ class CohortPatient(BaseModel):
     """One patient matching a cohort search."""
 
     reference: str = Field(description="FHIR reference to the Patient, e.g. 'Patient/2685'.")
+    name: str | None = Field(
+        description=(
+            "\"Given Given Family\" from the patient's official name, e.g. 'Aron520 Myles862 "
+            "Kozey370'. Null if the resource carries no name at all - use this instead of the "
+            "bare reference when reporting on a patient to a person."
+        )
+    )
     age: int | None = Field(
         description=(
             "Age in whole years: as of today for a living patient, as of their recorded date "
@@ -769,7 +792,14 @@ def register(mcp: MCPServer, settings: Settings) -> None:
             if max_age is not None and (age is None or age > max_age):
                 continue
 
-            patients.append(CohortPatient(reference=reference, age=age, deceased=deceased))
+            patients.append(
+                CohortPatient(
+                    reference=reference,
+                    name=_patient_display_name(patient),
+                    age=age,
+                    deceased=deceased,
+                )
+            )
 
         return CohortResult(
             code=code,

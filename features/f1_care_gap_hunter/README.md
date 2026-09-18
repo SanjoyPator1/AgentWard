@@ -3,8 +3,8 @@
 Across a cohort, find everyone overdue for care a guideline says they should
 have had, and rank the worklist with cited evidence.
 
-This folder holds the whole feature: the oracle (built), the eval set, and
-the agent it grades (both not built yet).
+This folder holds the whole feature: the oracle, the v1 agent it grades, the
+eval runner and grader, and a Next.js viewer to watch it work.
 
 ## What the oracle is, and why it comes first
 
@@ -102,12 +102,75 @@ confirmed live, resolvable via `Patient?identifier={id}` — which is what
 These evidence references are for tracing the oracle's own reasoning, not
 for an agent to dereference against the live server directly.
 
+## The agent (v1)
+
+A hand-rolled tool-calling loop (`harness/v1/loop.py`'s `SimpleToolLoop`),
+no LangGraph, no Agents SDK, deliberately, so the loop's mechanics stay
+visible rather than hidden behind a framework. One patient at a time: the
+model gets fhir-mcp's 7 read-only tools plus a local `submit_findings` tool
+and a system prompt (`harness/v1/prompts.py`) stating the same rules
+`gaps.py` encodes, including the traps that make an agent wrong even while
+searching correctly (diabetes is often implied, not diagnosed; a `null`
+count means "the server declined to count", not zero; BP values live in
+`component[]`, not `valueQuantity`, so they must go through `search_resources`
+directly rather than `get_lab_trend`).
+
+Model calls go through `agentward-harness` (`../../harness/`), which speaks
+one wire format, OpenAI's chat-completions shape, to both providers Ollama
+and Gemini expose it under, so the same agent code runs against a local
+`qwen3:8b` or a hosted Gemini model with only `.env` changing. See
+`.env.example`.
+
+## Grading
+
+`grading.py` compares only the *set* of gap types per patient, agent vs.
+oracle, never evidence references, since those live in permanently
+incomparable id spaces (Synthea UUIDs vs. whatever HAPI minted on load, see
+`patient_map.py`). It reports per gap type, never a pooled number: three
+baselines (`compute_baselines`) ship alongside every real run because an
+agent making zero clinical tool calls already reaches P=0.485 by guessing
+colorectal-by-age alone on this cohort, a real run landing near that isn't
+doing the task. See `grading.py`'s module docstring for the full reasoning
+and the exact baseline numbers.
+
+## Running it
+
+```
+uv sync
+
+# The oracle (unchanged):
+uv run python -m f1_care_gap_hunter.oracle ../../data/synthea_output/seed-1000-n200/fhir
+
+# The agent, graded, checkpointed (needs fhir-mcp running, and either
+# `ollama serve` with qwen3:8b pulled, or GEMINI_API_KEY set):
+cp .env.example .env   # then edit
+uv run python -m f1_care_gap_hunter.eval_runner --limit 10
+
+# The viewer's API:
+uv run uvicorn f1_care_gap_hunter.viewer_api:app --reload --port 8000
+```
+
+Then, in `viewer/`: `npm install && npm run dev` (Next.js, Tailwind v4,
+TypeScript) for a worklist view and a live chat with a step-by-step trace of
+every model call and tool call, MCP or local.
+
 ## Layout
 
 ```
 src/f1_care_gap_hunter/
-  bundles.py   loading raw Synthea bundles; PatientRecord, age/deceased logic
-  gaps.py      the four gap checks
-  oracle.py    runs every check across a cohort, outputs the worklist
+  bundles.py       loading raw Synthea bundles; PatientRecord, age/deceased logic
+  gaps.py          the four gap checks
+  oracle.py        runs every check across a cohort, outputs the worklist
+  harness/v1/
+    loop.py        SimpleToolLoop: the tool-calling engine, provider-agnostic
+    gap_agent.py   run_agent_on_patient() - the one reusable core
+    chat_agent.py  run_chat_turn() - conversational, uses gap_agent as a tool
+    prompts.py     the system prompts, stating the same rules gaps.py encodes
+  patient_map.py   synthea_id <-> HAPI id (the id-mismatch fix)
+  grading.py       agent vs. oracle, metrics, baselines
+  checkpoint.py    resume for long batch runs
+  eval_runner.py   CLI: run + checkpoint + grade against the oracle
+  viewer_api.py    FastAPI + SSE backend for viewer/
+viewer/            Next.js: worklist + chat, live trace
 tests/
 ```
