@@ -129,7 +129,7 @@ function Slide12F1({ step, onStepChange }: SlideProps) {
         </SlideTitle>
         <div className="flex gap-2">
           <Tag tone="brand">oracle: done</Tag>
-          <Tag tone="flag">agent: not built yet</Tag>
+          <Tag tone="brand">agent: live</Tag>
         </div>
       </div>
       <Lede>

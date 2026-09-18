@@ -15,8 +15,7 @@ export default function Slide03Synthea(_props: SlideProps) {
               </SlideTitle>
               <Lede>
                 The obvious alternative, MIMIC-IV, needs CITI training, a signed data-use
-                agreement, and a wait measured in weeks. Synthea needs one command — and the
-                published FHIR-agent literature makes the same choice, for the same reason.
+                agreement, and a wait measured in weeks. Synthea needs one command.
               </Lede>
             </div>
             <div className="flex flex-wrap items-center gap-2">

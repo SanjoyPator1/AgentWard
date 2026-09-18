@@ -19,6 +19,9 @@ export const SLIDES: SlideMeta[] = [
   { id: "oracle", section: "Evaluation", title: "Truth by Construction" },
   { id: "absence", section: "Evaluation", title: "Absence Is the Evidence" },
   { id: "f1", section: "The Agent", title: "F1 — Care Gap Hunter" },
+  { id: "agent-loop", section: "The Agent", title: "How The Chat Agent Works" },
+  { id: "agent-ask", section: "The Agent", title: "Ask A Patient, Or Ask The Cohort" },
+  { id: "agent-trace", section: "The Agent", title: "Watching It Think" },
   { id: "status", section: "Wrap-up", title: "Where We Stand" },
   { id: "explore", section: "Bonus", title: "Explore The Cohort" },
 ];

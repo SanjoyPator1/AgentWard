@@ -70,6 +70,7 @@ export function DotField({
   renderTooltip,
   className,
   ariaLabel,
+  forceStrength = 0.02,
 }: {
   nodes: DotNode[];
   layout: PositionFn;
@@ -80,6 +81,13 @@ export function DotField({
   renderTooltip?: (node: DotNode) => ReactNode;
   className?: string;
   ariaLabel: string;
+  /** How hard each dot is pulled toward its layout target. The default
+   * (0.02) settles as a slow, visible "flight" for moves within a small
+   * region (a cluster shifting to a nearby center). A layout that relocates
+   * dots across most of the canvas — e.g. a full-width band of cluster
+   * centers — needs a higher value, or the shared alpha decay stops the
+   * simulation before dots travel far enough to arrive. */
+  forceStrength?: number;
 }) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const circleRefs = useRef(new Map<string, SVGCircleElement>());
@@ -138,8 +146,8 @@ export function DotField({
       // Gentle strength + slow decay: a settle that takes a little over a
       // second and is visibly a *flight*, not a snap. Tuned to be seen, not
       // just technically present — this is a presentation, not a spinner.
-      const fx = forceX<SimNode>(xAccessor).strength(0.02);
-      const fy = forceY<SimNode>(yAccessor).strength(0.02);
+      const fx = forceX<SimNode>(xAccessor).strength(forceStrength);
+      const fy = forceY<SimNode>(yAccessor).strength(forceStrength);
       fxRef.current = fx;
       fyRef.current = fy;
       simRef.current = forceSimulation<SimNode>(simNodes)
@@ -158,8 +166,8 @@ export function DotField({
         .on("tick", draw);
     } else {
       simRef.current.nodes(simNodes);
-      fxRef.current?.x(xAccessor);
-      fyRef.current?.y(yAccessor);
+      fxRef.current?.x(xAccessor).strength(forceStrength);
+      fyRef.current?.y(yAccessor).strength(forceStrength);
     }
 
     const sim = simRef.current;
@@ -171,7 +179,7 @@ export function DotField({
     } else {
       sim.alpha(0.9).restart();
     }
-  }, [nodes, targets, width, height, reducedMotion]);
+  }, [nodes, targets, width, height, reducedMotion, forceStrength]);
 
   useEffect(() => {
     return () => {

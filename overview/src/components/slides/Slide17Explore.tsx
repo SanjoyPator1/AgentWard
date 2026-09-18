@@ -26,7 +26,7 @@ function matches(patient: CohortPatient, filters: Set<FilterKey>): boolean {
   return patient.gaps.some((g) => filters.has(g.gap_type as FilterKey));
 }
 
-export default function Slide14Explore(_props: SlideProps) {
+export default function Slide17Explore(_props: SlideProps) {
   const [active, setActive] = useState<Set<FilterKey>>(new Set());
 
   const toggle = (key: FilterKey) => {

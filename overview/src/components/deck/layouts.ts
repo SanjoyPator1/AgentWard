@@ -36,6 +36,31 @@ export function rowClusterCenter(
   return { x, y: bandY };
 }
 
+/** Deterministic packed-disk layout: places `count` dots inside a filled
+ * circle around (cx, cy), sized to fit that many dots at radius `dotR`
+ * without relying on the force simulation's collision force to resolve the
+ * overlap. Sending every node to the exact same point and letting collide
+ * sort it out produces a blob whose apparent size depends on how settled
+ * the simulation happens to be — visibly different every time a caller
+ * re-triggers it before the previous transition finished. This is the fix:
+ * the target shape itself is already a filled circle, so the blob is the
+ * same size and shape on every render, and only its center needs to move. */
+export function packedCluster(
+  cx: number,
+  cy: number,
+  index: number,
+  count: number,
+  dotR = 3
+): { x: number; y: number } {
+  const n = Math.max(count, 1);
+  const cell = (dotR + 1.4) * 2;
+  const area = n * cell * cell * 1.05;
+  const R = Math.sqrt(area / Math.PI);
+  const rNorm = Math.sqrt((index + 0.5) / n);
+  const theta = index * GOLDEN_ANGLE;
+  return { x: cx + R * rNorm * Math.cos(theta), y: cy + R * rNorm * Math.sin(theta) };
+}
+
 /** Position at the average of several named cluster centres — this is what
  * makes a dot belonging to two categories visually sit "between" them. */
 export function averagePoint(points: { x: number; y: number }[]): { x: number; y: number } {
