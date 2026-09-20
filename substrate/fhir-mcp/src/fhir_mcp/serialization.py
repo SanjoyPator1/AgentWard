@@ -5,7 +5,7 @@ is our own: how FHIR data is serialised changes what a model gets right. Every
 tool return value passes through here, so the experiment is a configuration
 change rather than an edit to twelve tool implementations.
 
-The three strategies:
+Four strategies exist. Three are handled here:
 
     nested      The resource exactly as FHIR returns it. Most faithful,
                 most tokens. The baseline everything else is measured against.
@@ -19,6 +19,12 @@ The three strategies:
 `compact` is deliberately type-agnostic. Per-resource-type projections (only
 the fields that matter for a Condition, say) belong to the Level 2 task-shaped
 tools, not to a Level 1 passthrough that must work for all ~150 resource types.
+
+The fourth, `narrative`, is NOT handled by `serialise()` below - it needs a
+whole page of same-type resources at once to group them (active vs.
+historical), not one resource shaped in isolation, so it lives in
+narrative.py and is dispatched at the tool layer before serialise() would
+otherwise be called. See narrative.py's module docstring for why.
 """
 
 from __future__ import annotations
@@ -63,8 +69,15 @@ def serialise(resource: dict[str, Any], strategy: SerialisationStrategy) -> dict
     if strategy == "compact":
         return compact(resource)
 
-    # Unreachable while Settings validates at startup, but a silent wrong
-    # answer here would corrupt an experiment result rather than fail it.
+    if strategy == "narrative":
+        raise ValueError(
+            "serialise() cannot shape a single resource as 'narrative' - it needs a whole "
+            "page at once. Callers must check for 'narrative' and call narrate() instead, "
+            "before reaching serialise(). See tools_level1.py's _bundle_to_result."
+        )
+
+    # Unreachable otherwise, but a silent wrong answer here would corrupt an
+    # experiment result rather than fail it.
     raise ValueError(f"Unknown serialisation strategy: {strategy!r}")
 
 

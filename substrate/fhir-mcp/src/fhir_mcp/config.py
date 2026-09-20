@@ -16,7 +16,12 @@ from typing import Literal, get_args
 # FHIR resource is shaped before the model sees it changes what the model gets
 # right, so the choice is configuration rather than something hardcoded inside
 # each tool.
-SerialisationStrategy = Literal["nested", "flattened", "compact"]
+#
+# `narrative` is handled separately from the other three: it needs a whole
+# page of same-type resources at once (to group active vs. historical), not
+# one resource in isolation, so it's dispatched through narrative.py rather
+# than serialization.py's serialise(). See narrative.py's module docstring.
+SerialisationStrategy = Literal["nested", "flattened", "compact", "narrative"]
 
 _VALID_STRATEGIES = get_args(SerialisationStrategy)
 
@@ -73,7 +78,7 @@ class Settings:
                 to a default and reporting an experiment result for the wrong
                 configuration.
         """
-        serialisation = os.environ.get("FHIR_MCP_SERIALISATION", "nested")
+        serialisation = os.environ.get("FHIR_MCP_SERIALISATION", "narrative")
         if serialisation not in _VALID_STRATEGIES:
             raise ValueError(
                 f"FHIR_MCP_SERIALISATION={serialisation!r} is not a known strategy. "
