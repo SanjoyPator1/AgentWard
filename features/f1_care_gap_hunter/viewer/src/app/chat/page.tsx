@@ -1,14 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Send } from "lucide-react";
 import { Nav } from "@/components/nav";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { PatientSelector } from "@/components/chat/patient-selector";
 import { MessageBubble, type ChatTurnDisplay } from "@/components/chat/message-bubble";
-import { streamSSE } from "@/lib/api";
+import { fetchHarnessVersions, streamSSE } from "@/lib/api";
 import type { ChatMessage, PatientSummary, TrajectoryEvent } from "@/lib/types";
+
+const HARNESS_VERSION_KEY = "f1-chat-harness-version";
 
 const EXAMPLE_PROMPTS = [
   "What are the care gaps for this patient?",
@@ -23,6 +25,29 @@ export default function ChatPage() {
   const [selectedPatient, setSelectedPatient] = useState<PatientSummary | null>(null);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [harnessVersions, setHarnessVersions] = useState<string[]>([]);
+  const [harnessVersion, setHarnessVersion] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetchHarnessVersions()
+      .then(({ versions, default: defaultVersion }) => {
+        setHarnessVersions(versions);
+        const stored = localStorage.getItem(HARNESS_VERSION_KEY);
+        setHarnessVersion(stored && versions.includes(stored) ? stored : defaultVersion);
+      })
+      .catch(() => {
+        // Selector just stays hidden; chat still works against the backend's default.
+      });
+  }, []);
+
+  function selectHarnessVersion(version: string) {
+    setHarnessVersion(version);
+    try {
+      localStorage.setItem(HARNESS_VERSION_KEY, version);
+    } catch {
+      // best-effort convenience only
+    }
+  }
 
   async function send(rawText: string) {
     const text = rawText.trim();
@@ -57,7 +82,7 @@ export default function ChatPage() {
     try {
       await streamSSE(
         "/chat",
-        { messages: apiMessages, message: messageForAgent },
+        { messages: apiMessages, message: messageForAgent, harness_version: harnessVersion },
         (eventType, data) => {
           if (eventType === "chat_reply") {
             const parsed = JSON.parse(data) as { reply: string; messages: ChatMessage[] };
@@ -112,7 +137,22 @@ export default function ChatPage() {
       <Nav />
       <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-4 py-6">
         <div className="mb-4 flex flex-col gap-2">
-          <h1 className="text-xl font-semibold text-foreground">Chat</h1>
+          <div className="flex items-center justify-between gap-2">
+            <h1 className="text-xl font-semibold text-foreground">Chat</h1>
+            {harnessVersions.length > 0 && (
+              <select
+                value={harnessVersion ?? ""}
+                onChange={(e) => selectHarnessVersion(e.target.value)}
+                className="h-8 rounded-md border border-border bg-surface px-2 text-xs text-foreground-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+              >
+                {harnessVersions.map((version) => (
+                  <option key={version} value={version}>
+                    {version}
+                  </option>
+                ))}
+              </select>
+            )}
+          </div>
           <PatientSelector selected={selectedPatient} onSelect={setSelectedPatient} />
         </div>
 

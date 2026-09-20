@@ -12,6 +12,19 @@ export async function fetchPatients(query: string): Promise<PatientSummary[]> {
   return response.json();
 }
 
+export interface HarnessVersions {
+  versions: string[];
+  default: string;
+}
+
+export async function fetchHarnessVersions(): Promise<HarnessVersions> {
+  const response = await fetch(new URL("/harness-versions", API_BASE));
+  if (!response.ok) {
+    throw new Error(`Failed to fetch harness versions: ${response.status}`);
+  }
+  return response.json();
+}
+
 export type SSEEventHandler = (eventType: string, data: string) => void;
 
 /**
