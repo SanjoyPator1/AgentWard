@@ -12,7 +12,7 @@ docstring.
 from __future__ import annotations
 
 from datetime import date
-from typing import Annotated, Any
+from typing import Annotated, Any, Literal
 
 from mcp.server import MCPServer
 from mcp.server.mcpserver import Context
@@ -22,6 +22,13 @@ from pydantic import BaseModel, Field
 from .config import DEFAULT_PAGE_SIZE, MAX_PAGE_SIZE, Settings
 from .fhir_client import FhirError
 from .tools_level1 import AppContext, _actionable_errors
+
+# Level 2 results are already typed and hand-extracted (unlike Level 1's raw
+# FHIR JSON), so there's no domain-decoding work left for a narrative option
+# to do here - just templating over fields that are already resolved. Kept
+# as its own two-value type (not SerialisationStrategy) since "compact" and
+# "flattened" have no meaning against an already-compact typed result.
+Level2Format = Literal["structured", "narrative"]
 
 _RXNORM_SYSTEM = "http://www.nlm.nih.gov/research/umls/rxnorm"
 _SNOMED_SYSTEM = "http://snomed.info/sct"
@@ -76,7 +83,12 @@ class ActiveMedicationsResult(BaseModel):
     returned: int = Field(
         description="How many medications are in this result. Never more than total_matching."
     )
-    medications: list[MedicationResult] = Field(description="The active medications themselves.")
+    medications: list[MedicationResult] = Field(
+        description="The active medications themselves. Empty when `narrative` is populated."
+    )
+    narrative: str | None = Field(
+        default=None, description="A prose rendering, present only when asked for."
+    )
 
 
 def _resolve_medication(
@@ -191,8 +203,11 @@ class LabTrendResult(BaseModel):
     values: list[ObservationValue] = Field(
         description=(
             "Results within the window, newest first. Capped by `count`; "
-            "total_in_window is the true count."
+            "total_in_window is the true count. Empty when `narrative` is populated."
         )
+    )
+    narrative: str | None = Field(
+        default=None, description="A prose rendering, present only when asked for."
     )
 
 
@@ -289,8 +304,12 @@ class ProblemListResult(BaseModel):
     problems: list[ProblemResult] = Field(
         description=(
             "One entry per Condition judged to be a real problem. Not deduplicated: if the same "
-            "condition was genuinely recorded twice, both appear, with their own FHIR references."
+            "condition was genuinely recorded twice, both appear, with their own FHIR references. "
+            "Empty when `narrative` is populated."
         )
+    )
+    narrative: str | None = Field(
+        default=None, description="A prose rendering, present only when asked for."
     )
 
 
@@ -389,7 +408,12 @@ class CohortResult(BaseModel):
     returned: int = Field(
         description="How many unique patients matched, after deduplication and any age filter."
     )
-    patients: list[CohortPatient] = Field(description="The matching patients themselves.")
+    patients: list[CohortPatient] = Field(
+        description="The matching patients themselves. Empty when `narrative` is populated."
+    )
+    narrative: str | None = Field(
+        default=None, description="A prose rendering, present only when asked for."
+    )
 
 
 def _age_reference_date(patient: dict[str, Any]) -> date | None:
@@ -426,6 +450,70 @@ def _compute_age(birth_date: str | None, as_of: date | None) -> int | None:
     return age
 
 
+def _narrate_active_medications(patient_reference: str, medications: list[MedicationResult]) -> str:
+    if not medications:
+        return f"{patient_reference} has no active medications on record."
+    lines = []
+    for m in medications:
+        line = f"- {m.medication_text}"
+        if m.authored_on:
+            line += f", started {m.authored_on}"
+        reason = m.reason_text or m.reason_reference
+        if reason:
+            line += f", for {reason}"
+        line += f" [{m.reference}]"
+        lines.append(line)
+    return f"Currently active medications for {patient_reference}:\n" + "\n".join(lines)
+
+
+def _narrate_lab_trend(result: "LabTrendResult") -> str:
+    if not result.values:
+        if result.total_ever is None:
+            ever = "total count unavailable - the server declined to report one"
+        elif result.total_ever == 0:
+            ever = "never recorded"
+        else:
+            ever = f"recorded {result.total_ever} time(s), just not in this window"
+        return (
+            f"No results for {result.code} between {result.window_start} and "
+            f"{result.window_end} for {result.patient_reference} ({ever})."
+        )
+    lines = []
+    for v in result.values:
+        value_text = f"{v.value} {v.unit}".strip() if v.unit else str(v.value)
+        lines.append(f"- {v.effective_date}: {value_text} [{v.reference}]")
+    return (
+        f"{result.code} results for {result.patient_reference}, "
+        f"{result.window_start} to {result.window_end} "
+        f"({result.total_in_window} of {result.total_ever} ever recorded):\n" + "\n".join(lines)
+    )
+
+
+def _narrate_problem_list(patient_reference: str, problems: list[ProblemResult]) -> str:
+    if not problems:
+        return f"{patient_reference} has no active medical problems on record."
+    lines = []
+    for p in problems:
+        line = f"- {p.display_text}"
+        if p.onset_date:
+            line += f", onset {p.onset_date}"
+        line += f" [{p.reference}]"
+        lines.append(line)
+    return f"Active medical problems for {patient_reference}:\n" + "\n".join(lines)
+
+
+def _narrate_cohort(code: str, patients: list[CohortPatient]) -> str:
+    if not patients:
+        return f"No patients found matching {code}."
+    lines = []
+    for p in patients:
+        name = p.name or p.reference
+        status = "deceased" if p.deceased else "living"
+        age_text = f"age {p.age}" if p.age is not None else "age unknown"
+        lines.append(f"- {name}, {age_text}, {status} [{p.reference}]")
+    return f"{len(patients)} patient(s) matching {code}:\n" + "\n".join(lines)
+
+
 def register(mcp: MCPServer, settings: Settings) -> None:
     """Attach the Level 2 tools to an MCP server.
 
@@ -454,6 +542,10 @@ def register(mcp: MCPServer, settings: Settings) -> None:
             str, Field(description="The logical id of the patient, e.g. '2685'.")
         ],
         ctx: Context[AppContext],
+        serialisation: Annotated[
+            Level2Format | None,
+            Field(description="'narrative' for a prose summary instead of a structured list."),
+        ] = None,
     ) -> ActiveMedicationsResult:
         """Get everything a patient is currently prescribed, with why when recorded.
 
@@ -508,11 +600,18 @@ def register(mcp: MCPServer, settings: Settings) -> None:
                 )
             )
 
+        patient_reference = f"Patient/{patient_id}"
+        narrative_text = (
+            _narrate_active_medications(patient_reference, results)
+            if serialisation == "narrative"
+            else None
+        )
         return ActiveMedicationsResult(
-            patient_reference=f"Patient/{patient_id}",
+            patient_reference=patient_reference,
             total_matching=bundle.get("total"),
             returned=len(results),
-            medications=results,
+            medications=[] if narrative_text is not None else results,
+            narrative=narrative_text,
         )
 
     @mcp.tool(
@@ -558,6 +657,10 @@ def register(mcp: MCPServer, settings: Settings) -> None:
             ),
         ] = DEFAULT_PAGE_SIZE,
         ctx: Context[AppContext] = None,  # type: ignore[assignment]
+        serialisation: Annotated[
+            Level2Format | None,
+            Field(description="'narrative' for a prose summary instead of a structured list."),
+        ] = None,
     ) -> LabTrendResult:
         """Get a patient's results for one lab code, and say plainly if there aren't any.
 
@@ -611,7 +714,7 @@ def register(mcp: MCPServer, settings: Settings) -> None:
                 )
             )
 
-        return LabTrendResult(
+        result = LabTrendResult(
             patient_reference=f"Patient/{patient_id}",
             code=code,
             window_start=start_date,
@@ -621,6 +724,9 @@ def register(mcp: MCPServer, settings: Settings) -> None:
             returned=len(values),
             values=values,
         )
+        if serialisation == "narrative":
+            result = result.model_copy(update={"values": [], "narrative": _narrate_lab_trend(result)})
+        return result
 
     @mcp.tool(
         annotations=ToolAnnotations(
@@ -637,6 +743,10 @@ def register(mcp: MCPServer, settings: Settings) -> None:
             str, Field(description="The logical id of the patient, e.g. '2685'.")
         ],
         ctx: Context[AppContext],
+        serialisation: Annotated[
+            Level2Format | None,
+            Field(description="'narrative' for a prose summary instead of a structured list."),
+        ] = None,
     ) -> ProblemListResult:
         """Get what is actually wrong with this patient, medically.
 
@@ -688,12 +798,19 @@ def register(mcp: MCPServer, settings: Settings) -> None:
                 )
             )
 
+        patient_reference = f"Patient/{patient_id}"
+        narrative_text = (
+            _narrate_problem_list(patient_reference, problems)
+            if serialisation == "narrative"
+            else None
+        )
         return ProblemListResult(
-            patient_reference=f"Patient/{patient_id}",
+            patient_reference=patient_reference,
             total_all_conditions=all_bundle.get("total"),
             total_active_conditions=active_bundle.get("total"),
             returned=len(problems),
-            problems=problems,
+            problems=[] if narrative_text is not None else problems,
+            narrative=narrative_text,
         )
 
     @mcp.tool(
@@ -724,6 +841,10 @@ def register(mcp: MCPServer, settings: Settings) -> None:
         max_age: Annotated[
             int | None,
             Field(description="Only include patients at most this old. Omit for no upper bound."),
+        ] = None,
+        serialisation: Annotated[
+            Level2Format | None,
+            Field(description="'narrative' for a prose summary instead of a structured list."),
         ] = None,
     ) -> CohortResult:
         """Find every patient recorded with one specific condition, optionally by age.
@@ -801,13 +922,15 @@ def register(mcp: MCPServer, settings: Settings) -> None:
                 )
             )
 
+        narrative_text = _narrate_cohort(code, patients) if serialisation == "narrative" else None
         return CohortResult(
             code=code,
             min_age=min_age,
             max_age=max_age,
             total_matching_conditions=total_matching_conditions,
             returned=len(patients),
-            patients=patients,
+            patients=[] if narrative_text is not None else patients,
+            narrative=narrative_text,
         )
 
 

@@ -30,11 +30,25 @@ from mcp.server.mcpserver.exceptions import ToolError
 from mcp.types import ToolAnnotations
 from pydantic import BaseModel, Field
 
-from .config import DEFAULT_PAGE_SIZE, MAX_PAGE_SIZE, Settings
+from .config import DEFAULT_PAGE_SIZE, MAX_PAGE_SIZE, Settings, SerialisationStrategy
 from .fhir_client import FhirClient, FhirError
+from .narrative import narrate
 from .serialization import serialise
 
 _R = TypeVar("_R")
+
+# Shown to the model on every call that accepts a `serialisation` override, so
+# it can judge whether narrative will actually group/classify this resource
+# type or just fall back to a plain field list. Keep this in sync with
+# narrative.py's _RENDERERS keys.
+_SERIALISATION_PARAM_DESCRIPTION = (
+    "Override the server's default serialisation for this call only. 'narrative' groups and "
+    "classifies data (e.g. active vs. historical, decoded panel components) for these resource "
+    "types: Condition, Observation, Procedure, MedicationRequest, Patient, Immunization, "
+    "Encounter, AllergyIntolerance, DiagnosticReport, CarePlan. For any other resource type, "
+    "'narrative' falls back to a plain field-by-field listing, no more useful than 'compact' - "
+    "use 'nested' or 'compact' instead for those."
+)
 
 
 def _actionable_errors(
@@ -91,7 +105,17 @@ class ResourceResult(BaseModel):
         )
     )
     resource: dict[str, Any] = Field(
-        description="The resource body, shaped by the server's serialisation setting."
+        description=(
+            "The resource body, shaped by the serialisation strategy in effect. Empty when "
+            "that strategy is 'narrative' - read `narrative` instead in that case."
+        )
+    )
+    narrative: str | None = Field(
+        default=None,
+        description=(
+            "A prose rendering of this resource, present only when the serialisation "
+            "strategy in effect is 'narrative'. Null otherwise."
+        ),
     )
 
 
@@ -110,7 +134,17 @@ class SearchResult(BaseModel):
     )
     returned: int = Field(description="How many resources are in this page. Never the total.")
     resources: list[dict[str, Any]] = Field(
-        description="This page of resources, shaped by the serialisation setting."
+        description=(
+            "This page of resources, shaped by the serialisation strategy in effect. Empty "
+            "when that strategy is 'narrative' - read `narrative` instead in that case."
+        )
+    )
+    narrative: str | None = Field(
+        default=None,
+        description=(
+            "A prose rendering of this whole page, present only when the serialisation "
+            "strategy in effect is 'narrative'. Null otherwise."
+        ),
     )
     next_page_token: str | None = Field(
         description=(
@@ -138,9 +172,9 @@ def register(mcp: MCPServer, settings: Settings) -> None:
         """Pull the shared FHIR client out of the lifespan context."""
         return ctx.request_context.lifespan_context.fhir
 
-    def _shape(resource: dict[str, Any]) -> dict[str, Any]:
-        """Apply the configured serialisation strategy to one resource."""
-        return serialise(resource, settings.serialisation)
+    def _resolve_strategy(override: SerialisationStrategy | None) -> SerialisationStrategy:
+        """A per-call override wins; otherwise fall back to the server default."""
+        return override or settings.serialisation
 
     @mcp.tool(
         annotations=ToolAnnotations(
@@ -162,6 +196,10 @@ def register(mcp: MCPServer, settings: Settings) -> None:
         ],
         resource_id: Annotated[str, Field(description="The logical id of the resource to read.")],
         ctx: Context[AppContext],
+        serialisation: Annotated[
+            SerialisationStrategy | None,
+            Field(description=_SERIALISATION_PARAM_DESCRIPTION),
+        ] = None,
     ) -> ResourceResult:
         """Read one FHIR resource when you already know its type and id.
 
@@ -178,11 +216,18 @@ def register(mcp: MCPServer, settings: Settings) -> None:
         actual_type = resource.get("resourceType", resource_type)
         actual_id = str(resource.get("id", resource_id))
 
+        strategy = _resolve_strategy(serialisation)
+        if strategy == "narrative":
+            shaped, narrative_text = {}, narrate([resource], actual_type)
+        else:
+            shaped, narrative_text = serialise(resource, strategy), None
+
         return ResourceResult(
             resource_type=actual_type,
             id=actual_id,
             reference=f"{actual_type}/{actual_id}",
-            resource=_shape(resource),
+            resource=shaped,
+            narrative=narrative_text,
         )
 
     @mcp.tool(
@@ -224,6 +269,10 @@ def register(mcp: MCPServer, settings: Settings) -> None:
             ),
         ] = DEFAULT_PAGE_SIZE,
         ctx: Context[AppContext] = None,  # type: ignore[assignment]
+        serialisation: Annotated[
+            SerialisationStrategy | None,
+            Field(description=_SERIALISATION_PARAM_DESCRIPTION),
+        ] = None,
     ) -> SearchResult:
         """Search for FHIR resources matching some criteria.
 
@@ -249,7 +298,7 @@ def register(mcp: MCPServer, settings: Settings) -> None:
         params.setdefault("_total", "accurate")
 
         bundle = await _client(ctx).search(resource_type, params)
-        return _bundle_to_result(bundle, resource_type, _shape)
+        return _bundle_to_result(bundle, resource_type, _resolve_strategy(serialisation))
 
     @mcp.tool(
         annotations=ToolAnnotations(
@@ -271,6 +320,10 @@ def register(mcp: MCPServer, settings: Settings) -> None:
             ),
         ],
         ctx: Context[AppContext],
+        serialisation: Annotated[
+            SerialisationStrategy | None,
+            Field(description=_SERIALISATION_PARAM_DESCRIPTION),
+        ] = None,
     ) -> SearchResult:
         """Fetch the next page of a search you already started.
 
@@ -291,22 +344,35 @@ def register(mcp: MCPServer, settings: Settings) -> None:
                 resource_type = found
                 break
 
-        return _bundle_to_result(bundle, resource_type, _shape)
+        return _bundle_to_result(bundle, resource_type, _resolve_strategy(serialisation))
 
 
 def _bundle_to_result(
     bundle: dict[str, Any],
     resource_type: str,
-    shape: Any,
+    strategy: SerialisationStrategy,
 ) -> SearchResult:
     """Convert a FHIR searchset Bundle into our own result shape.
 
     A raw Bundle is mostly envelope: per-entry search modes, full URLs, and
     paging links the model has no use for. This keeps the resources, the two
     counts that matter, and a single opaque paging token.
+
+    `narrative` is handled separately from the other three strategies: it
+    needs the whole page at once (to group active vs. historical), not one
+    resource shaped in isolation, so `resources` stays empty and the prose
+    goes in `narrative` instead - never both, to avoid paying for the same
+    data twice.
     """
     entries = bundle.get("entry") or []
-    resources = [shape(entry["resource"]) for entry in entries if entry.get("resource")]
+    raw_resources = [entry["resource"] for entry in entries if entry.get("resource")]
+
+    if strategy == "narrative":
+        resources: list[dict[str, Any]] = []
+        narrative_text: str | None = narrate(raw_resources, resource_type)
+    else:
+        resources = [serialise(r, strategy) for r in raw_resources]
+        narrative_text = None
 
     # Bundle.link is a list of {relation, url}. The "next" relation is present
     # only when more pages exist, which makes its absence the end-of-results
@@ -323,8 +389,9 @@ def _bundle_to_result(
         # rather than 0 keeps "no matches" distinct from "not counted", which
         # is exactly the distinction a care-gap claim rests on.
         total_matching=bundle.get("total"),
-        returned=len(resources),
+        returned=len(raw_resources),
         resources=resources,
+        narrative=narrative_text,
         next_page_token=next_url,
     )
 

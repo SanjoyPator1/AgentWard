@@ -126,6 +126,10 @@ Working efficiently:
   panel) returns only what you need; the same resource type with no code filter
   returns everything that patient has ever had, which is usually far more than you
   need and does not save you a call - you would still filter it down yourself after.
+- Default to a small count (5) on every search_resources call, not the tool's own
+  default. Read total_matching to know whether more exist, and only call get_next_page
+  if you actually need to see them - most checks here only need the newest few results,
+  and asking for everything up front wastes tokens on data you will not use.
 - Every check here is "did X happen recently", so when a search could match more than
   a couple of results, sort newest-first and ask for a small count (3-5 is enough to
   confirm or rule out a recent one) instead of reading everything and figuring out

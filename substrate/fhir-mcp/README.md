@@ -80,7 +80,7 @@ Defaults work against the local Docker substrate with no configuration at all.
 | Variable | Default | Purpose |
 |---|---|---|
 | `FHIR_MCP_BASE_URL` | `http://localhost:8080/fhir` | The FHIR server to talk to |
-| `FHIR_MCP_SERIALISATION` | `nested` | `nested`, `flattened`, or `compact` |
+| `FHIR_MCP_SERIALISATION` | `narrative` | `nested`, `flattened`, `compact`, or `narrative` - overridable per call |
 | `FHIR_MCP_TIMEOUT_SECONDS` | `30` | Per-request timeout against FHIR |
 | `FHIR_MCP_HOST` | `127.0.0.1` | Interface to bind |
 | `FHIR_MCP_PORT` | `3001` | Port to listen on |
@@ -256,14 +256,26 @@ from "not counted".
 
 ## Serialisation, and Experiment 3
 
-Every tool return passes through `serialization.py`, so comparing strategies is
-a configuration change rather than an edit to every tool.
+Every Level 1 tool return passes through `serialization.py` or `narrative.py`, so
+comparing strategies is a configuration change rather than an edit to every tool.
+Level 2 tools accept a separate `serialisation: "structured" | "narrative"` argument
+of their own, since their results are already typed and hand-extracted.
 
 - `nested` returns the resource as FHIR gave it. The baseline.
 - `compact` drops `text` (FHIR's XHTML narrative, which restates structured
   data), `meta`, and top-level extensions. Nested extensions are kept, since at
   depth they are sometimes the only place a value lives.
 - `flattened` collapses nesting to dotted paths, e.g. `code.coding.0.display`.
+- `narrative` (default) renders a whole page of same-type resources as prose,
+  grouped by what actually matters (active vs. historical medications, chronological
+  lab trends, decoded panel components) instead of leaving that classification to the
+  model. See `narrative.py`'s module docstring for the research this is based on. Unlike
+  the other three, it needs the whole page at once, not one resource in isolation, so it
+  lives in a separate module and is dispatched before `serialise()` would otherwise run.
+
+`nested`/`compact`/`flattened` are all the same axis: JSON density. None of them do the
+grouping/classification `narrative` does, which is where its benefit for small and
+mid-size models actually comes from.
 
 An early measurement worth knowing before running the experiment properly: on
 one real Condition, `nested` was 996 characters, `compact` 818, and
