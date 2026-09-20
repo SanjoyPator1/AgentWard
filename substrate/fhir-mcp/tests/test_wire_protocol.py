@@ -125,6 +125,7 @@ class TestNoVersionHeader:
             "get_lab_trend",
             "get_problem_list",
             "find_cohort",
+            "run_fhir_code",
         }
 
 
