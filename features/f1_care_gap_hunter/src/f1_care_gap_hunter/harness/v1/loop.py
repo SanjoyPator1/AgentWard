@@ -116,8 +116,10 @@ def _cap_tool_result(text: str) -> str:
                 parsed["_truncated_note"] = (
                     f"Only the {len(kept)} most recent of {len(items)} {list_key} are shown "
                     f"(sorted newest first); {len(items) - len(kept)} older ones were "
-                    "omitted for size and are not otherwise available. Each item shown is "
-                    "complete."
+                    "omitted for size and are not otherwise available here. Each item shown "
+                    "is complete. To avoid this next time, pass a smaller count (e.g. 5) to "
+                    "the call that produced this result and use get_next_page for anything "
+                    "beyond that, instead of requesting everything in one page."
                 )
                 return json.dumps(parsed, default=str)
 
