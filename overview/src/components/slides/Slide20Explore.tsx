@@ -26,7 +26,7 @@ function matches(patient: CohortPatient, filters: Set<FilterKey>): boolean {
   return patient.gaps.some((g) => filters.has(g.gap_type as FilterKey));
 }
 
-export default function Slide17Explore(_props: SlideProps) {
+export default function Slide20Explore(_props: SlideProps) {
   const [active, setActive] = useState<Set<FilterKey>>(new Set());
 
   const toggle = (key: FilterKey) => {
@@ -63,7 +63,7 @@ export default function Slide17Explore(_props: SlideProps) {
         </SlideTitle>
       </div>
       <Lede>
-        Every dot below is real. Toggle a filter, or just hover — this is the same{" "}
+        Every dot below is real. Toggle a filter, or just hover. This is the same{" "}
         {data.summary.totalPatients}-patient cohort every number in this deck traces back to.
       </Lede>
 
@@ -117,7 +117,7 @@ export default function Slide17Explore(_props: SlideProps) {
         />
         <p className="mt-1 text-center font-mono text-[11px] text-ink-faint">
           {active.size === 0
-            ? `showing all ${data.summary.totalPatients} — ${data.summary.flaggedPatients} carry at least one gap`
+            ? `showing all ${data.summary.totalPatients} · ${data.summary.flaggedPatients} carry at least one gap`
             : `${shownCount} of ${data.summary.totalPatients} match the selected filter`}
         </p>
       </Panel>

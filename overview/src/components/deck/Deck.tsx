@@ -18,11 +18,14 @@ import Slide09DataJourney from "@/components/slides/Slide09DataJourney";
 import Slide10Oracle from "@/components/slides/Slide10Oracle";
 import Slide11Absence from "@/components/slides/Slide11Absence";
 import Slide12F1 from "@/components/slides/Slide12F1";
-import Slide13AgentLoop from "@/components/slides/Slide13AgentLoop";
-import Slide14AgentAsk from "@/components/slides/Slide14AgentAsk";
-import Slide15AgentTrace from "@/components/slides/Slide15AgentTrace";
-import Slide16Status from "@/components/slides/Slide16Status";
-import Slide17Explore from "@/components/slides/Slide17Explore";
+import Slide13AgentParts from "@/components/slides/Slide13AgentParts";
+import Slide14AgentLoop from "@/components/slides/Slide14AgentLoop";
+import Slide15AgentGuards from "@/components/slides/Slide15AgentGuards";
+import Slide16AgentAsk from "@/components/slides/Slide16AgentAsk";
+import Slide17AgentTrace from "@/components/slides/Slide17AgentTrace";
+import Slide18AgentAnswer from "@/components/slides/Slide18AgentAnswer";
+import Slide19Status from "@/components/slides/Slide19Status";
+import Slide20Explore from "@/components/slides/Slide20Explore";
 
 const SLIDE_COMPONENTS: SlideComponent[] = [
   Slide01Title,
@@ -37,11 +40,14 @@ const SLIDE_COMPONENTS: SlideComponent[] = [
   Slide10Oracle,
   Slide11Absence,
   Slide12F1,
-  Slide13AgentLoop,
-  Slide14AgentAsk,
-  Slide15AgentTrace,
-  Slide16Status,
-  Slide17Explore,
+  Slide13AgentParts,
+  Slide14AgentLoop,
+  Slide15AgentGuards,
+  Slide16AgentAsk,
+  Slide17AgentTrace,
+  Slide18AgentAnswer,
+  Slide19Status,
+  Slide20Explore,
 ];
 
 function readHash(): number {

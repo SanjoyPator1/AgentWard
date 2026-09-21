@@ -19,10 +19,11 @@ const CLUSTER_BAND_Y = VIEW_H * 0.44;
 
 const CHECK_BLURBS: Record<string, string> = {
   missing_colorectal_screening:
-    "Age 45–75, no screening within its own method's interval — colonoscopy (10yr) or FOBT (annual).",
-  uncontrolled_bp_despite_therapy: "On antihypertensive therapy, latest BP still ≥ 140/90.",
-  diabetic_missing_eye_exam: "Diabetic, no retinal eye exam recorded in the last 12 months.",
-  diabetic_missing_hba1c: "Diabetic, no HbA1c result in the last 6 months.",
+    "Aged 45 to 75, with no screening inside its own interval. A colonoscopy counts for 10 years, an FOBT for 1.",
+  uncontrolled_bp_despite_therapy:
+    "Already on blood pressure medication, and the latest reading is still 140 over 90 or higher.",
+  diabetic_missing_eye_exam: "Diabetic, with no retinal eye exam on file in the last 12 months.",
+  diabetic_missing_hba1c: "Diabetic, with no HbA1c result in the last 6 months.",
 };
 
 function clusterCenterFor(gapType: string) {
@@ -133,17 +134,18 @@ function Slide12F1({ step, onStepChange }: SlideProps) {
         </div>
       </div>
       <Lede>
-        Across the cohort, find everyone overdue for care a guideline says they should have had —
-        and rank the worklist with the FHIR evidence that proves each gap, including the harder
-        part: evidence that proves an <em>absence</em>.
+        A care gap is easy to describe and hard to prove. Someone was due for a test or a check,
+        and there is no record that they ever got it. F1 goes through the whole cohort looking
+        for those people, and shows the FHIR record behind every call it makes. Proving that
+        something <em>did not</em> happen is the difficult half.
       </Lede>
 
       <div className="flex items-center gap-2">
         <StepPill active={step === 0} onClick={() => onStepChange(0)}>
-          ① The Cohort
+          ① The cohort
         </StepPill>
         <StepPill active={step === 1} onClick={() => onStepChange(1)}>
-          ② The Gaps Found
+          ② What it found
         </StepPill>
       </div>
 
@@ -174,7 +176,7 @@ function Slide12F1({ step, onStepChange }: SlideProps) {
         />
         <p className="mt-1 text-center font-mono text-[11px] text-ink-faint">
           {step === 0
-            ? `every dot is one real patient — ${data.summary.totalPatients} of them, hover to see who`
+            ? `every dot is one real patient. ${data.summary.totalPatients} of them. hover to see who`
             : `${data.summary.flaggedPatients} of ${data.summary.totalPatients} flagged (${pct}%) · ${multiGapCount} carry more than one gap`}
         </p>
       </Panel>
@@ -191,9 +193,10 @@ function Slide12F1({ step, onStepChange }: SlideProps) {
         ))}
       </div>
 
-      <Callout tone="flag" label="The core lesson of F1:">
-        a worklist full of false gaps is worse than no worklist at all, because staff stop reading
-        it — alarm fatigue in a different costume.
+      <Callout tone="flag" label="Why the false ones matter so much:">
+        a worklist full of gaps that turn out to be nothing is worse than no worklist at all.
+        Staff stop opening it after the second or third wasted call, and then the real gaps sit
+        there unread too.
       </Callout>
     </SlideLayout>
   );
