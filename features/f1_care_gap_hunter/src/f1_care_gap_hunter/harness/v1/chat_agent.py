@@ -97,7 +97,14 @@ async def run_chat_turn(
         )
 
         async with Client(mcp_url) as mcp_client:
-            mcp_tool_defs = to_openai_tools((await mcp_client.list_tools()).tools)
+            # Level 3 (run_fhir_code) is excluded here on purpose: using it well
+            # depends on prompt guidance (when to reach for it, narrating its
+            # output) that this prompt doesn't give the model. fhir-mcp exposing
+            # it is not the same as this harness being ready to use it.
+            mcp_tools = [
+                t for t in (await mcp_client.list_tools()).tools if t.name != "run_fhir_code"
+            ]
+            mcp_tool_defs = to_openai_tools(mcp_tools)
             server_instructions = mcp_client.instructions
 
             loop = SimpleToolLoop(
