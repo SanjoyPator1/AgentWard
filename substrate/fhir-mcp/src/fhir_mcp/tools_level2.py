@@ -544,7 +544,12 @@ def register(mcp: MCPServer, settings: Settings) -> None:
         ctx: Context[AppContext],
         serialisation: Annotated[
             Level2Format | None,
-            Field(description="'narrative' for a prose summary instead of a structured list."),
+            Field(
+                description=(
+                    "Defaults to 'narrative' (a prose summary). Pass 'structured' for a "
+                    "plain list instead."
+                )
+            ),
         ] = None,
     ) -> ActiveMedicationsResult:
         """Get everything a patient is currently prescribed, with why when recorded.
@@ -603,7 +608,7 @@ def register(mcp: MCPServer, settings: Settings) -> None:
         patient_reference = f"Patient/{patient_id}"
         narrative_text = (
             _narrate_active_medications(patient_reference, results)
-            if serialisation == "narrative"
+            if serialisation != "structured"
             else None
         )
         return ActiveMedicationsResult(
@@ -659,7 +664,12 @@ def register(mcp: MCPServer, settings: Settings) -> None:
         ctx: Context[AppContext] = None,  # type: ignore[assignment]
         serialisation: Annotated[
             Level2Format | None,
-            Field(description="'narrative' for a prose summary instead of a structured list."),
+            Field(
+                description=(
+                    "Defaults to 'narrative' (a prose summary). Pass 'structured' for a "
+                    "plain list instead."
+                )
+            ),
         ] = None,
     ) -> LabTrendResult:
         """Get a patient's results for one lab code, and say plainly if there aren't any.
@@ -724,7 +734,7 @@ def register(mcp: MCPServer, settings: Settings) -> None:
             returned=len(values),
             values=values,
         )
-        if serialisation == "narrative":
+        if serialisation != "structured":
             result = result.model_copy(update={"values": [], "narrative": _narrate_lab_trend(result)})
         return result
 
@@ -745,7 +755,12 @@ def register(mcp: MCPServer, settings: Settings) -> None:
         ctx: Context[AppContext],
         serialisation: Annotated[
             Level2Format | None,
-            Field(description="'narrative' for a prose summary instead of a structured list."),
+            Field(
+                description=(
+                    "Defaults to 'narrative' (a prose summary). Pass 'structured' for a "
+                    "plain list instead."
+                )
+            ),
         ] = None,
     ) -> ProblemListResult:
         """Get what is actually wrong with this patient, medically.
@@ -801,7 +816,7 @@ def register(mcp: MCPServer, settings: Settings) -> None:
         patient_reference = f"Patient/{patient_id}"
         narrative_text = (
             _narrate_problem_list(patient_reference, problems)
-            if serialisation == "narrative"
+            if serialisation != "structured"
             else None
         )
         return ProblemListResult(
@@ -844,7 +859,12 @@ def register(mcp: MCPServer, settings: Settings) -> None:
         ] = None,
         serialisation: Annotated[
             Level2Format | None,
-            Field(description="'narrative' for a prose summary instead of a structured list."),
+            Field(
+                description=(
+                    "Defaults to 'narrative' (a prose summary). Pass 'structured' for a "
+                    "plain list instead."
+                )
+            ),
         ] = None,
     ) -> CohortResult:
         """Find every patient recorded with one specific condition, optionally by age.
@@ -922,7 +942,7 @@ def register(mcp: MCPServer, settings: Settings) -> None:
                 )
             )
 
-        narrative_text = _narrate_cohort(code, patients) if serialisation == "narrative" else None
+        narrative_text = _narrate_cohort(code, patients) if serialisation != "structured" else None
         return CohortResult(
             code=code,
             min_age=min_age,
