@@ -130,6 +130,12 @@ Working efficiently:
   default. Read total_matching to know whether more exist, and only call get_next_page
   if you actually need to see them - most checks here only need the newest few results,
   and asking for everything up front wastes tokens on data you will not use.
+- Leave `serialisation` unset on every tool call unless you have a specific reason not
+  to. The default (narrative) is already the easiest format for you to read - it groups
+  and labels data (active vs. historical, decoded panel components) instead of leaving
+  you to parse raw JSON structure. Only ask for `nested`, `compact`, `flattened`, or
+  `structured` when you need the exact raw field values for something precise a prose
+  summary would lose.
 - Every check here is "did X happen recently", so when a search could match more than
   a couple of results, sort newest-first and ask for a small count (3-5 is enough to
   confirm or rule out a recent one) instead of reading everything and figuring out
